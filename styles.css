@@ -93,7 +93,7 @@ a {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 40px 30px;
+    padding: 40px 30px 20px; /* Reduced bottom padding */
     background-color: var(--background-light);
 }
 .hero-unified-box {
@@ -198,17 +198,18 @@ a {
 
 /* --- OTHER SECTIONS --- */
 main > section {
-    padding: 50px 30px;
+    padding: 40px 30px; /* Reduced vertical padding */
 }
 
-main > section:nth-child(odd) {
+/* Corrected alternating background logic */
+main > section:nth-child(even) {
     background-color: var(--background-offset);
 }
-main > section:nth-child(even) {
+main > section:nth-child(odd) {
     background-color: var(--background-light);
 }
 .hero-section-wrapper {
-    background-color: var(--background-light);
+    background-color: var(--background-light); /* Keep hero wrapper white */
 }
 
 
@@ -380,12 +381,11 @@ main > section:nth-child(even) {
      .hero-unified-box {
         flex-direction: column;
         text-align: center;
-        padding: 30px;
+        padding: 20px; /* Further reduced padding for mobile */
     }
-    .hero-section-wrapper { padding: 40px 20px; }
+    .hero-section-wrapper { padding: 20px 20px 0; } /* Removed bottom padding */
     .hero-content-area {
-        padding-right: 0;
-        padding-left: 0;
+        padding: 20px 0 0;
         order: 1; 
     }
     .hero-content-clean p {
@@ -396,10 +396,10 @@ main > section:nth-child(even) {
     .hero-image-side {
         order: 2; 
         width: 100%;
-        min-height: 300px;
-        height: 40vh;
+        min-height: auto; /* Allow image to define height */
+        height: auto;
         max-height: 400px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
     .hero-image-side img {
         object-fit: contain;
@@ -445,26 +445,5 @@ main > section:nth-child(even) {
         width: 2rem;
         height: 2rem;
         cursor: pointer;
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 22, 122, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-    
-    .hero-content-clean h1 { 
-        font-size: 2.2rem;
-    }
-    .features-section-clean h2, 
-    .social-proof-section h2, 
-    .ai-risk-section h2,
-    .how-it-works-section h2,
-    .final-cta-box h2 {
-        font-size: 1.8rem;
-    }
-    .step-grid, .feature-grid-clean { 
-        grid-template-columns: 1fr;
-    }
-    .risk-assessment-form { 
-        flex-direction: column; 
-    }
-}
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0
 

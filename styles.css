@@ -47,7 +47,7 @@ a {
     margin: 0 auto;
     padding: 0 30px;
 }
-.logo img { height: 30px; display: block; }
+.logo img { height: 48px; display: block; }
 .nav-links { display: flex; gap: 10px; align-items: center; } /* Reduced gap for a tighter fit */
 .nav-links a { 
     font-size: 0.95rem; 
@@ -81,25 +81,26 @@ a {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 60px 30px;
+    padding: 40px 30px; /* Reduced vertical padding */
 }
 .hero-unified-box {
     display: flex;
     max-width: var(--max-width);
     width: 100%;
     align-items: center;
-    gap: 40px;
+    gap: 30px; /* Reduced gap for a tighter look */
     background-color: var(--secondary-blue);
     border-radius: var(--corner-radius-large);
-    padding: 50px;
+    padding: 25px;
     box-shadow: 0 20px 40px rgba(0, 22, 122, 0.15);
 }
 .hero-content-area {
-    flex: 0 0 50%;
+    flex: 0 0 60%;
+    padding-left: 20px;
+    padding-right: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-right: 20px;
 }
 .trust-message {
     font-size: 1rem;
@@ -168,12 +169,25 @@ a {
 }
 .button-primary-boxed:hover .arrow { transform: translateX(5px); }
 .hero-image-side {
-    flex: 0 0 50%;
-    height: 500px; /* Set a fixed height */
-    background-image: url('https://placehold.co/800x1000/eeeeee/333333?text=FloodShield\nProduct');
-    background-size: cover;
-    background-position: center;
+    flex: 0 0 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
     border-radius: var(--corner-radius-large);
+    min-height: 400px;
+    height: 100%;
+    padding: 10px 16px 10px 10px; /* minimal gap on right */
+}
+
+.hero-image-side img {
+    max-height: calc(100% - 32px);
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    object-fit: contain;
+    margin-left: -36px;
+}
 }
 
 /* --- OTHER SECTIONS --- */

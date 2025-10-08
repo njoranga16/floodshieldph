@@ -198,10 +198,10 @@ a {
 
 /* --- OTHER SECTIONS --- */
 main > section {
-    padding: 80px 30px;
+    padding: 60px 30px;
 }
 .gradient-divider {
-    height: 100px;
+    height: 50px;
     padding: 0;
     background: linear-gradient(to bottom, var(--background-light), var(--background-offset));
 }

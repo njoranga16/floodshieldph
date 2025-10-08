@@ -93,7 +93,7 @@ a {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 40px 30px 20px; /* Reduced bottom padding */
+    padding: 40px 30px 0; /* Removed bottom padding */
     background-color: var(--background-light);
 }
 .hero-unified-box {
@@ -198,7 +198,7 @@ a {
 
 /* --- OTHER SECTIONS --- */
 main > section {
-    padding: 40px 30px; /* Reduced vertical padding */
+    padding: 80px 30px; /* Increased vertical padding */
 }
 
 /* Corrected alternating background logic */
@@ -210,6 +210,10 @@ main > section:nth-child(odd) {
 }
 .hero-section-wrapper {
     background-color: var(--background-light); /* Keep hero wrapper white */
+}
+/* Override for AI Risk and Final CTA sections */
+.ai-risk-section, .final-cta-section-wrapper {
+    background-color: var(--background-light);
 }
 
 

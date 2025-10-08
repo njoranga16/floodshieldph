@@ -419,6 +419,26 @@ main > section {
         height: 40px;
     }
 
+    .hero-content-clean h1 {
+        font-size: 2.2rem; /* Reduced hero headline size for mobile */
+    }
+
+    .features-section-clean h2, 
+    .social-proof-section h2, 
+    .ai-risk-section h2,
+    .how-it-works-section h2,
+    .final-cta-box h2 {
+        font-size: 1.8rem; /* Reduced heading sizes */
+    }
+
+    .step-grid, .feature-grid-clean { 
+        grid-template-columns: 1fr; /* Stack grids into single column */
+    }
+    
+    .footer-nav {
+        display: none; /* Remove footer menu on mobile */
+    }
+
     .nav-links {
         position: fixed;
         z-index: 1000;

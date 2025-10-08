@@ -201,19 +201,10 @@ main > section {
     padding: 80px 30px; /* Increased vertical padding */
 }
 
-/* Corrected alternating background logic */
-main > section:nth-child(even) {
+/* Section Backgrounds */
+.social-proof-section,
+.how-it-works-section {
     background-color: var(--background-offset);
-}
-main > section:nth-child(odd) {
-    background-color: var(--background-light);
-}
-.hero-section-wrapper {
-    background-color: var(--background-light); /* Keep hero wrapper white */
-}
-/* Override for AI Risk and Final CTA sections */
-.ai-risk-section, .final-cta-section-wrapper {
-    background-color: var(--background-light);
 }
 
 

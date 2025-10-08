@@ -47,7 +47,7 @@ a {
     margin: 0 auto;
     padding: 0 30px;
 }
-.logo img { height: 48px; display: block; }
+.logo img { height: 60px; display: block; } /* Increased logo height */
 .nav-links { display: flex; gap: 10px; align-items: center; } /* Reduced gap for a tighter fit */
 .nav-links a { 
     font-size: 0.95rem; 
@@ -170,25 +170,20 @@ a {
 .button-primary-boxed:hover .arrow { transform: translateX(5px); }
 .hero-image-side {
     flex: 0 0 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border-radius: var(--corner-radius-large);
     min-height: 400px;
     height: 100%;
-    padding: 10px 16px 10px 10px; /* minimal gap on right */
+    border-radius: 12px;
+    overflow: hidden; /* Ensures image stays within the rounded corners */
 }
 
 .hero-image-side img {
-    max-height: calc(100% - 32px);
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
     border-radius: 12px;
     box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-    object-fit: contain;
-    margin-left: -36px;
-    }
+    object-fit: cover; /* Ensures the image covers the container without distortion */
 }
+
 
 /* --- OTHER SECTIONS --- */
 .features-section-clean, .social-proof-section, .ai-risk-section, .how-it-works-section, .consultation-block-clean {
@@ -331,3 +326,4 @@ a {
         flex-direction: column;
     }
 }
+

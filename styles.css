@@ -100,7 +100,7 @@ a {
     max-width: var(--max-width);
     width: 100%;
     align-items: stretch;
-    gap: 30px;
+    gap: 60px; /* Increased gap */
     background-color: var(--secondary-blue);
     border-radius: var(--corner-radius-large);
     padding: 25px;
@@ -286,7 +286,7 @@ a {
     .hero-content-area {
         padding-right: 0;
         padding-left: 0;
-        order: 1;
+        order: 1; /* Corrected: Text appears first */
     }
     .hero-content-clean p {
         max-width: 80%;
@@ -294,7 +294,7 @@ a {
         margin-right: auto;
     }
     .hero-image-side {
-        order: 2;
+        order: 2; /* Corrected: Image appears second */
         width: 100%;
         min-height: 300px;
         height: 40vh;

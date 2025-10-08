@@ -319,6 +319,10 @@ a {
         padding: 15px;
     }
     
+    .logo img {
+        height: 48px; /* Smaller logo on mobile */
+    }
+
     .nav-links {
         position: fixed;
         z-index: 1000;
@@ -367,3 +371,4 @@ a {
         flex-direction: column; 
     }
 }
+

@@ -1,0 +1,488 @@
+/* GLOBAL STYLES & COLORS */
+:root {
+    /* Brand Colors from Brand Kit */
+    --primary-blue: #00167A; /* Dark Blue - Primary Action Color */
+    --secondary-blue: #1B2A6D; /* Mid-Blue - Hero Box Background */
+    --accent-gray: #C0C0C0; /* Light Gray Accent */
+    --text-dark: #000000; /* Black */
+    --text-light: #6b7280; /* Neutral grey for body text */
+    --background-light: #FFFFFF; /* White */
+    --border-light: #e5e7eb;
+
+    /* Typography */
+    --font-primary: 'Montserrat', sans-serif;
+    
+    --max-width: 1100px;
+    --corner-radius-large: 15px; /* Large radius for the main boxes */
+    --corner-radius-small: 6px;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+
+/* --- 1. HEADER STYLING --- */
+.clean-header {
+    background-color: var(--background-light);
+    border-bottom: 1px solid var(--border-light);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.logo img {
+    height: 30px;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.header-container .header-button {
+    border: 1px solid var(--primary-blue);
+    background-color: var(--background-light);
+    color: var(--primary-blue);
+    padding: 8px 18px;
+    border-radius: var(--corner-radius-small);
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+.header-container .header-button:hover {
+    background-color: #f0f0f0;	
+}
+
+
+/* --- 2. HERO SECTION STYLING (Unified Box Layout) --- */
+.hero-section-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 50px 30px;
+}
+
+.hero-unified-box {
+    background-color: var(--secondary-blue);
+    border-radius: var(--corner-radius-large);
+    max-width: var(--max-width);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;	
+    gap: 0;	
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);	
+    overflow: hidden;
+}
+
+.hero-content-area {
+    padding: 50px;
+    flex: 1;	
+    max-width: 55%;	
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.trust-message {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.7);	
+}
+.trust-message .star {
+    color: #FFD700;	
+    margin-right: 3px;
+}
+
+.hero-content-clean h1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--background-light);	
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content-clean p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);	
+    margin-bottom: 30px;
+    max-width: 90%;
+}
+
+.button-primary-boxed {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px;
+    background-color: var(--background-light);
+    color: var(--primary-blue);
+    border-radius: var(--corner-radius-small);
+    font-weight: 600;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.button-primary-boxed:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+.button-primary-boxed .arrow {
+    font-weight: 900;
+    font-size: 1.2em;
+    transform: translateX(0);
+    transition: transform 0.2s;
+}
+.button-primary-boxed:hover .arrow {
+    transform: translateX(3px);
+}
+
+.hero-image-placeholder-box {
+    flex: 1;	
+    min-height: 550px;	
+    background-color: var(--accent-gray);
+    background-image: url('https://placehold.co/600x550/c0c0c0/ffffff?text=Flood+Barrier');
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* --- 3. FEATURES SECTION --- */
+.features-section-clean {
+    padding: 80px 30px;
+    text-align: center;
+}
+
+.features-section-clean h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-blue);	
+    margin-bottom: 40px;
+}
+
+.feature-grid-clean {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.feature-card {
+    background-color: #f9fafb;
+    padding: 30px;
+    border-radius: var(--corner-radius-small);
+    border: 1px solid var(--border-light);
+}
+
+.feature-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary-blue);	
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: var(--text-light);
+}
+
+
+/* --- 4. SOCIAL PROOF SECTION --- */
+.social-proof-section {
+    background-color: #f9fafb;	
+    padding: 80px 30px;
+    text-align: center;
+    border-top: 1px solid var(--border-light);
+}
+
+.social-proof-section h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-bottom: 50px;
+}
+
+.testimonial-card {
+    background-color: var(--background-light);
+    border-radius: var(--corner-radius-large);
+    padding: 40px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 50px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.testimonial-card .quote {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.testimonial-card .author {
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.logo-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
+    color: var(--accent-gray);	
+    font-size: 0.9rem;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+}
+        
+/* --- 5. AI RISK ASSESSMENT SECTION --- */
+.ai-risk-section {
+    padding: 80px 30px;
+    text-align: center;
+    background-color: var(--background-light);
+}
+
+.ai-risk-section h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.ai-risk-section p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.risk-assessment-form {
+    display: flex;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+#location-input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid var(--border-light);
+    border-radius: var(--corner-radius-small);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+}
+
+#assess-button {
+    padding: 12px 28px;
+    background-color: var(--primary-blue);
+    color: var(--background-light);
+    font-weight: 700;
+    border-radius: var(--corner-radius-small);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#assess-button:hover {
+    background-color: var(--secondary-blue);
+}
+
+#assess-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#risk-result {
+    background-color: #f9fafb;
+    border: 1px solid var(--border-light);
+    border-radius: var(--corner-radius-large);
+    padding: 30px;
+    margin-top: 20px;
+    text-align: left;
+    color: var(--text-light);
+    line-height: 1.7;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- 6. HOW IT WORKS SECTION --- */
+.how-it-works-section {
+    padding: 80px 30px;
+    text-align: center;
+    background-color: #f9fafb;
+    border-top: 1px solid var(--border-light);
+}
+
+.how-it-works-section h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 50px;
+}
+
+.step-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.step-item {
+    padding: 30px;
+    background-color: var(--background-light);
+    border: 1px solid var(--border-light);
+    border-radius: var(--corner-radius-large);
+    text-align: left;
+}
+
+.step-number {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    border-bottom: 3px solid var(--accent-gray);
+    padding-bottom: 5px;
+}
+
+.step-item h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.step-item p {
+    color: var(--text-light);
+}
+
+
+/* --- 7. FOOTER/CONSULTATION CTA BLOCK --- */
+.consultation-block-clean {
+    text-align: center;
+    padding: 60px 30px;
+    margin: 0;
+    border-top: 1px solid var(--border-light);
+    background-color: var(--background-light);
+}
+
+.consultation-block-clean h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.consultation-block-clean p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.button-primary-clean {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--primary-blue);
+    color: var(--background-light);
+    font-weight: 700;
+    border-radius: var(--corner-radius-small);
+    transition: background-color 0.2s;
+}
+.button-primary-clean:hover {
+    background-color: var(--secondary-blue);
+}
+
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 1024px) {
+    .hero-unified-box {
+        flex-direction: column;
+    }
+
+    .hero-content-area {
+        max-width: 100%;
+        padding: 40px;
+        text-align: center;
+    }
+    
+    .hero-content-clean p {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hero-image-placeholder-box {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-content-clean h1 {
+        font-size: 2.2rem;
+    }
+    
+    .step-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .risk-assessment-form {
+        flex-direction: column;
+    }
+}

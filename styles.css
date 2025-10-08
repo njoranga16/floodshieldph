@@ -47,19 +47,31 @@ a {
     margin: 0 auto;
     padding: 0 30px;
 }
-.logo img { height: 60px; display: block; } /* Increased logo height */
-.nav-links { display: flex; gap: 10px; align-items: center; } /* Reduced gap for a tighter fit */
+.logo img { height: 60px; display: block; }
+.nav-links { display: flex; gap: 10px; align-items: center; }
 .nav-links a { 
     font-size: 0.95rem; 
     font-weight: 500; 
-    padding: 8px 16px; /* Added padding */
-    border-radius: var(--corner-radius-small); /* Rounded corners for the box */
-    border: 1px solid transparent; /* Prevents layout shift */
-    transition: border-color 0.3s ease, background-color 0.3s ease;
+    padding: 8px 16px;
+    border-radius: var(--corner-radius-small);
+    position: relative; /* Needed for the underline pseudo-element */
+    transition: color 0.3s ease;
 }
-.nav-links a:not(.header-button):hover {
-    background-color: #f9fafb; /* Light background on hover */
-    border-color: var(--border-light); /* Visible border on hover */
+/* Underline Hover Effect for Nav Links */
+.nav-links a:not(.header-button)::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: calc(100% - 32px); /* Match padding */
+    height: 2px;
+    background-color: var(--primary-blue);
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+.nav-links a:not(.header-button):hover::after {
+    transform: translateX(-50%) scaleX(1);
 }
 .header-container .header-button {
     border: 1px solid var(--primary-blue);
@@ -81,23 +93,24 @@ a {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 40px 30px; /* Reduced vertical padding */
+    padding: 40px 30px;
 }
 .hero-unified-box {
     display: flex;
     max-width: var(--max-width);
     width: 100%;
-    align-items: center;
-    gap: 30px; /* Reduced gap for a tighter look */
+    align-items: stretch;
+    gap: 30px;
     background-color: var(--secondary-blue);
     border-radius: var(--corner-radius-large);
     padding: 25px;
     box-shadow: 0 20px 40px rgba(0, 22, 122, 0.15);
 }
 .hero-content-area {
-    flex: 0 0 60%;
+    flex: 1.5;
     padding-left: 20px;
-    padding-right: 50px;
+    padding-top: 40px; /* Added vertical spacing */
+    padding-bottom: 40px; /* Added vertical spacing */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -112,76 +125,79 @@ a {
 .hero-content-clean h1 {
     font-size: 3.2rem;
     font-weight: 800;
-    color: var(--background-light); /* Changed to white */
+    color: var(--background-light);
     margin-bottom: 20px;
     line-height: 1.2;
 }
 .hero-content-clean p {
     font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.9); /* Changed to light grey/white */
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 40px;
     max-width: 95%;
 }
+
+/* New Button Styles and Animation */
 .button-primary-boxed {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 15px 30px;
-    background-color: var(--background-light); /* White fill */
-    color: var(--primary-blue); /* Blue text */
-    border-radius: var(--corner-radius-small);
+    padding: 6px 6px 6px 24px; /* top, right, bottom, left */
+    background-color: var(--background-light);
+    color: var(--primary-blue);
+    border-radius: var(--corner-radius-small); /* Matched corner style */
     font-weight: 700;
     position: relative;
     overflow: hidden;
-    z-index: 1;
-    transition: transform 0.2s ease-in-out, color 0.3s ease;
+    transition: transform 0.2s ease-in-out;
 }
+/* Removed bounce effect */
 .button-primary-boxed:hover {
-    color: var(--text-dark);
-    transform: translateY(-3px);
+    transform: translateY(0);
 }
-.button-primary-boxed::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--background-light);
-    box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.2);
-    transform: translateX(-101%);
-    transition: transform 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-    z-index: -1;
+.button-primary-boxed .button-text {
+     margin-right: 16px;
 }
-.button-primary-boxed:hover::before {
-    transform: translateX(0);
-}
-.button-primary-boxed .button-text,
-.button-primary-boxed .arrow {
+.arrow-wrapper {
     position: relative;
-    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-blue);
+    border-radius: var(--corner-radius-small); /* Matched corner style */
 }
-.button-primary-boxed .arrow {
+.arrow {
+    position: absolute;
+    color: var(--background-light);
     font-weight: 900;
-    font-size: 1.2em;
-    transform: translateX(0);
-    transition: transform 0.2s;
+    font-size: 1.4em;
+    transition: transform 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86), opacity 0.3s ease;
 }
-.button-primary-boxed:hover .arrow { transform: translateX(5px); }
-.hero-image-side {
-    flex: 0 0 40%;
-    min-height: 400px;
-    height: 100%;
-    border-radius: 12px;
-    overflow: hidden; /* Ensures image stays within the rounded corners */
+.arrow-two {
+    transform: translateX(-150%);
+    opacity: 0;
+}
+.button-primary-boxed:hover .arrow-one {
+    transform: translateX(150%);
+    opacity: 0;
+}
+.button-primary-boxed:hover .arrow-two {
+    transform: translateX(0);
+    opacity: 1;
 }
 
+.hero-image-side {
+    flex: 1;
+    min-height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+}
 .hero-image-side img {
     width: 100%;
     height: 100%;
     border-radius: 12px;
     box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-    object-fit: cover; /* Ensures the image covers the container without distortion */
+    object-fit: cover;
 }
 
 
@@ -229,7 +245,6 @@ a {
 .button-primary-clean:hover { background-color: var(--secondary-blue); }
 
 /* --- SECTION TRANSITIONS --- */
-/* Sections that fade in as a whole block */
 .social-proof-section, 
 .ai-risk-section, 
 .consultation-block-clean {
@@ -237,40 +252,24 @@ a {
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-
-/* The individual cards/steps are hidden initially */
 .feature-card, .step-item {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    transition-delay: 0s; /* Default delay */
+    transition-delay: 0s;
 }
-
-/* When the parent section becomes visible, trigger the animation on the cards */
 .visible .feature-card,
 .visible .step-item {
     opacity: 1;
     transform: translateY(0);
 }
-
-/* Add a staggered delay to the cards as they appear */
 .visible .feature-card:nth-child(1),
-.visible .step-item:nth-child(1) {
-    transition-delay: 0.1s;
-}
+.visible .step-item:nth-child(1) { transition-delay: 0.1s; }
 .visible .feature-card:nth-child(2),
-.visible .step-item:nth-child(2) {
-    transition-delay: 0.2s;
-}
+.visible .step-item:nth-child(2) { transition-delay: 0.2s; }
 .visible .feature-card:nth-child(3),
-.visible .step-item:nth-child(3) {
-    transition-delay: 0.3s;
-}
-.visible .feature-card:nth-child(4) {
-    transition-delay: 0.4s;
-}
-
-/* The final state for block-level sections */
+.visible .step-item:nth-child(3) { transition-delay: 0.3s; }
+.visible .feature-card:nth-child(4) { transition-delay: 0.4s; }
 .visible {
     opacity: 1;
     transform: translateY(0);
@@ -283,11 +282,10 @@ a {
         text-align: center;
         padding: 40px;
     }
-    .hero-section-wrapper {
-        padding: 40px 20px;
-    }
+    .hero-section-wrapper { padding: 40px 20px; }
     .hero-content-area {
         padding-right: 0;
+        padding-left: 0;
         order: 2;
     }
     .hero-content-clean p {
@@ -304,7 +302,6 @@ a {
         margin-bottom: 30px;
     }
 }
-
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
@@ -316,14 +313,8 @@ a {
         flex-wrap: wrap;
         justify-content: center;
     }
-    .hero-content-clean h1 {
-        font-size: 2.5rem;
-    }
-    .step-grid {
-        grid-template-columns: 1fr;
-    }
-    .risk-assessment-form {
-        flex-direction: column;
-    }
+    .hero-content-clean h1 { font-size: 2.5rem; }
+    .step-grid { grid-template-columns: 1fr; }
+    .risk-assessment-form { flex-direction: column; }
 }
 

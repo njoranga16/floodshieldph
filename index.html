@@ -4,194 +4,234 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FloodShield Philippines - Modern Flood Barrier Solutions</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- External Stylesheet Link -->
+    <!-- Link to your external stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <header class="clean-header">
-        <div class="header-container">
-            <div class="logo">
-                <img src="https://placehold.co/150x40/00167A/ffffff?text=FloodShield" alt="FloodShield PH Logo">
+    <div id="website-content">
+        <header class="clean-header">
+            <div class="header-container">
+                <div class="logo">
+                     <img src="/assets/images/Combined-logo.png" alt="FloodShield PH Logo">
+                </div>
+                <nav class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#barriers">Flood Barriers</a>
+                    <a href="#projects">Completed Projects</a>
+                    <a href="#consultation" class="header-button">Contact</a>
+                </nav>
             </div>
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="#barriers">Barriers</a>
-                <a href="#about">About</a>
-                <a href="#risk-assessment">AI Assessment</a>
-                <a href="#consultation" class="header-button">Contact Sales</a>
-            </nav>
-        </div>
-    </header>
+        </header>
 
-    <main>
-        <section class="hero-section-wrapper" id="home">
-            <div class="hero-unified-box">
-                <div class="hero-content-area">
-                    <div class="trust-message">
-                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-                        FM Approved & ISO Certified Flood Protection
+        <main>
+            <section class="hero-section-wrapper" id="home">
+                <div class="hero-unified-box">
+                    <div class="hero-content-area">
+                        <div class="trust-message">
+                            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                            FM Approved & ISO Certified Flood Protection
+                        </div>
+                        <div class="hero-content-clean">
+                            <h1>Engineered Flood Defense For a Changing Climate.</h1>
+                            <p>
+                                FloodShield provides rapidly deployable, best-in-class flood barriers to protect critical infrastructure and commercial properties.
+                            </p>
+                            <a href="#consultation" class="button-primary-boxed">
+                                <span class="button-text">Request a Free Assessment</span>
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="hero-content-clean">
-                        <h1>Durable, Reliable, and Innovative Flood Protection.</h1>
-                        <p>
-                            Our demountable FloodShield barriers combine robust, lightweight aluminum with a patented locking system for rapid deployment you can trust.
-                        </p>
-                        <a href="#consultation" class="button-primary-boxed">
-                            Get started
-                            <span class="arrow">→</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-image-placeholder-box">
-                    <!-- Image is now a background in the CSS -->
-                </div>
-            </div>
-        </section>
-
-        <section class="features-section-clean" id="barriers">
-            <h2>Engineered for Ultimate Protection.</h2>
-            <div class="feature-grid-clean">
-                <div class="feature-card">
-                    <h3>Rapid "Twist & Lock" Deployment</h3>
-                    <p>Our innovative, demountable system can be installed by one person in minutes, ensuring you're always prepared.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Superior Watertight Seal</h3>
-                    <p>Durable EPDM rubber seals create a perfect barrier, preventing water intrusion during critical flooding events.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Robust & Lightweight Materials</h3>
-                    <p>Built from high-quality, corrosion-resistant aluminum and stainless steel for long-lasting, reliable performance.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Certified & Patented Design</h3>
-                    <p>Fully FM Approved, ISO Certified, and patented in multiple countries. Trust in a globally recognized solution.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="social-proof-section" id="about">
-            <div class="container">
-                <h2>Trusted by Leaders, Built for the Philippines.</h2>
-                <div class="testimonial-card">
-                    <p class="quote">"Installing FloodShield was the best investment we made last rainy season. The deployment was simple, and the barriers held perfectly against a flash flood."</p>
-                    <div class="author">- Engr. Manuel G., Property Manager at Makati Commercial Complex</div>
-                </div>
-                <div class="logo-bar">
-                    <div class="client-logo">SM Prime</div>
-                    <div class="client-logo">Ayala Land</div>
-                    <div class="client-logo">Megaworld</div>
-                    <div class="client-logo">BDO Unibank</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="ai-risk-section" id="risk-assessment">
-            <div class="container">
-                <h2>AI-Powered Flood Risk Assessment</h2>
-                <p>Enter a location in the Philippines to get an instant, preliminary flood risk analysis powered by Google Gemini.</p>
-                <div class="risk-assessment-form">
-                    <input type="text" id="location-input" placeholder="e.g., 'Bonifacio Global City, Taguig'">
-                    <button id="assess-button">Assess Risk</button>
-                </div>
-                <div id="risk-result" style="display: none;"></div>
-            </div>
-        </section>
-
-        <section class="how-it-works-section" id="howitworks">
-            <div class="container">
-                <h2>Your Path to Flood Security is Simple.</h2>
-                <div class="step-grid">
-                    <div class="step-item">
-                        <div class="step-number">1</div>
-                        <h3>Free Site Assessment</h3>
-                        <p>Our team visits your property to measure openings and identify key flood risks.</p>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">2</div>
-                        <h3>Custom Fabrication</h3>
-                        <p>We build your bespoke aluminum barriers and prepare all mounting hardware.</p>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">3</div>
-                        <h3>Fast Installation</h3>
-                        <p>We install the mounting system and train your staff on rapid deployment.</p>
+                    <div class="hero-image-side">
+                        <img src="assets/images/FLOOD SHIELD PH FEATURE.png" alt="FloodShield PH Hero" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.12);">
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="consultation-block-clean" id="consultation">
-            <h3>Ready to Secure Your Property?</h3>
-            <p>Contact our team for a free on-site assessment and quote.</p>
-            <a href="tel:+639178333200" class="button-primary-clean">Call Us: +63 917 833 3200</a>
-        </section>
-    </main>
+            <section class="features-section-clean" id="barriers">
+                <h2>Engineered for Ultimate Protection.</h2>
+                <div class="feature-grid-clean">
+                    <div class="feature-card">
+                        <h3>Rapid "Twist & Lock" Deployment</h3>
+                        <p>Our innovative, demountable system can be installed by one person in minutes, ensuring you're always prepared.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Superior Watertight Seal</h3>
+                        <p>Durable EPDM rubber seals create a perfect barrier, preventing water intrusion during critical flooding events.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Robust & Lightweight Materials</h3>
+                        <p>Built from high-quality, corrosion-resistant aluminum and stainless steel for long-lasting, reliable performance.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Certified & Patented Design</h3>
+                        <p>Fully FM Approved, ISO Certified, and patented in multiple countries. Trust in a globally recognized solution.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="social-proof-section" id="about">
+                <div class="container">
+                    <h2>Trusted by Leaders, Built for the Philippines.</h2>
+                    <div class="testimonial-card">
+                        <p class="quote">"Installing FloodShield was the best investment we made last rainy season. The deployment was simple, and the barriers held perfectly against a flash flood."</p>
+                        <div class="author">- Engr. Manuel G., Property Manager at Makati Commercial Complex</div>
+                    </div>
+                    <div class="logo-bar">
+                        <div class="client-logo">SM Prime</div>
+                        <div class="client-logo">Ayala Land</div>
+                        <div class="client-logo">Megaworld</div>
+                        <div class="client-logo">BDO Unibank</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="features-section-clean" id="projects" style="background-color: #f9fafb;">
+                <div class="container">
+                    <h2>Our Completed Projects</h2>
+                    <div class="feature-grid-clean">
+                        <div class="feature-card">
+                            <h3>Commercial Complex, Makati</h3>
+                            <p>Installation of 12 modular flood barriers to protect retail storefronts and basement parking entrances.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Power Substation, Visayas</h3>
+                            <p>Perimeter protection using our interlocking panel system to safeguard critical power infrastructure.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Luxury Residence, Taguig</h3>
+                            <p>Custom-designed, aesthetically integrated flood gates for a high-end residential property.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="ai-risk-section" id="risk-assessment">
+                <div class="container">
+                    <h2>AI-Powered Flood Risk Assessment</h2>
+                    <p>Enter a location in the Philippines to get an instant, preliminary flood risk analysis powered by Google Gemini.</p>
+                    <div class="risk-assessment-form">
+                        <input type="text" id="location-input" placeholder="e.g., 'Bonifacio Global City, Taguig'">
+                        <button id="assess-button">Assess Risk</button>
+                    </div>
+                    <div id="risk-result" style="display: none;"></div>
+                </div>
+            </section>
+
+            <section class="how-it-works-section" id="howitworks">
+                <div class="container">
+                    <h2>Your Path to Flood Security is Simple.</h2>
+                    <div class="step-grid">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <h3>Free Site Assessment</h3>
+                            <p>Our team visits your property to measure openings and identify key flood risks.</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <h3>Custom Fabrication</h3>
+                            <p>We build your bespoke aluminum barriers and prepare all mounting hardware.</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <h3>Fast Installation</h3>
+                            <p>We install the mounting system and train your staff on rapid deployment.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="consultation-block-clean" id="consultation">
+                <h3>Ready to Secure Your Property?</h3>
+                <p>Contact our team for a free on-site assessment and quote.</p>
+                <a href="tel:+639178333200" class="button-primary-clean">Call Us: +63 917 833 3200</a>
+            </section>
+        </main>
+    </div>
 
     <script>
-        const assessButton = document.getElementById('assess-button');
-        const locationInput = document.getElementById('location-input');
-        const riskResultDiv = document.getElementById('risk-result');
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Intersection Observer for Fade-in Transitions ---
+            const sections = document.querySelectorAll('.social-proof-section, .ai-risk-section, .consultation-block-clean, .features-section-clean, .how-it-works-section');
+            const cards = document.querySelectorAll('.feature-card, .step-item');
 
-        assessButton.addEventListener('click', async () => {
-            const location = locationInput.value;
-            if (!location) {
-                riskResultDiv.style.display = 'block';
-                riskResultDiv.textContent = 'Please enter a location.';
-                return;
-            }
-
-            riskResultDiv.style.display = 'block';
-            riskResultDiv.innerHTML = 'Analyzing...';
-            assessButton.disabled = true;
-            assessButton.style.cursor = 'not-allowed';
-
-            // NOTE: Replace this URL with your Cloudflare Worker URL for security
-            const apiUrl = 'https://gemini-api-proxy.your-subdomain.workers.dev'; 
-            // const apiKey = ""; // Keep this blank if not using a proxy
-
-            const systemPrompt = `Act as a flood risk analyst. Based on publicly available data, provide a brief, one-paragraph flood risk assessment for the following location in the Philippines. Mention factors like proximity to water bodies, historical data, and elevation if possible. Keep the tone professional and reassuring, and suggest that a professional consultation is the next best step. The response should be in plain text.`;
-            const userQuery = `Location: ${location}`;
-            
-            // This is the structure for the Google Gemini API call
-            const payload = {
-                contents: [{ parts: [{ text: userQuery }] }],
-                systemInstruction: {
-                    parts: [{ text: systemPrompt }]
-                },
+            const sectionObserverOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
             };
 
-            try {
-                // If using a secure proxy (like a Cloudflare Worker), the fetch call is simple:
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
                 });
+            }, sectionObserverOptions);
+
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+
+            // --- AI Risk Assessment Form Logic ---
+            const assessButton = document.getElementById('assess-button');
+            const locationInput = document.getElementById('location-input');
+            const riskResultDiv = document.getElementById('risk-result');
+
+            assessButton.addEventListener('click', async () => {
+                const location = locationInput.value;
+                if (!location) {
+                    riskResultDiv.textContent = 'Please enter a location.';
+                    riskResultDiv.style.display = 'block';
+                    return;
+                }
+
+                assessButton.disabled = true;
+                assessButton.textContent = 'Analyzing...';
+                riskResultDiv.style.display = 'block';
+                riskResultDiv.textContent = 'Analyzing...';
                 
-                if (!response.ok) {
-                    throw new Error(`API request failed with status ${response.status}`);
+                // IMPORTANT: Replace this with the URL of your secure Cloudflare Worker proxy
+                const apiUrl = 'https://gemini-api-proxy.your-subdomain.workers.dev'; 
+                const systemPrompt = `Act as a flood risk analyst. Based on publicly available data, provide a brief, one-paragraph flood risk assessment for the following location in the Philippines. Mention factors like proximity to water bodies, historical data, and elevation if possible. Keep the tone professional and reassuring, and suggest that a professional consultation is the next best step. The response should be in plain text.`;
+                const userQuery = `Location: ${location}`;
+                
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                };
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`API request failed with status ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                    
+                    if (text) {
+                        riskResultDiv.textContent = text;
+                    } else {
+                        throw new Error('Could not extract text from API response.');
+                    }
+                } catch (error) {
+                    console.error("Error fetching from API:", error);
+                    riskResultDiv.textContent = 'Sorry, we could not retrieve the risk assessment at this time. This feature is for demonstration purposes. Please ensure the API proxy URL is correctly configured.';
+                } finally {
+                    assessButton.disabled = false;
+                    assessButton.textContent = 'Assess Risk';
                 }
-
-                const result = await response.json();
-                const candidate = result.candidates?.[0];
-
-                if (candidate && candidate.content?.parts?.[0]?.text) {
-                    riskResultDiv.textContent = candidate.content.parts[0].text;
-                } else {
-                     throw new Error('Could not extract text from API response. The response may be empty or malformed.');
-                }
-
-            } catch (error) {
-                console.error("Error fetching from API:", error);
-                riskResultDiv.textContent = 'Sorry, we could not retrieve the risk assessment at this time. Please try again later.';
-            } finally {
-                assessButton.disabled = false;
-                 assessButton.style.cursor = 'pointer';
-            }
+            });
         });
     </script>
 </body>

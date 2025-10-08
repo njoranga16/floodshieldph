@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FloodShield Philippines - Modern Flood Barrier Solutions</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Link to your external stylesheet -->
@@ -22,9 +22,9 @@
                 </button>
                 <nav class="nav-links" id="primary-navigation">
                     <a href="#home">Home</a>
+                    <a href="#projects">Completed Projects</a>
                     <a href="#about">About</a>
                     <a href="#barriers">Flood Barriers</a>
-                    <a href="#projects">Completed Projects</a>
                     <a href="#consultation" class="header-button">Contact</a>
                 </nav>
             </div>
@@ -60,7 +60,7 @@
             </section>
 
             <!-- COMPLETED PROJECTS SECTION -->
-            <section class="features-section-clean" id="projects" style="background-color: #f9fafb;">
+            <section class="features-section-clean" id="projects">
                 <div class="container">
                     <h2>Our Completed Projects</h2>
                     <div class="feature-grid-clean">
@@ -157,14 +157,34 @@
                 </div>
             </section>
             
-            <!-- CONSULTATION (CONTACT) SECTION -->
-            <section class="consultation-block-clean" id="consultation">
-                <h3>Ready to Secure Your Property?</h3>
-                <p>Contact our team for a free on-site assessment and quote.</p>
-                <a href="tel:+639178333200" class="button-primary-clean">Call Us: +63 917 833 3200</a>
+            <!-- FINAL CTA (CONTACT) SECTION -->
+            <section class="final-cta-section-wrapper" id="consultation">
+                <div class="final-cta-box">
+                    <h2>Ready to Secure Your Property?</h2>
+                    <p>Contact our team for a free on-site assessment and quote.</p>
+                    <a href="tel:+639178333200" class="button-primary-boxed">
+                        <span class="button-text">Call Us: +63 917 833 3200</span>
+                        <span class="arrow-wrapper">
+                            <span class="arrow arrow-one">→</span>
+                            <span class="arrow arrow-two">→</span>
+                        </span>
+                    </a>
+                </div>
             </section>
         </main>
-    </div>
+
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="assets/images/Combined-logo.png" alt="FloodShield PH Logo">
+                </div>
+                <p class="copyright-text">
+                    &copy; Floodshield Philippines, Banfu Corporation 2025. All Rights Reserved.
+                </p>
+            </div>
+        </footer>
+
+    </div> <!-- This closes #website-content -->
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -184,7 +204,7 @@
             });
 
             // --- Intersection Observer for Fade-in Transitions ---
-            const sections = document.querySelectorAll('.social-proof-section, .ai-risk-section, .consultation-block-clean, .features-section-clean, .how-it-works-section');
+            const sections = document.querySelectorAll('.social-proof-section, .ai-risk-section, .final-cta-section-wrapper, .features-section-clean, .how-it-works-section, .site-footer');
             
             const sectionObserverOptions = {
                 root: null,

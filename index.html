@@ -14,7 +14,7 @@
         <header class="clean-header">
             <div class="header-container">
                 <div class="logo">
-                     <img src="assets/images/Combined-logo.png" alt="FloodShield PH Logo">
+                     <img src="https://placehold.co/240x100/FFFFFF/1B2A6D?text=FloodShield&font=montserrat" alt="FloodShield PH Logo">
                 </div>
                 <nav class="nav-links">
                     <a href="#home">Home</a>
@@ -41,12 +41,15 @@
                             </p>
                             <a href="#consultation" class="button-primary-boxed">
                                 <span class="button-text">Request a Free Assessment</span>
-                                <span class="arrow">→</span>
+                                <span class="arrow-wrapper">
+                                    <span class="arrow arrow-one">→</span>
+                                    <span class="arrow arrow-two">→</span>
+                                </span>
                             </a>
                         </div>
                     </div>
                     <div class="hero-image-side">
-                        <img src="assets/images/FLOOD SHIELD PH FEATURE.png" alt="FloodShield PH Hero" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.12);">
+                        <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="FloodShield PH Hero">
                     </div>
                 </div>
             </section>
@@ -195,8 +198,11 @@
                 riskResultDiv.style.display = 'block';
                 riskResultDiv.textContent = 'Analyzing...';
                 
-                // IMPORTANT: Replace this with the URL of your secure Cloudflare Worker proxy
-                const apiUrl = 'https://gemini-api-proxy.your-subdomain.workers.dev'; 
+                // IMPORTANT: This is a placeholder. For a real application, you must use a secure server-side proxy
+                // to protect your API key. Direct client-side calls like this are insecure.
+                const apiKey = ""; // Replace with your key for a quick test, but DO NOT deploy this.
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                
                 const systemPrompt = `Act as a flood risk analyst. Based on publicly available data, provide a brief, one-paragraph flood risk assessment for the following location in the Philippines. Mention factors like proximity to water bodies, historical data, and elevation if possible. Keep the tone professional and reassuring, and suggest that a professional consultation is the next best step. The response should be in plain text.`;
                 const userQuery = `Location: ${location}`;
                 
@@ -226,7 +232,7 @@
                     }
                 } catch (error) {
                     console.error("Error fetching from API:", error);
-                    riskResultDiv.textContent = 'Sorry, we could not retrieve the risk assessment at this time. This feature is for demonstration purposes. Please ensure the API proxy URL is correctly configured.';
+                    riskResultDiv.textContent = 'Sorry, we could not retrieve the risk assessment at this time. This feature is for demonstration purposes. Please ensure your API key is valid and the model is accessible.';
                 } finally {
                     assessButton.disabled = false;
                     assessButton.textContent = 'Assess Risk';
@@ -236,3 +242,4 @@
     </script>
 </body>
 </html>
+

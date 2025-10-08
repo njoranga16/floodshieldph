@@ -201,9 +201,14 @@ main > section {
     padding: 80px 30px; /* Increased vertical padding */
 }
 
+/* Remove gap between hero and first section */
+.hero-section-wrapper + section {
+    padding-top: 0;
+}
+
 /* Section Backgrounds */
 .social-proof-section,
-.how-it-works-section {
+#barriers {
     background-color: var(--background-offset);
 }
 

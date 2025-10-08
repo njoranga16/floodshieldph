@@ -290,7 +290,7 @@ a {
      .hero-unified-box {
         flex-direction: column;
         text-align: center;
-        padding: 40px;
+        padding: 30px; /* Reduced padding for mobile */
     }
     .hero-section-wrapper { padding: 40px 20px; }
     .hero-content-area {
@@ -311,6 +311,9 @@ a {
         max-height: 400px;
         margin-bottom: 30px;
     }
+    .hero-image-side img {
+        object-fit: contain; /* Ensures full image is visible */
+    }
 }
 @media (max-width: 768px) {
     .header-container {
@@ -320,7 +323,7 @@ a {
     }
     
     .logo img {
-        height: 48px; /* Smaller logo on mobile */
+        height: 36px; /* Further reduced logo size for mobile */
     }
 
     .nav-links {

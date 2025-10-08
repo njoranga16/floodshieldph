@@ -172,6 +172,7 @@ a {
     flex: 0 0 40%;
     min-height: 400px;
     height: 100%;
+    padding: 20px;
     border-radius: 12px;
     overflow: hidden; /* Ensures image stays within the rounded corners */
 }

@@ -202,8 +202,8 @@ main > section {
 }
 
 /* Section Backgrounds */
-#barriers,
-.projects-section {
+.projects-section,
+#barriers {
     background-color: var(--background-offset);
 }
 
@@ -257,15 +257,16 @@ main > section {
     margin: 0 auto 25px auto;
     background-color: #eef2ff;
 }
-.feature-icon img {
+.feature-icon svg {
     width: 36px;
     height: 36px;
+    stroke: var(--primary-blue);
 }
 .feature-card-highlight .feature-icon {
     background-color: rgba(255, 255, 255, 0.1);
 }
-.feature-card-highlight .feature-icon img {
-    filter: brightness(0) invert(1);
+.feature-card-highlight .feature-icon svg {
+    stroke: var(--background-light);
 }
 #barriers .feature-card h3 { 
     font-size: 1.3rem; 
@@ -392,13 +393,14 @@ main > section {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 2; /* Move line to the front */
+    z-index: 1; /* Behind other elements */
 }
 .timeline-item {
     display: flex;
     gap: 40px;
     align-items: center;
     position: relative;
+    z-index: 2; /* In front of the line */
     padding: 40px 0;
 }
 .timeline-item:nth-child(even) {
@@ -417,22 +419,19 @@ main > section {
     display: block;
 }
 .timeline-step {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background-color: var(--primary-blue);
     color: white;
     font-weight: bold;
-    font-size: 1rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1; /* Keep circle behind the line */
+    font-size: 0.9rem;
+    z-index: 3; /* In front of the line */
     border: 4px solid var(--background-light); /* Creates "cutout" effect */
+    margin-right: 10px;
 }
 .timeline-content {
     padding: 20px;
@@ -441,10 +440,22 @@ main > section {
     text-align: right;
 }
 .timeline-content h3 {
+    display: flex;
+    align-items: center;
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 10px;
     color: var(--secondary-blue);
+}
+.timeline-item:nth-child(odd) h3 {
+    justify-content: flex-end;
+}
+.timeline-item:nth-child(even) h3 {
+    flex-direction: row-reverse;
+}
+.timeline-item:nth-child(even) h3 .timeline-step {
+    margin-left: 10px;
+    margin-right: 0;
 }
 
 
@@ -498,6 +509,7 @@ main > section {
 @media (min-width: 768px) {
     .contact-divider {
         display: inline;
+        opacity: 0.5;
     }
 }
 
@@ -514,15 +526,21 @@ main > section {
     margin: 0 auto;
 }
 .footer-columns {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
     text-align: left;
-    margin-bottom: 40px;
     gap: 40px;
-    flex-wrap: wrap;
 }
-.footer-logo {
-    margin-bottom: 30px;
+.footer-logo-col img {
+    height: 50px;
+    margin-bottom: 15px;
+}
+.footer-logo-col .copyright-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding-top: 0;
+    border-top: none;
+    text-align: left;
 }
 .footer-column h4 {
     font-size: 1rem;
@@ -555,13 +573,6 @@ main > section {
 }
 .footer-contact a:hover {
     color: var(--primary-blue);
-}
-.copyright-text {
-    text-align: center;
-    padding-top: 30px;
-    border-top: 1px solid var(--border-light);
-    font-size: 0.9rem;
-    font-weight: 500;
 }
 
 
@@ -673,6 +684,9 @@ main > section {
         flex-direction: column;
         text-align: center;
     }
+    .footer-logo-col {
+        order: 3; /* Move logo to bottom on mobile */
+    }
     
     /* Mobile Timeline */
     .timeline::after {
@@ -689,10 +703,12 @@ main > section {
         left: 0;
         text-align: left;
     }
-    .timeline-item:nth-child(odd) .timeline-step,
-    .timeline-item:nth-child(even) .timeline-step {
-        left: 0;
-        top: 20px; /* Align with top of content area */
+    .timeline-item .timeline-content h3 {
+        justify-content: flex-start;
+        flex-direction: row;
+    }
+    .timeline-step {
+        position: static;
         transform: none;
     }
      .timeline-item .timeline-image,
@@ -703,7 +719,7 @@ main > section {
         display: none; /* Hide first image on mobile for better flow */
     }
     .timeline-item .timeline-content {
-        padding-top: 0;
+        padding: 0;
     }
     
 

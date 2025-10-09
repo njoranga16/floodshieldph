@@ -293,6 +293,7 @@ main > section {
     overflow: hidden;
     position: relative;
     white-space: nowrap;
+    margin-bottom: 60px;
 }
 .logo-carousel::before,
 .logo-carousel::after {
@@ -334,6 +335,41 @@ main > section {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
+.project-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 0 30px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+.gallery-item {
+    position: relative;
+    border-radius: var(--corner-radius-large);
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.gallery-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+.gallery-item h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 20px 20px;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
 
 
 /* --- HOW IT WORKS (TIMELINE) --- */
@@ -361,10 +397,12 @@ main > section {
 .timeline-item:nth-child(odd) {
     left: 0;
     padding-right: 60px;
+    text-align: right;
 }
 .timeline-item:nth-child(even) {
     left: 50%;
     padding-left: 60px;
+    text-align: left;
 }
 .timeline-image {
     width: 100%;
@@ -378,14 +416,14 @@ main > section {
     display: block;
 }
 .timeline-step {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
-    line-height: 40px;
     border-radius: 50%;
     background-color: var(--primary-blue);
     color: white;
-    text-align: center;
     font-weight: bold;
     font-size: 1rem;
     position: absolute;
@@ -408,9 +446,7 @@ main > section {
     margin-bottom: 10px;
     color: var(--secondary-blue);
 }
-.timeline-item:nth-child(odd) {
-    text-align: right;
-}
+
 
 /* --- FINAL CTA SECTION --- */
 .final-cta-box {
@@ -496,23 +532,27 @@ main > section {
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-.feature-card, .timeline-item {
+.feature-card, .timeline-item, .gallery-item {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     transition-delay: 0s;
 }
 .visible .feature-card,
-.visible .timeline-item {
+.visible .timeline-item,
+.visible .gallery-item {
     opacity: 1;
     transform: translateY(0);
 }
 .visible .feature-card:nth-child(1),
-.visible .timeline-item:nth-child(1) { transition-delay: 0.1s; }
+.visible .timeline-item:nth-child(1),
+.visible .gallery-item:nth-child(1) { transition-delay: 0.1s; }
 .visible .feature-card:nth-child(2),
-.visible .timeline-item:nth-child(2) { transition-delay: 0.2s; }
+.visible .timeline-item:nth-child(2),
+.visible .gallery-item:nth-child(2) { transition-delay: 0.2s; }
 .visible .feature-card:nth-child(3),
-.visible .timeline-item:nth-child(3) { transition-delay: 0.3s; }
+.visible .timeline-item:nth-child(3),
+.visible .gallery-item:nth-child(3) { transition-delay: 0.3s; }
 .visible {
     opacity: 1;
     transform: translateY(0);
@@ -564,7 +604,8 @@ main > section {
         object-fit: contain;
     }
     .why-choose-grid,
-    .step-grid {
+    .step-grid,
+    .project-gallery-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -590,12 +631,6 @@ main > section {
         font-size: 1.8rem;
     }
     
-    .why-choose-grid,
-    .feature-grid-clean,
-    .step-grid { 
-        grid-template-columns: 1fr;
-    }
-    
     .footer-nav {
         display: none;
     }
@@ -618,21 +653,16 @@ main > section {
     .timeline-item:nth-child(even) .timeline-step {
         left: 0;
     }
-    .timeline-item:nth-child(even) .timeline-image {
-        order: 1;
-    }
-     .timeline-item:nth-child(even) .timeline-content {
-        order: 2;
-    }
-     .timeline-item .timeline-image,
-     .timeline-item .timeline-content {
-        width: 100%;
-    }
-     .timeline-item {
+    .timeline-item {
         display: flex;
         flex-direction: column;
     }
-
+     .timeline-item:nth-child(even) .timeline-content {
+        order: 1; /* Text first */
+    }
+    .timeline-item:nth-child(even) .timeline-image {
+        order: 2; /* Image second */
+    }
 
     .nav-links {
         position: fixed;

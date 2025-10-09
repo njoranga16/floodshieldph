@@ -257,16 +257,15 @@ main > section {
     margin: 0 auto 25px auto;
     background-color: #eef2ff;
 }
-.feature-icon svg {
+.feature-icon img {
     width: 36px;
     height: 36px;
-    stroke: var(--primary-blue);
 }
 .feature-card-highlight .feature-icon {
     background-color: rgba(255, 255, 255, 0.1);
 }
-.feature-card-highlight .feature-icon svg {
-    stroke: var(--background-light);
+.feature-card-highlight .feature-icon img {
+    filter: brightness(0) invert(1);
 }
 #barriers .feature-card h3 { 
     font-size: 1.3rem; 

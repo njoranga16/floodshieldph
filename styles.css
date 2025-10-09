@@ -202,7 +202,8 @@ main > section {
 }
 
 /* Section Backgrounds */
-#barriers {
+#barriers,
+.projects-section {
     background-color: var(--background-offset);
 }
 
@@ -306,11 +307,11 @@ main > section {
 }
 .logo-carousel::before {
     left: 0;
-    background: linear-gradient(to left, rgba(255,255,255,0), var(--background-light));
+    background: linear-gradient(to left, rgba(249,250,251,0), var(--background-offset));
 }
 .logo-carousel::after {
     right: 0;
-    background: linear-gradient(to right, rgba(255,255,255,0), var(--background-light));
+    background: linear-gradient(to right, rgba(249,250,251,0), var(--background-offset));
 }
 .logo-track {
     display: inline-block;
@@ -351,7 +352,7 @@ main > section {
 }
 .gallery-item img {
     width: 100%;
-    height: 400px;
+    aspect-ratio: 4 / 3; /* Aspect Ratio Change */
     object-fit: cover;
     display: block;
     transition: transform 0.4s ease;
@@ -373,6 +374,9 @@ main > section {
 
 
 /* --- HOW IT WORKS (TIMELINE) --- */
+.how-it-works-section {
+    background-color: var(--background-light);
+}
 .timeline {
     position: relative;
     max-width: 900px;
@@ -393,20 +397,22 @@ main > section {
     position: relative;
     background-color: inherit;
     width: 50%;
+    display: flex;
+    gap: 30px;
+    align-items: center;
 }
 .timeline-item:nth-child(odd) {
     left: 0;
-    padding-right: 60px;
-    text-align: right;
+    flex-direction: row-reverse;
+    padding-right: 80px;
 }
 .timeline-item:nth-child(even) {
     left: 50%;
-    padding-left: 60px;
-    text-align: left;
+    padding-left: 80px;
 }
 .timeline-image {
-    width: 100%;
-    margin-bottom: 20px;
+    width: 50%;
+    flex-shrink: 0;
     border-radius: var(--corner-radius-large);
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -421,13 +427,16 @@ main > section {
     justify-content: center;
     width: 40px;
     height: 40px;
+    line-height: 40px;
     border-radius: 50%;
     background-color: var(--primary-blue);
     color: white;
+    text-align: center;
     font-weight: bold;
     font-size: 1rem;
     position: absolute;
-    top: 30px;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 1;
 }
 .timeline-item:nth-child(odd) .timeline-step {
@@ -437,8 +446,10 @@ main > section {
     left: 20px;
 }
 .timeline-content {
-    padding: 20px 0;
     position: relative;
+}
+.timeline-item:nth-child(odd) .timeline-content {
+    text-align: right;
 }
 .timeline-content h3 {
     font-size: 1.5rem;
@@ -643,6 +654,7 @@ main > section {
         width: 100%;
         padding-left: 60px;
         padding-right: 15px;
+        flex-direction: column !important;
     }
     .timeline-item:nth-child(odd),
     .timeline-item:nth-child(even) {
@@ -652,17 +664,17 @@ main > section {
     .timeline-item:nth-child(odd) .timeline-step,
     .timeline-item:nth-child(even) .timeline-step {
         left: 0;
+        top: 0;
+        transform: none;
     }
-    .timeline-item {
-        display: flex;
-        flex-direction: column;
+     .timeline-item .timeline-image,
+     .timeline-item .timeline-content {
+        width: 100%;
     }
-     .timeline-item:nth-child(even) .timeline-content {
-        order: 1; /* Text first */
+    .timeline-item .timeline-content {
+        padding-top: 0;
     }
-    .timeline-item:nth-child(even) .timeline-image {
-        order: 2; /* Image second */
-    }
+    
 
     .nav-links {
         position: fixed;

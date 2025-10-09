@@ -257,16 +257,15 @@ main > section {
     margin: 0 auto 25px auto;
     background-color: #eef2ff;
 }
-.feature-icon svg {
-    stroke: var(--primary-blue);
+.feature-icon img {
     width: 40px;
     height: 40px;
 }
 .feature-card-highlight .feature-icon {
     background-color: rgba(255, 255, 255, 0.1);
 }
-.feature-card-highlight .feature-icon svg {
-    stroke: var(--background-light);
+.feature-card-highlight .feature-icon img {
+    filter: brightness(0) invert(1);
 }
 #barriers .feature-card h3 { 
     font-size: 1.3rem; 
@@ -395,24 +394,19 @@ main > section {
     transform: translateX(-50%);
 }
 .timeline-item {
-    padding: 40px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
     position: relative;
-    width: 50%;
-}
-.timeline-item:nth-child(odd) {
-    left: 0;
-    padding-left: 0;
-    padding-right: 80px;
-    text-align: right;
+    padding: 40px 0;
 }
 .timeline-item:nth-child(even) {
-    left: 50%;
-    padding-right: 0;
-    padding-left: 80px;
+    flex-direction: row-reverse;
+}
+.timeline-image, .timeline-content {
+    width: calc(50% - 20px);
 }
 .timeline-image {
-    width: 100%;
-    margin-bottom: 20px;
     border-radius: var(--corner-radius-large);
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -434,17 +428,15 @@ main > section {
     font-size: 1rem;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1;
 }
-.timeline-item:nth-child(odd) .timeline-step {
-    right: 20px;
-}
-.timeline-item:nth-child(even) .timeline-step {
-    left: 20px;
-}
 .timeline-content {
-    position: relative;
+    padding: 20px;
+}
+.timeline-item:nth-child(odd) .timeline-content {
+    text-align: right;
 }
 .timeline-content h3 {
     font-size: 1.5rem;
@@ -610,7 +602,6 @@ main > section {
         object-fit: contain;
     }
     .why-choose-grid,
-    .step-grid,
     .project-gallery-grid {
         grid-template-columns: 1fr;
     }
@@ -648,7 +639,7 @@ main > section {
     .timeline-item {
         width: 100%;
         padding-left: 60px;
-        padding-right: 15px;
+        padding-right: 0;
         flex-direction: column !important;
     }
     .timeline-item:nth-child(odd),
@@ -659,21 +650,18 @@ main > section {
     .timeline-item:nth-child(odd) .timeline-step,
     .timeline-item:nth-child(even) .timeline-step {
         left: 0;
-        top: 0;
+        top: 20px; /* Align with top of content area */
         transform: none;
     }
      .timeline-item .timeline-image,
      .timeline-item .timeline-content {
         width: 100%;
     }
-    .timeline-item:nth-child(even) .timeline-content {
-        order: 2;
-    }
-    .timeline-item:nth-child(even) .timeline-image {
-        order: 1;
+     .timeline-item:nth-child(1) .timeline-image {
+        display: none; /* Hide first image on mobile for better flow */
     }
     .timeline-item .timeline-content {
-        padding-top: 20px;
+        padding-top: 0;
     }
     
 

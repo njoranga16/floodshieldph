@@ -446,17 +446,6 @@ main > section {
     margin-bottom: 10px;
     color: var(--secondary-blue);
 }
-.timeline-item:nth-child(odd) h3 {
-    justify-content: flex-end;
-}
-.timeline-item:nth-child(even) h3 {
-    flex-direction: row-reverse;
-}
-.timeline-item:nth-child(even) h3 .timeline-step {
-    margin-left: 10px;
-    margin-right: 0;
-}
-
 
 
 /* --- FINAL CTA SECTION --- */

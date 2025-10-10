@@ -699,24 +699,20 @@ main > section {
         transform: translateX(0);
     }
     .timeline-item {
-        display: block;
+        display: flex;
+        flex-direction: column;
         position: relative;
         padding: 0 0 30px 50px;
-        gap: 0;
-        grid-template-columns: 1fr;
     }
      .timeline-item:last-child {
         padding-bottom: 0;
     }
-    .timeline-item:nth-child(odd) .timeline-content,
-    .timeline-item:nth-child(even) .timeline-content,
-    .timeline-item:nth-child(odd) .timeline-image,
-    .timeline-item:nth-child(even) .timeline-image {
-        grid-column: auto;
+    .timeline-item > .timeline-content {
+        order: 1;
         text-align: left;
     }
-     .timeline-item:nth-child(even) .timeline-image {
-        grid-row: auto;
+    .timeline-item > .timeline-image {
+        order: 2;
     }
     .timeline-step-container {
         position: absolute;
@@ -757,11 +753,11 @@ main > section {
         position: relative;
         width: 2rem;
         height: 2rem;
-        color: var(--text-dark);
     }
      .mobile-nav-toggle svg {
         width: 100%;
         height: 100%;
+        stroke: var(--text-dark);
     }
 
 }

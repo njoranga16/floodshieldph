@@ -149,7 +149,7 @@ a {
     overflow: hidden;
 }
 .button-primary-boxed .button-text {
-     margin-right: 16px;
+    margin-right: 16px;
 }
 .arrow-wrapper {
     position: relative;
@@ -593,7 +593,19 @@ main > section {
 /* --- Mobile Nav Toggle --- */
 .mobile-nav-toggle {
     display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 9999;
 }
+
+.mobile-nav-toggle .icon-hamburger { display: block; }
+.mobile-nav-toggle .icon-close { display: none; }
+
+.mobile-nav-toggle[aria-expanded="true"] .icon-hamburger { display: none; }
+.mobile-nav-toggle[aria-expanded="true"] .icon-close { display: block; }
+
 .sr-only {
     position: absolute;
     width: 1px;
@@ -609,7 +621,7 @@ main > section {
 
 /* --- RESPONSIVENESS --- */
 @media (max-width: 992px) {
-     .hero-unified-box {
+    .hero-unified-box {
         flex-direction: column;
         text-align: center;
         padding: 20px;
@@ -647,7 +659,7 @@ main > section {
     .header-container {
         flex-direction: row;
         justify-content: space-between;
-        padding: 15px;
+        padding: 0 15px;
     }
     
     .logo img {
@@ -663,11 +675,22 @@ main > section {
     }
     
     .footer-columns {
+        display: flex;
         flex-direction: column;
         text-align: center;
+        gap: 30px;
     }
     .footer-logo-col {
-        order: 3; /* Move logo to bottom on mobile */
+        order: 1;
+    }
+    .footer-contact-col {
+        order: 2;
+    }
+    .footer-nav-col {
+        display: none;
+    }
+     .footer-logo-col .copyright-text, .footer-columns .footer-column h4{
+        text-align: center;
     }
     
     /* Mobile Timeline */
@@ -702,7 +725,12 @@ main > section {
         transform: translateX(-50%);
     }
     .timeline-image {
-        margin-bottom: 15px;
+        margin-top: 15px;
+        max-width: 300px;
+    }
+     .timeline-image img {
+        height: auto;
+        width: 100%;
     }
 
     .nav-links {
@@ -729,32 +757,11 @@ main > section {
         position: relative;
         width: 2rem;
         height: 2rem;
+        color: var(--text-dark);
+    }
+     .mobile-nav-toggle svg {
+        width: 100%;
+        height: 100%;
     }
 
-    .nav-links {
-        position: fixed;
-        z-index: 1000;
-        inset: 0 0 0 30%;
-        flex-direction: column;
-        padding: min(20vh, 10rem) 2em;
-        gap: 2em;
-        background: hsla(0, 0%, 100%, 0.9);
-        backdrop-filter: blur(1rem);
-        transform: translateX(100%);
-        transition: transform 350ms ease-out;
-    }
-
-    .nav-links[data-visible="true"] {
-        transform: translateX(0%);
-    }
-
-    .mobile-nav-toggle {
-        display: block;
-        position: relative;
-        z-index: 9999;
-        background: transparent;
-        border: 0;
-        width: 2rem;
-        height: 2rem;
-        cursor: pointer;
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0
+}

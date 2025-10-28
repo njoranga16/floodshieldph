@@ -496,7 +496,7 @@
             border-radius: var(--corner-radius-large);
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            height: 600px; /* Expanded height */
+            height: 650px; /* UPDATED: Expanded height */
             width: 100%; 
         }
 
@@ -511,7 +511,7 @@
 
         /* --- Certification Box Styles --- */
         .certification-section {
-            padding: 0 30px 80px 30px; 
+            padding: 0 30px 60px 30px; /* UPDATED: Reduced padding */
             background-color: var(--background-light); 
         }
         .certification-box {
@@ -615,15 +615,15 @@
             /* No changes needed here now */
         }
         @media (max-width: 768px) {
-            .product-hero { padding: 40px 20px; }
+            .product-hero { padding: 60px 20px; } /* UPDATED: Mobile hero padding */
             .product-hero h1 { font-size: 2.2rem; }
             .product-hero p { font-size: 1rem; }
             .product-hero-buttons { flex-direction: column; gap: 10px; }
             .product-features-section { padding: 40px 20px; }
             .section-header h2 { font-size: 1.8rem; }
             .product-layout-grid { grid-template-columns: 1fr; gap: 30px; }
-            .product-image-viewer { position: relative; top: 0; height: 300px; order: -1; }
-            .certification-section { padding: 0 20px 40px 20px; }
+            .product-image-viewer { position: relative; top: 0; height: 350px; order: -1; } /* UPDATED: Mobile image height */
+            .certification-section { padding: 0 20px 30px 20px; } /* UPDATED: Mobile cert padding */
             .certification-box { padding: 40px 30px; }
             .certification-box-header { margin-bottom: 30px; }
             .certification-box-header h2 { font-size: 1.7rem; }

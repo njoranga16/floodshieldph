@@ -87,6 +87,61 @@ a {
     color: var(--background-light);
 }
 
+/* --- Navigation Dropdown Styles --- */
+.nav-item {
+    position: relative; /* Needed for absolute positioning of dropdown */
+}
+.nav-dropdown {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position below the parent link */
+    left: 0;
+    background-color: var(--background-light);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: var(--corner-radius-small);
+    padding: 10px 0; /* Vertical padding for the dropdown box */
+    z-index: 1001; /* Ensure it's above other content */
+    min-width: 160px; /* Minimum width */
+    border: 1px solid var(--border-light);
+}
+/* Show dropdown on hover of the parent .nav-item */
+.nav-item:hover .nav-dropdown {
+    display: block;
+}
+.nav-dropdown a {
+    display: block; /* Make links full width */
+    padding: 8px 20px; /* Padding for each dropdown item */
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    white-space: nowrap; /* Prevent wrapping */
+}
+.nav-dropdown a:hover { 
+    background-color: var(--background-offset); 
+    color: var(--primary-blue);
+}
+/* Style for the main link that triggers the dropdown */
+.nav-item > a {
+    display: flex;
+    align-items: center;
+    gap: 4px; /* Space between text and arrow */
+}
+.nav-item > a::after { /* Adjust underline position for dropdown link */
+     bottom: 6px; /* Raise underline slightly if needed */
+}
+.dropdown-arrow { /* Simple arrow */
+    display: inline-block; /* Needed for transform */
+    font-size: 0.9em; /* Slightly larger for > */
+    font-weight: 600; /* Bolder */
+    margin-left: 4px; /* More space */
+    transition: transform 0.3s ease;
+    transform: rotate(90deg); /* Start pointing down */
+}
+/* Rotate arrow on hover */
+ .nav-item:hover .dropdown-arrow {
+    transform: rotate(-90deg); /* Point up on hover */
+}
+
+
 /* --- UNIFIED HERO BOX SECTION --- */
 .hero-section-wrapper {
     display: flex;
@@ -737,11 +792,11 @@ main > section {
         z-index: 1000;
         inset: 0 0 0 30%;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: min(20vh, 10rem) 2em;
-        gap: 2em;
-        background: hsla(0, 0%, 100%, 0.9);
+        align-items: flex-start; /* Align mobile items left */
+        justify-content: flex-start; /* Align mobile items top */
+        padding: 6rem 2em 2em; /* Added padding top */
+        gap: 1.5em; /* Adjusted gap */
+        background: hsla(0, 0%, 100%, 0.95); /* Slightly less transparent */
         backdrop-filter: blur(1rem);
         transform: translateX(100%);
         transition: transform 350ms ease-out;
@@ -763,4 +818,37 @@ main > section {
         height: 100%;
     }
 
+    /* Mobile Dropdown Styles */
+    .nav-item:hover .nav-dropdown {
+        display: none; /* Hide hover effect on mobile */
+    }
+    .nav-item .nav-dropdown {
+        position: static; /* Remove absolute positioning */
+        box-shadow: none;
+        border: none;
+        padding: 0 0 0 20px; /* Indent dropdown items */
+        margin-top: 10px; /* Space above dropdown */
+        max-height: 0; /* Hidden by default */
+        overflow: hidden;
+        transition: max-height 0.3s ease-out; /* Smooth toggle */
+         min-width: unset;
+         background: transparent; /* Match mobile nav background */
+    }
+    /* Style for when dropdown is open */
+    .nav-item.open .nav-dropdown {
+         max-height: 200px; /* Or enough height to show your items */
+         display: block; /* Ensure it's block */
+    }
+    .nav-item > a { /* Adjust padding for mobile */
+         padding: 8px 0; 
+    }
+     .nav-dropdown a { padding: 8px 0; }
+     .nav-item > a::after { display: none; } /* Remove underlines in mobile nav */
+    
+    /* Rotate arrow on mobile when open */
+     .nav-item.open .dropdown-arrow {
+         transform: rotate(-90deg); /* Point up when open */
+     }
+
 }
+

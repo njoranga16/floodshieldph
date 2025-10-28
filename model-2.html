@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Flood Barrier Products - FloodShield Philippines</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://placehold.co/32x32/00167A/FFFFFF?text=FS">
+
+    <style>
+        /* --- ALL STYLES NOW EMBEDDED --- */
+        :root {
+            --primary-blue: #00167A;
+            --secondary-blue: #1B2A6D;
+            --accent-gray: #C0C0C0;
+            --text-dark: #000000;
+            --text-light: #6b7280;
+            --background-light: #FFFFFF;
+            --background-offset: #f9fafb;
+            --border-light: #e5e7eb;
+            --font-primary: 'Montserrat', sans-serif;
+            --max-width: 1200px;
+            --corner-radius-large: 15px;
+            --corner-radius-small: 6px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-primary);
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: color 0.2s, background-color 0.2s;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* --- HEADER --- */
+        .clean-header {
+            background-color: var(--background-light);
+            border-bottom: 1px solid var(--border-light);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        .logo img { height: 60px; display: block; }
+        .nav-links { display: flex; gap: 10px; align-items: center; }
+        .nav-links a { 
+            font-size: 0.95rem; 
+            font-weight: 500; 
+            padding: 8px 16px;
+            border-radius: var(--corner-radius-small);
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:not(.header-button)::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: calc(100% - 32px);
+            height: 2px;
+            background-color: var(--primary-blue);
+            transform: translateX(-50%) scaleX(0);
+            transform-origin: center;
+            transition: transform 0.3s ease;
+        }
+        .nav-links a:not(.header-button):hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+        .header-container .header-button {
+            border: 1px solid var(--primary-blue);
+            background-color: var(--background-light);
+            color: var(--primary-blue);
+            padding: 8px 18px;
+            border-radius: var(--corner-radius-small);
+            font-weight: 600;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .header-container .header-button:hover { 
+            background-color: var(--primary-blue);
+            color: var(--background-light);
+        }
+
+        /* --- FOOTER --- */
+        .site-footer {
+            background-color: var(--background-light);
+            color: var(--text-light);
+            padding: 60px 30px;
+            border-top: 1px solid var(--border-light);
+        }
+        .footer-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        .footer-columns {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            text-align: left;
+            gap: 40px;
+        }
+        .footer-logo-col img {
+            height: 50px;
+            margin-bottom: 15px;
+        }
+        .footer-logo-col .copyright-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding-top: 0;
+            border-top: none;
+            text-align: left;
+        }
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .footer-nav a {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .footer-nav a:hover {
+            color: var(--primary-blue);
+        }
+        .footer-contact p {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        .footer-contact a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-contact a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* --- Mobile Nav Toggle --- */
+        .mobile-nav-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 9999;
+        }
+        .mobile-nav-toggle .icon-hamburger { display: block; }
+        .mobile-nav-toggle .icon-close { display: none; }
+        .mobile-nav-toggle[aria-expanded="true"] .icon-hamburger { display: none; }
+        .mobile-nav-toggle[aria-expanded="true"] .icon-close { display: block; }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* --- Base Responsiveness --- */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 15px;
+            }
+            .logo img { height: 40px; }
+            .footer-columns {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .footer-logo-col { order: 1; }
+            .footer-contact-col { order: 2; }
+            .footer-nav-col { display: none; }
+             .footer-logo-col .copyright-text, .footer-columns .footer-column h4{
+                text-align: center;
+            }
+            .nav-links {
+                position: fixed;
+                z-index: 1000;
+                inset: 0 0 0 30%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: min(20vh, 10rem) 2em;
+                gap: 2em;
+                background: hsla(0, 0%, 100%, 0.9);
+                backdrop-filter: blur(1rem);
+                transform: translateX(100%);
+                transition: transform 350ms ease-out;
+            }
+            .nav-links[data-visible="true"] {
+                transform: translateX(0%);
+            }
+            .mobile-nav-toggle {
+                display: block;
+                position: relative;
+                width: 2rem;
+                height: 2rem;
+                color: var(--text-dark);
+            }
+             .mobile-nav-toggle svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        /* ==============================================
+        STYLES FOR PRODUCTS.HTML
+        ==============================================
+        */
+
+        /* Product Hero Section */
+        .product-hero {
+            padding: 80px 30px;
+            background-color: var(--background-offset);
+            text-align: center;
+        }
+        .product-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--secondary-blue);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .product-hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+        .product-hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: var(--corner-radius-small);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: var(--background-light);
+        }
+        .btn-primary:hover {
+            background-color: var(--secondary-blue);
+        }
+        .btn-secondary {
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            border-color: var(--border-light);
+        }
+        .btn-secondary:hover {
+            background-color: var(--background-offset);
+            border-color: var(--accent-gray);
+        }
+
+        /* --- Section Header Utility Styles --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-subtitle {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+        .section-subtitle::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--primary-blue);
+            margin-right: 10px;
+        }
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--secondary-blue);
+        }
+
+        /* --- Expanding Features List Section --- */
+        .product-features-section {
+            padding: 80px 30px;
+            background-color: var(--background-light);
+        }
+        
+        .product-layout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: flex-start; /* Align lists to the top */
+        }
+
+        .product-features-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-feature-item {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .product-features-list .product-feature-item:first-child {
+            border-top: 1px solid var(--border-light);
+        }
+
+        .feature-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .product-feature-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: color 0.3s ease;
+        }
+        
+        .product-feature-item ul {
+            color: var(--text-light);
+            line-height: 1.7;
+            display: none; /* Hidden by default */
+            margin: 0;
+            padding-top: 15px;
+            padding-left: 52px; /* Aligns with text, past the icon */
+            list-style-type: disc;
+        }
+        
+        .product-feature-item p {
+            color: var(--text-light);
+            line-height: 1.7;
+            display: none; /* Hidden by default */
+            margin: 0;
+            padding-top: 15px;
+            padding-left: 32px; /* Aligns with text, past the icon */
+        }
+
+        /* Active State */
+        .product-feature-item.active .feature-heading h3 {
+             color: var(--primary-blue);
+        }
+        
+        .product-feature-item.active .feature-heading .feature-icon-svg {
+            color: var(--primary-blue);
+        }
+
+        .product-feature-item.active p,
+        .product-feature-item.active ul {
+            display: block; /* Show description when active */
+        }
+
+        /* Image Viewer */
+        .product-image-viewer {
+            position: sticky;
+            top: 120px; /* (Header height + padding) */
+            border-radius: var(--corner-radius-large);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: 500px;
+            width: 100%; 
+        }
+
+        #product-display-image-components {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+
+        /* --- Certification Box Styles --- */
+        .certification-section {
+            padding: 0 30px 80px 30px; /* Padding bottom only */
+            background-color: var(--background-light); /* No alt bg */
+        }
+        .certification-box {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: var(--background-offset); /* Gray box */
+            border-radius: var(--corner-radius-large);
+            padding: 50px 60px;
+            border: 1px solid var(--border-light);
+        }
+        .certification-box-header {
+            margin-bottom: 40px;
+        }
+        .certification-box-header h2 {
+            font-size: 2.0rem;
+            font-weight: 700; /* Reduced */
+            color: var(--secondary-blue);
+            line-height: 1.3;
+            text-align: left; /* Aligned left */
+            margin-bottom: 0;
+        }
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .certification-item h3 {
+            font-size: 1.8rem;
+            font-weight: 700; /* Reduced */
+            color: var(--primary-blue); /* Changed to blue */
+            margin-bottom: 10px; /* Reduced space */
+            text-align: left;
+        }
+        .certification-item ul {
+            list-style-type: disc;
+            padding-left: 20px; /* Aligned left */
+            margin: 0;
+            text-align: left;
+        }
+        .certification-item li {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 3px;
+            line-height: 1.4;
+        }
+
+        /* --- Final CTA Section Styles --- */
+        .final-cta-section {
+            padding: 100px 30px;
+            position: relative;
+            text-align: center;
+            color: var(--background-light);
+            
+            /* BACKGROUND IMAGE PLACEHOLDER: 
+               Replace this URL with your actual image path. 
+               Using a dark placeholder here. 
+            */
+            background-image: url('https://placehold.co/1200x400/333333/333333?text=Your+Background+Image');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Optional: Adds a nice parallax effect */
+        }
+        
+        /* This overlay darkens the image so the white text is readable */
+        .final-cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            z-index: 1;
+        }
+        
+        /* This holds the content and places it above the overlay */
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .final-cta-content h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--background-light); /* Ensure text is white */
+        }
+        .final-cta-content p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
+
+        /* Style for the white button (re-used) */
+        .btn-primary-white {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: var(--corner-radius-small);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            background-color: var(--background-light);
+            color: var(--primary-blue);
+        }
+        .btn-primary-white:hover {
+            background-color: #f0f0f0; 
+            color: var(--secondary-blue);
+        }
+
+
+        /* --- Responsiveness for new layout --- */
+        @media (max-width: 992px) {
+            /* (No carousel styles needed) */
+        }
+        @media (max-width: 768px) {
+            .product-hero {
+                padding: 40px 20px;
+            }
+            .product-hero h1 {
+                font-size: 2.2rem;
+            }
+            .product-hero p {
+                font-size: 1rem;
+            }
+            .product-hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            /* --- Responsive rules for expanding list --- */
+            .product-features-section {
+                padding: 40px 20px;
+            }
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            .product-layout-grid {
+                grid-template-columns: 1fr; /* Stack columns on mobile */
+                gap: 30px;
+            }
+            .product-image-viewer {
+                position: relative;
+                top: 0;
+                height: 300px; /* Shorter image on mobile */
+                order: -1; /* Show image *before* the list on mobile */
+            }
+
+            /* --- Certification Box Responsive --- */
+            .certification-section {
+                padding: 0 20px 40px 20px;
+            }
+            .certification-box {
+                padding: 40px 30px;
+            }
+            .certification-box-header {
+                margin-bottom: 30px;
+            }
+            .certification-box-header h2 {
+                font-size: 1.7rem; /* Adjusted mobile size */
+            }
+            .certifications-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            /* --- CTA Responsive --- */
+            .final-cta-section {
+                padding: 60px 20px;
+            }
+            .final-cta-content h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="website-content">
+        <header class="clean-header">
+            <div class="header-container">
+                <div class="logo">
+                     <!-- FIXED: Link to homepage -->
+                    <a href="index.html"><img src="https://placehold.co/200x70/00167A/FFFFFF?text=FloodShield" alt="FloodShield PH Logo"></a>
+                </div>
+                <!-- Hamburger Menu Button -->
+                <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+                    <span class="sr-only">Menu</span>
+                    <svg class="icon-hamburger" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <nav class="nav-links" id="primary-navigation">
+                    <!-- FIXED: Links to homepage sections -->
+                    <a href="index.html#home">Home</a>
+                    <a href="index.html#projects">Our Projects</a>
+                    <a href="index.html#barriers">Our Technology</a>
+                    <a href="index.html#process">Our Process</a>
+                    <a href="index.html#consultation" class="header-button">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+
+            <!-- Product Hero Section -->
+            <section class="product-hero">
+                <h1>Floodshield Model 2</h1>
+                <p>
+                    Meet the flagship of flood protection. The Floodshield Model 2 is our FM Approved, fully-engineered flood barrier system, setting the standard for flood control in the Philippines. Ideal for residential, commercial, and industrial properties, it delivers internationally certified performance and peace of mind against rising waters.
+                </p>
+                <div class="product-hero-buttons">
+                    <a href="index.html#consultation" class="btn btn-primary">Request an Assessment</a>
+                    <a href="#product-features" class="btn btn-secondary">Explore Features</a>
+                </div>
+            </section>
+
+            <!-- Expanding Features Section 1 -->
+            <section class="product-features-section" id="product-features">
+                <div class="container">
+                    <div class="section-header">
+                        <p class="section-subtitle">Our Technology</p>
+                        <h2>System Components</h2>
+                    </div>
+
+                    <div class="product-layout-grid">
+                        
+                        <!-- Left Column: Clickable Features -->
+                        <div class="product-features-list product-features-list-components">
+                            
+                            <!-- Feature 1: Set as active by default -->
+                            <div class="product-feature-item active" data-image="https://placehold.co/600x500/e0e0e0/333?text=Water+Panels">
+                                <div class="feature-heading">
+                                    <h3>
+                                        <svg class="feature-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13.5V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-9.5"/><path d="M14 2v4a2 2 0 0 1-2 2H4"/><path d="M3 10h10"/></svg>
+                                        Water Panels
+                                    </h3>
+                                    <span class="feature-number">01</span>
+                                </div>
+                                <p>Built from T5 High-Grade Aluminum Alloy with 6 lateral reinforcement layers to withstand high water pressure. Each panel is sealed with EPDM rubber, known for its 10+ year durability.</p>
+                            </div>
+
+                            <!-- Feature 2 -->
+                            <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Base+Plate">
+                                <div class="feature-heading">
+                                    <h3>
+                                        <svg class="feature-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 22V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v16"/><path d="M4 22h16"/></svg>
+                                        Base Plate
+                                    </h3>
+                                    <span class="feature-number">02</span>
+                                </div>
+                                <ul>
+                                    <li>Flat & Flush Base Plate – Sits level with the ground to ensure a seamless fit and eliminate tripping hazards.</li>
+                                    <li>80-Ton Load Capacity – Withstands extreme pressure without bending—ideal for driveways.</li>
+                                    <li>304 Stainless Steel Construction – Rust-proof and built for long-term durability.</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Feature 3 -->
+                             <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Tightening+Mechanism">
+                                <div class="feature-heading">
+                                    <h3>
+                                        <svg class="feature-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 8 8.7 5 8.7-5"/><path d="M12 22V13"/></svg>
+                                        Patented Tightening Mechanism
+                                    </h3>
+                                    <span class="feature-number">03</span>
+                                </div>
+                                <ul>
+                                    <li>Single Twist-and-Lock (per 1 meter) secures panels in one motion.</li>
+                                    <li>No manual tightening per panel, no protruding knobs, and no loose parts.</li>
+                                    <li>Fast, clean, and reliable flood protection for effortless deployment.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Feature 4 -->
+                            <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Back+Supports">
+                                <div class="feature-heading">
+                                    <h3>
+                                        <svg class="feature-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/></svg>
+                                        Patented Adjustable Back Supports
+                                    </h3>
+                                    <span class="feature-number">04</span>
+                                </div>
+                                <ul>
+                                    <li>Crafted from T5 High-Grade Aluminum and 304 Stainless Steel.</li>
+                                    <li>Adjustable supports enable a quick, hassle-free setup for emergency readiness.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Feature 5 -->
+                            <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Ceiling+Supports">
+                                <div class="feature-heading">
+                                    <h3>
+                                        <svg class="feature-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V18"/><path d="M12 6V2"/><path d="M12 14v-4"/><path d="M20 12h-4"/><path d="M8 12H4"/><path d="M18 18.66a8 8 0 1 1-12 0"/><path d="M18 5.34a8 8 0 1 0-12 0"/></svg>
+                                        Ceiling Supports
+                                    </h3>
+                                    <span class="feature-number">05</span>
+                                </div>
+                                <ul>
+                                    <li>An industry exclusive, ideal for parking zones and low-clearance doorways.</li>
+                                    <li>Keeps walkways clear and unobstructed, optimized for space-constrained environments.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Feature 6 -->
+                            <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Covered+Side+Posts">
+                                <div class="feature-heading">
+                                    <h3>
+                                        <svg class="feature-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5M12 7V2M5 12H2M22 12h-3"/><path d="M17 17H7v-5h10v5z"/><path d="M22 17H2V7h20v10z"/></svg>
+                                        Covered Side Posts
+                                    </h3>
+                                    <span class="feature-number">06</span>
+                                </div>
+                                <ul>
+                                    <li>Exclusive to FloodShield, these protective covers offer added safety and a clean, professional finish.</li>
+                                    <li>Rust-proof and built for tropical durability in coastal environments.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Feature 7 -->
+                             <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Storage+Rack+Panels">
+                                <div class="feature-heading">
+                                    <h3>
+                                        <svg class="feature-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10H4v8h16v-8Z"/><path d="M20 18v2H4v-2"/><path d="M20 6V4H4v2"/></svg>
+                                        Storage Rack for Panels
+                                    </h3>
+                                    <span class="feature-number">07</span>
+                                </div>
+                                <p>Keep panels organized and ready with vertical or horizontal storage racks—designed for safe keeping, quick access, and zero panic during emergencies.</p>
+                            </div>
+                            
+                            <!-- Feature 8 -->
+                             <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Storage+Rack+Supports">
+                                <div class="feature-heading">
+                                    <h3>
+                                        <svg class="feature-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M8 6V4"/><path d="M16 6V4"/><path d="M12 10v4"/><path d="M12 18v-2"/></svg>
+                                        Storage Rack for Supports
+                                    </h3>
+                                    <span class="feature-number">08</span>
+                                </div>
+                                <p>Secure your panels with durable back supports that store upright, preventing loss or damage and ensuring fast deployment when floods strike.</p>
+                            </div>
+
+                        </div>
+
+                        <!-- Right Column: Sticky Image -->
+                        <div class="product-image-viewer">
+                            <img src="https://placehold.co/600x500/e0e0e0/333?text=Water+Panels" alt="Core product feature" id="product-display-image-components">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Certification Box Section -->
+            <section class="certification-section" id="certifications">
+                <div class="container">
+                    <div class="certification-box">
+                        <div class="certification-box-header">
+                            <h2>Internationally-Certified Flood Protection Technology</h2>
+                        </div>
+                        <div class="certifications-grid">
+                            <div class="certification-item">
+                                <h3>FM Approved & ISO Certified</h3>
+                                <ul>
+                                    <li>Designed and rigorously tested to meet international standards.</li>
+                                    <li>Certified with FM test reports, ensuring reliability and durability.</li>
+                                    <li>Proven to withstand high water pressure for enhanced protection.</li>
+                                    <li>Maintains zero leakage, providing maximum security during floods.</li>
+                                    <li>Ideal for safeguarding properties against water damage in critical environments.</li>
+                                </ul>
+                            </div>
+                            <div class="certification-item">
+                                <h3>International Patent</h3>
+                                <ul>
+                                    <li>FloodShield's adjustable back support and tightening mechanism are patented across the USA, EU, Japan, Taiwan, China, Malaysia, Thailand, and Indonesia.</li>
+                                    <li>Unique adjustable system ensures rapid setup and easy installation.</li>
+                                    <li>Differentiates FloodShield from other brands with proven international patents.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final CTA Section -->
+            <section class="final-cta-section" id="consultation-product">
+                <div class="final-cta-content">
+                    <h2>Ready for Complete Flood Protection?</h2>
+                    <p>Contact our team today for a free on-site assessment and quote.</p>
+                    <a href="index.html#consultation" class="btn btn-primary-white">Request an Assessment</a>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-columns">
+                    <div class="footer-column footer-logo-col">
+                        <!-- FIXED: Link to homepage -->
+                        <a href="index.html"><img src="https://placehold.co/200x70/00167A/FFFFFF?text=FloodShield" alt="FloodShield PH Logo"></a>
+                         <div class="copyright-text">
+                            &copy; Floodshield Philippines, Banfu Corporation 2025
+                        </div>
+                    </div>
+                    <div class="footer-column footer-nav-col">
+                        <h4>Navigation</h4>
+                        <nav class="footer-nav">
+                            <!-- FIXED: Links to homepage sections -->
+                            <a href="index.html#home">Home</a>
+                            <a href="index.html#projects">Our Projects</a>
+                            <a href="index.html#barriers">Our Technology</a>
+                            <a href="index.html#process">Our Process</a>
+                        </nav>
+                    </div>
+                    <div class="footer-column footer-contact-col">
+                        <h4>Contact Us</h4>
+                        <div class="footer-contact">
+                            <p>Valenzuela City, Metro Manila, Philippines</p>
+                            <p><a href="mailto:floodshieldph@gmail.com">floodshieldph@gmail.com</a></p>
+                            <p>0962 728 6363</p>
+                            <p>0917 535 4292</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Page JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Mobile Navigation Toggle ---
+            const primaryNav = document.querySelector('#primary-navigation');
+            const navToggle = document.querySelector('.mobile-nav-toggle');
+
+            if (navToggle && primaryNav) {
+                navToggle.addEventListener('click', () => {
+                    const isVisible = primaryNav.getAttribute('data-visible') === 'true';
+                    primaryNav.setAttribute('data-visible', !isVisible);
+                    navToggle.setAttribute('aria-expanded', !isVisible);
+                });
+            }
+            
+            // --- Expanding Features List Script ---
+            // Call for the first section
+            initExpandingFeatures('.product-features-list-components', 'product-display-image-components');
+            
+            // --- Expanding Features Function (now parameterized) ---
+            function initExpandingFeatures(listSelector, imageId) {
+                const featuresList = document.querySelector(listSelector);
+                if (!featuresList) return; // Don't run if the section isn't here
+
+                const featureItems = featuresList.querySelectorAll('.product-feature-item');
+                const displayImage = document.getElementById(imageId);
+
+                if (featureItems.length > 0 && displayImage) {
+                    
+                    // Set default image for the section
+                    const defaultItem = featuresList.querySelector('.product-feature-item.active');
+                    if (defaultItem) {
+                        displayImage.src = defaultItem.dataset.image;
+                    }
+
+                    featuresList.addEventListener('click', e => {
+                        const clickedItem = e.target.closest('.product-feature-item');
+                        if (!clickedItem) return; // Didn't click an item
+                        if (clickedItem.classList.contains('active')) return; // Don't re-animate if already active
+
+                        // Get new image path from data attribute
+                        const newImage = clickedItem.dataset.image;
+
+                        // Remove active class from all items *within this list*
+                        featureItems.forEach(item => {
+                            item.classList.remove('active');
+                        });
+                        
+                        // Add active class to the clicked one
+                        clickedItem.classList.add('active');
+
+                        // Change image with fade effect
+                        displayImage.style.opacity = 0;
+                        setTimeout(() => {
+                            displayImage.src = newImage;
+                            displayImage.style.opacity = 1;
+                        }, 300); // Wait for the fade-out
+                    });
+                }
+            }
+
+        });
+    </script>
+</body>
+</html>
+

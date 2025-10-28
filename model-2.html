@@ -413,7 +413,7 @@
         }
 
         .product-feature-item {
-            padding: 24px 0;
+            padding: 18px 0; /* Made this tighter, was 24px */
             border-bottom: 1px solid var(--border-light);
             cursor: pointer;
             transition: all 0.3s ease;
@@ -464,13 +464,17 @@
              color: var(--primary-blue);
         }
         
-        .product-feature-item.active .feature-heading .feature-icon-svg {
-            color: var(--primary-blue);
-        }
+        /* REMOVED active state for .feature-icon-svg */
 
         .product-feature-item.active p,
         .product-feature-item.active ul {
             display: block; 
+        }
+
+        /* NEW CSS for image icons */
+        .feature-heading .feature-icon-img {
+            width: 24px;
+            height: 24px;
         }
 
         /* Image Viewer */
@@ -657,7 +661,8 @@
                     Meet the flagship of flood protection. The Floodshield Model 2 is our FM Approved, fully-engineered flood barrier system, setting the standard for flood control in the Philippines. Ideal for residential, commercial, and industrial properties, it delivers internationally certified performance and peace of mind against rising waters.
                 </p>
                 <div class="product-hero-buttons">
-                    <a href="index.html#consultation" class="btn btn-primary">Request an Assessment</a>
+                    <!-- UPDATED CTA LINK -->
+                    <a href="mailto:floodshieldph@gmail.com" class="btn btn-primary">Request an Assessment</a>
                     <a href="#product-features" class="btn btn-secondary">Explore Features</a>
                 </div>
             </section>
@@ -666,8 +671,8 @@
             <section class="product-features-section" id="product-features">
                 <div class="container">
                     <div class="section-header">
-                        <p class="section-subtitle">Our Technology</p>
-                        <h2>System Components</h2>
+                        <p class="section-subtitle">System Components</p>
+                        <h2>FloodShield Model 2 Features</h2>
                     </div>
 
                     <div class="product-layout-grid">
@@ -675,11 +680,12 @@
                         <!-- Left Column: Clickable Features -->
                         <div class="product-features-list product-features-list-components">
                             
-                            <!-- Feature 1: Set as active by default -->
-                            <div class="product-feature-item active" data-image="https://placehold.co/600x500/e0e0e0/333?text=Water+Panels">
+                            <!-- Feature 1: Removed "active" class -->
+                            <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Water+Panels">
                                 <div class="feature-heading">
                                     <h3>
-                                        <svg class="feature-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13.5V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-9.5"/><path d="M14 2v4a2 2 0 0 1-2 2H4"/><path d="M3 10h10"/></svg>
+                                        <!-- UPDATED: Replaced SVG with IMG -->
+                                        <img class="feature-icon-img" src="assets/images/icon-panels.svg" alt="Water Panels Icon">
                                         Water Panels
                                     </h3>
                                     <span class="feature-number">01</span>
@@ -691,7 +697,8 @@
                             <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Base+Plate">
                                 <div class="feature-heading">
                                     <h3>
-                                        <svg class="feature-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 22V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v16"/><path d="M4 22h16"/></svg>
+                                        <!-- UPDATED: Replaced SVG with IMG -->
+                                        <img class="feature-icon-img" src="assets/images/icon-base-plate.svg" alt="Base Plate Icon">
                                         Base Plate
                                     </h3>
                                     <span class="feature-number">02</span>
@@ -707,7 +714,8 @@
                              <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Tightening+Mechanism">
                                 <div class="feature-heading">
                                     <h3>
-                                        <svg class="feature-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 8 8.7 5 8.7-5"/><path d="M12 22V13"/></svg>
+                                        <!-- UPDATED: Replaced SVG with IMG -->
+                                        <img class="feature-icon-img" src="assets/images/icon-mechanism.svg" alt="Tightening Mechanism Icon">
                                         Patented Tightening Mechanism
                                     </h3>
                                     <span class="feature-number">03</span>
@@ -723,7 +731,8 @@
                             <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Back+Supports">
                                 <div class="feature-heading">
                                     <h3>
-                                        <svg class="feature-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/></svg>
+                                        <!-- UPDATED: Replaced SVG with IMG -->
+                                        <img class="feature-icon-img" src="assets/images/icon-back-support.svg" alt="Back Supports Icon">
                                         Patented Adjustable Back Supports
                                     </h3>
                                     <span class="feature-number">04</span>
@@ -738,7 +747,8 @@
                             <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Ceiling+Supports">
                                 <div class="feature-heading">
                                     <h3>
-                                        <svg class="feature-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V18"/><path d="M12 6V2"/><path d="M12 14v-4"/><path d="M20 12h-4"/><path d="M8 12H4"/><path d="M18 18.66a8 8 0 1 1-12 0"/><path d="M18 5.34a8 8 0 1 0-12 0"/></svg>
+                                        <!-- UPDATED: Replaced SVG with IMG -->
+                                        <img class="feature-icon-img" src="assets/images/icon-ceiling-support.svg" alt="Ceiling Supports Icon">
                                         Ceiling Supports
                                     </h3>
                                     <span class="feature-number">05</span>
@@ -753,7 +763,8 @@
                             <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Covered+Side+Posts">
                                 <div class="feature-heading">
                                     <h3>
-                                        <svg class="feature-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5M12 7V2M5 12H2M22 12h-3"/><path d="M17 17H7v-5h10v5z"/><path d="M22 17H2V7h20v10z"/></svg>
+                                        <!-- UPDATED: Replaced SVG with IMG -->
+                                        <img class="feature-icon-img" src="assets/images/icon-side-post.svg" alt="Side Posts Icon">
                                         Covered Side Posts
                                     </h3>
                                     <span class="feature-number">06</span>
@@ -768,7 +779,8 @@
                              <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Storage+Rack+Panels">
                                 <div class="feature-heading">
                                     <h3>
-                                        <svg class="feature-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10H4v8h16v-8Z"/><path d="M20 18v2H4v-2"/><path d="M20 6V4H4v2"/></svg>
+                                        <!-- UPDATED: Replaced SVG with IMG -->
+                                        <img class="feature-icon-img" src="assets/images/icon-rack-panels.svg" alt="Panel Storage Rack Icon">
                                         Storage Rack for Panels
                                     </h3>
                                     <span class="feature-number">07</span>
@@ -780,7 +792,8 @@
                              <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Storage+Rack+Supports">
                                 <div class="feature-heading">
                                     <h3>
-                                        <svg class="feature-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M8 6V4"/><path d="M16 6V4"/><path d="M12 10v4"/><path d="M12 18v-2"/></svg>
+                                        <!-- UPDATED: Replaced SVG with IMG -->
+                                        <img class="feature-icon-img" src="assets/images/icon-rack-supports.svg" alt="Support Storage Rack Icon">
                                         Storage Rack for Supports
                                     </h3>
                                     <span class="feature-number">08</span>
@@ -792,7 +805,8 @@
 
                         <!-- Right Column: Sticky Image -->
                         <div class="product-image-viewer">
-                            <img src="https://placehold.co/600x500/e0e0e0/333?text=Water+Panels" alt="Core product feature" id="product-display-image-components">
+                            <!-- Updated placeholder text -->
+                            <img src="https://placehold.co/600x500/e0e0e0/333?text=Select+a+feature" alt="Core product feature" id="product-display-image-components">
                         </div>
                     </div>
                 </div>
@@ -834,6 +848,7 @@
                 <div class="final-cta-content">
                     <h2>Ready for Complete Flood Protection?</h2>
                     <p>Contact our team today for a free on-site assessment and quote.</p>
+                    <!-- UPDATED CTA LINK -->
                     <a href="mailto:floodshieldph@gmail.com" class="btn btn-primary-white">Request an Assessment</a>
                 </div>
             </section>
@@ -921,32 +936,40 @@
 
                 const featureItems = featuresList.querySelectorAll('.product-feature-item');
                 const displayImage = document.getElementById(imageId);
+                const defaultImageSrc = 'https://placehold.co/600x500/e0e0e0/333?text=Select+a+feature'; // Define default
 
                 if (featureItems.length > 0 && displayImage) {
                     
-                    const defaultItem = featuresList.querySelector('.product-feature-item.active');
-                    if (defaultItem) {
-                        displayImage.src = defaultItem.dataset.image;
-                    }
+                    // No default active item, starts closed.
 
                     featuresList.addEventListener('click', e => {
                         const clickedItem = e.target.closest('.product-feature-item');
                         if (!clickedItem) return; 
-                        if (clickedItem.classList.contains('active')) return; 
 
+                        const wasActive = clickedItem.classList.contains('active');
                         const newImage = clickedItem.dataset.image;
 
+                        // Remove active from all items
                         featureItems.forEach(item => {
                             item.classList.remove('active');
                         });
                         
-                        clickedItem.classList.add('active');
-
-                        displayImage.style.opacity = 0;
-                        setTimeout(() => {
-                            displayImage.src = newImage;
-                            displayImage.style.opacity = 1;
-                        }, 300); 
+                        // If it wasn't active, make it active and show its image
+                        if (!wasActive) {
+                            clickedItem.classList.add('active');
+                            displayImage.style.opacity = 0;
+                            setTimeout(() => {
+                                displayImage.src = newImage;
+                                displayImage.style.opacity = 1;
+                            }, 300);
+                        } else {
+                            // If it *was* active, it's now closed. Reset to default image.
+                            displayImage.style.opacity = 0;
+                            setTimeout(() => {
+                                displayImage.src = defaultImageSrc;
+                                displayImage.style.opacity = 1;
+                            }, 300);
+                        }
                     });
                 }
             }
@@ -955,3 +978,4 @@
     </script>
 </body>
 </html>
+

@@ -9,6 +9,30 @@
     <link rel="icon" type="image/png" href="assets/images/Logo-only.png">
     <!-- Link to your external stylesheet -->
     <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "FloodShield Philippines",
+      "image": "https://www.floodshieldph.com/assets/images/Combined-logo.png", 
+      "url": "https://www.floodshieldph.com/", 
+      "telephone": "+63 917 535 4292",
+      "email": "floodshieldph@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Valenzuela City",
+        "addressRegion": "Metro Manila",
+        "addressCountry": "PH"
+      },
+      "description": "FloodShield Philippines provides high-quality, demountable flood barriers and flood control solutions. Specializing in flood protection projects across the Philippines.",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    }
+    </script>
 </head>
 <body>
     <div id="website-content">
@@ -26,7 +50,14 @@
                 <nav class="nav-links" id="primary-navigation">
                     <a href="#home">Home</a>
                     <a href="#projects">Our Projects</a>
-                    <a href="#barriers">Our Technology</a>
+                    <div class="nav-item">
+                         <!-- UPDATED: Replaced arrow -->
+                        <a href="#technology" class="dropdown-toggle">Our Technology <span class="dropdown-arrow">&gt;</span></a>
+                        <div class="nav-dropdown">
+                            <a href="model-2.html">Model 2</a>
+                            <!-- Add other product links here if needed -->
+                        </div>
+                    </div>
                     <a href="#process">Our Process</a>
                     <a href="#consultation" class="header-button">Contact</a>
                 </nav>
@@ -221,43 +252,67 @@
         </footer>
     </div>
 
+    <!-- Page JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            
             // --- Mobile Navigation Toggle ---
             const primaryNav = document.querySelector('#primary-navigation');
             const navToggle = document.querySelector('.mobile-nav-toggle');
 
-            navToggle.addEventListener('click', () => {
-                const isVisible = primaryNav.getAttribute('data-visible');
-                if (isVisible === 'true') {
-                    primaryNav.setAttribute('data-visible', 'false');
-                    navToggle.setAttribute('aria-expanded', 'false');
-                } else {
-                    primaryNav.setAttribute('data-visible', 'true');
-                    navToggle.setAttribute('aria-expanded', 'true');
-                }
+            if (navToggle && primaryNav) {
+                navToggle.addEventListener('click', () => {
+                    const isVisible = primaryNav.getAttribute('data-visible') === 'true';
+                    primaryNav.setAttribute('data-visible', !isVisible);
+                    navToggle.setAttribute('aria-expanded', !isVisible);
+
+                    // --- NEW: Mobile Dropdown Toggle Logic ---
+                    const dropdownToggles = primaryNav.querySelectorAll('.dropdown-toggle');
+                    dropdownToggles.forEach(toggle => {
+                        // Close any open dropdowns when main nav toggles
+                        const parentNavItem = toggle.closest('.nav-item');
+                        if (parentNavItem) {
+                            parentNavItem.classList.remove('open');
+                        }
+                    });
+                });
+            }
+
+             // --- NEW: Mobile Dropdown Click ---
+            const dropdownToggles = document.querySelectorAll('#primary-navigation .dropdown-toggle');
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', (e) => {
+                    // Only prevent default and toggle if in mobile view
+                    if (window.innerWidth <= 768) { 
+                        e.preventDefault(); // Prevent navigating to #barriers
+                        const parentNavItem = toggle.closest('.nav-item');
+                        if (parentNavItem) {
+                            parentNavItem.classList.toggle('open');
+                        }
+                    }
+                });
             });
 
             // --- Intersection Observer for Fade-in Transitions ---
-            const sections = document.querySelectorAll('main > section');
+            const sections = document.querySelectorAll('main > section, .feature-card, .timeline-item, .gallery-item');
             
-            const sectionObserverOptions = {
+            const observerOptions = {
                 root: null,
                 rootMargin: '0px',
                 threshold: 0.1
             };
 
-            const sectionObserver = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                         observer.unobserve(entry.target);
                     }
                 });
-            }, sectionObserverOptions);
+            }, observerOptions);
 
-            sections.forEach(section => {
-                sectionObserver.observe(section);
+            sections.forEach(el => {
+                observer.observe(el);
             });
         });
     </script>

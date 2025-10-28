@@ -265,6 +265,10 @@
         /* --- GENERIC SECTION STYLES --- */
         main > section {
             padding: 80px 30px;
+            /* REMOVED: Initial hidden state for animation */
+            /* opacity: 0; */
+            /* transform: translateY(20px); */
+            /* transition: opacity 0.6s ease-out, transform 0.6s ease-out; */
         }
 
         /* Section Backgrounds */
@@ -629,36 +633,12 @@
 
 
         /* --- SECTION TRANSITIONS --- */
-        main > section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .feature-card, .timeline-item, .gallery-item {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-            transition-delay: 0s;
-        }
-        .visible .feature-card,
-        .visible .timeline-item,
-        .visible .gallery-item {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .visible .feature-card:nth-child(1),
-        .visible .timeline-item:nth-child(1),
-        .visible .gallery-item:nth-child(1) { transition-delay: 0.1s; }
-        .visible .feature-card:nth-child(2),
-        .visible .timeline-item:nth-child(2),
-        .visible .gallery-item:nth-child(2) { transition-delay: 0.2s; }
-        .visible .feature-card:nth-child(3),
-        .visible .timeline-item:nth-child(3),
-        .visible .gallery-item:nth-child(3) { transition-delay: 0.3s; }
-        .visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        /* REMOVED: Section Transition styles */
+        /* .feature-card, .timeline-item, .gallery-item { ... } */
+        /* .visible .feature-card, ... { ... } */
+        /* .visible .feature-card:nth-child(1), ... { ... } */
+        /* .visible { ... } */
+
 
         /* --- Mobile Nav Toggle --- */
         .mobile-nav-toggle {

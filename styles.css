@@ -50,9 +50,9 @@ a {
 }
 .logo img { height: 60px; display: block; }
 .nav-links { display: flex; gap: 10px; align-items: center; }
-.nav-links a { 
-    font-size: 0.95rem; 
-    font-weight: 500; 
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
     padding: 8px 16px;
     border-radius: var(--corner-radius-small);
     position: relative;
@@ -82,56 +82,65 @@ a {
     font-weight: 600;
     transition: background-color 0.2s, color 0.2s;
 }
-.header-container .header-button:hover { 
+.header-container .header-button:hover {
     background-color: var(--primary-blue);
     color: var(--background-light);
 }
+
 /* --- Navigation Dropdown Styles --- */
-.nav-item { position: relative; }
+.nav-item {
+    position: relative; /* Needed for absolute positioning of dropdown */
+}
 .nav-dropdown {
-    display: none;
+    display: none; /* Hidden by default */
     position: absolute;
-    top: 100%;
+    top: 100%; /* Position below the parent link */
     left: 0;
     background-color: var(--background-light);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border-radius: var(--corner-radius-small);
-    padding: 10px 0;
-    z-index: 1001;
-    min-width: 160px;
+    padding: 10px 0; /* Vertical padding for the dropdown box */
+    z-index: 1001; /* Ensure it's above other content */
+    min-width: 160px; /* Minimum width */
     border: 1px solid var(--border-light);
 }
-.nav-item:hover .nav-dropdown { display: block; }
-.nav-dropdown a {
+/* Show dropdown on hover of the parent .nav-item */
+.nav-item:hover .nav-dropdown {
     display: block;
-    padding: 8px 20px;
+}
+.nav-dropdown a {
+    display: block; /* Make links full width */
+    padding: 8px 20px; /* Padding for each dropdown item */
     font-size: 0.9rem;
     color: var(--text-dark);
-    white-space: nowrap;
+    white-space: nowrap; /* Prevent wrapping */
 }
-.nav-dropdown a:hover { 
-    background-color: var(--background-offset); 
+.nav-dropdown a:hover {
+    background-color: var(--background-offset);
     color: var(--primary-blue);
 }
-.nav-item > a { 
+/* Style for the main link that triggers the dropdown */
+.nav-item > a {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 4px; /* Space between text and arrow */
 }
-.nav-item > a::after { 
-     bottom: 6px; 
+.nav-item > a::after { /* Adjust underline position for dropdown link */
+     bottom: 6px; /* Raise underline slightly if needed */
 }
-.dropdown-arrow { 
+.dropdown-arrow { /* Simple arrow using > */
     display: inline-block; /* Needed for transform */
-    font-size: 0.9em; /* Slightly larger for > */
-    font-weight: 600; /* Bolder */
-    margin-left: 4px; /* More space */
+    font-size: 0.9em; /* Size of the > */
+    font-weight: 600; /* Make it bolder */
+    margin-left: 4px; /* Space from text */
     transition: transform 0.3s ease;
     transform: rotate(90deg); /* Start pointing down */
 }
+/* Rotate arrow on hover */
  .nav-item:hover .dropdown-arrow {
     transform: rotate(-90deg); /* Point up on hover */
 }
+
 
 /* --- UNIFIED HERO BOX SECTION --- */
 .hero-section-wrapper {
@@ -286,11 +295,11 @@ main > section {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
-#barriers .feature-card { 
-    background-color: var(--background-light); 
-    padding: 40px 25px; 
-    border-radius: var(--corner-radius-large); 
-    border: 1px solid var(--border-light); 
+#barriers .feature-card {
+    background-color: var(--background-light);
+    padding: 40px 25px;
+    border-radius: var(--corner-radius-large);
+    border: 1px solid var(--border-light);
     text-align: center;
 }
 .feature-icon {
@@ -313,14 +322,14 @@ main > section {
 .feature-card-highlight .feature-icon img {
     filter: brightness(0) invert(1);
 }
-#barriers .feature-card h3 { 
-    font-size: 1.3rem; 
-    font-weight: 700; 
-    color: var(--secondary-blue); 
-    margin-bottom: 15px; 
+#barriers .feature-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--secondary-blue);
+    margin-bottom: 15px;
 }
-#barriers .feature-card p { 
-    color: var(--text-light); 
+#barriers .feature-card p {
+    color: var(--text-light);
     line-height: 1.7;
 }
 .feature-card-highlight {
@@ -675,7 +684,7 @@ main > section {
     .hero-section-wrapper { padding: 20px 20px 0; }
     .hero-content-area {
         padding: 20px 0 0;
-        order: 1; 
+        order: 1;
     }
     .hero-content-clean p {
         max-width: 80%;
@@ -683,7 +692,7 @@ main > section {
         margin-right: auto;
     }
     .hero-image-side {
-        order: 2; 
+        order: 2;
         width: 100%;
         min-height: auto;
         height: auto;
@@ -707,7 +716,7 @@ main > section {
         justify-content: space-between;
         padding: 0 15px;
     }
-    
+
     .logo img {
         height: 40px;
     }
@@ -719,7 +728,7 @@ main > section {
     .section-header h2 {
         font-size: 1.8rem;
     }
-    
+
     .footer-columns {
         display: flex;
         flex-direction: column;
@@ -738,7 +747,7 @@ main > section {
      .footer-logo-col .copyright-text, .footer-columns .footer-column h4{
         text-align: center;
     }
-    
+
     /* Mobile Timeline */
     .timeline-item:nth-child(odd) .timeline-content {
         text-align: left;
@@ -831,11 +840,11 @@ main > section {
          display: block; /* Ensure it's block */
     }
     .nav-item > a { /* Adjust padding for mobile */
-         padding: 8px 0; 
+         padding: 8px 0;
     }
      .nav-dropdown a { padding: 8px 0; }
      .nav-item > a::after { display: none; } /* Remove underlines in mobile nav */
-    
+
     /* Rotate arrow on mobile when open */
      .nav-item.open .dropdown-arrow {
          transform: rotate(-90deg); /* Point up when open */

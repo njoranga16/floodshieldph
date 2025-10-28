@@ -266,7 +266,7 @@
             .nav-links[data-visible="true"] {
                 transform: translateX(0%);
             }
-             .mobile-nav-toggle {
+            .mobile-nav-toggle {
                 display: block;
                 position: relative;
                 width: 2rem;
@@ -276,7 +276,8 @@
              .mobile-nav-toggle svg {
                 width: 100%;
                 height: 100%;
-                stroke: var(--text-dark); /* UPDATED: Forces the icon stroke to be visible */
+                /* This was missing, so icons were invisible */
+                stroke: var(--text-dark);
             }
 
             /* Mobile Dropdown */
@@ -297,27 +298,29 @@
                  max-height: 200px; 
                  display: block; 
             }
-            .nav-item > a { 
-                 padding: 8px 0; 
-            }
-            /* UPDATED: Added rule to normalize all links */
+             /* This rule ensures all links align */
             .nav-links a {
                  padding: 8px 0;
             }
              .nav-dropdown a { padding: 8px 0; }
              .nav-item > a::after { display: none; } 
-             /* UPDATED: Added rules to reset the header button on mobile */
+             
+             /* This rule resets the button styling */
              .nav-links .header-button {
-                padding: 8px 0;
-                border: none;
-                background-color: transparent;
-                color: var(--text-dark);
-                font-weight: 500;
+                /* Re-apply box styling for mobile */
+                border: 1px solid var(--primary-blue);
+                background-color: var(--background-light);
+                color: var(--primary-blue);
+                padding: 8px 18px; /* Original padding */
+                border-radius: var(--corner-radius-small);
+                font-weight: 600;
              }
              .nav-links .header-button:hover {
-                background-color: transparent;
-                color: var(--primary-blue);
+                /* Mobile hover */
+                background-color: var(--primary-blue);
+                color: var(--background-light);
              }
+             
              /* Mobile arrow rotation */
              .nav-item.open .dropdown-arrow {
                  transform: rotate(-90deg); /* Point up when open */
@@ -430,7 +433,7 @@
         }
 
         .product-feature-item {
-            padding: 14px 0; /* Made this even tighter, was 18px */
+            padding: 18px 0; /* Reduced padding */
             border-bottom: 1px solid var(--border-light);
             cursor: pointer;
             transition: all 0.3s ease;
@@ -453,27 +456,27 @@
             margin-bottom: 0;
             display: flex;
             align-items: center;
-            gap: 0; /* REMOVED gap */
+            gap: 12px;
             transition: color 0.3s ease;
         }
         
         .product-feature-item ul {
             color: var(--text-light);
-            line-height: 1.4; /* UPDATED: Tighter line height */
+            line-height: 1; /* Tighter line height */
             display: none; 
             margin: 0;
-            padding-top: 12px; /* Tighter, was 15px */
-            padding-left: 20px; /* UPDATED padding */
+            padding-top: 15px;
+            padding-left: 32px; /* Adjusted padding */
             list-style-type: disc;
         }
         
         .product-feature-item p {
             color: var(--text-light);
-            line-height: 1.4; /* UPDATED: Tighter line height */
+            line-height: 1; /* Tighter line height */
             display: none; 
             margin: 0;
-            padding-top: 12px; /* Tighter, was 15px */
-            padding-left: 20px; /* UPDATED padding */
+            padding-top: 15px;
+            padding-left: 32px; /* Adjusted padding */
         }
 
         /* Active State */
@@ -481,15 +484,10 @@
              color: var(--primary-blue);
         }
         
-        /* REMOVED active state for .feature-icon-svg */
-
         .product-feature-item.active p,
         .product-feature-item.active ul {
             display: block; 
         }
-
-        /* REMOVED CSS for image icons */
-        /* .feature-heading .feature-icon-img { ... } */
 
         /* Image Viewer */
         .product-image-viewer {
@@ -498,7 +496,7 @@
             border-radius: var(--corner-radius-large);
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            height: 550px; /* UPDATED: Increased height */
+            height: 600px; /* Expanded height */
             width: 100%; 
         }
 
@@ -562,11 +560,10 @@
 
         /* --- Final CTA Section Styles --- */
         .final-cta-section {
-            padding: 80px 30px; /* UPDATED: Reduced padding */
+            padding: 80px 30px; /* Reduced padding */
             position: relative;
             text-align: center;
             color: var(--background-light);
-            /* UPDATED: Changed placeholder to a path in your assets folder */
             background-image: url('assets/images/cta-background.jpg');
             background-size: cover;
             background-position: center;
@@ -576,7 +573,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            /* REMOVED: background-color: rgba(0, 0, 0, 0.5); */
+            background-color: rgba(0, 0, 0, 0.5); /* Re-added opacity */
             z-index: 1;
         }
         .final-cta-content {
@@ -626,18 +623,13 @@
             .product-features-section { padding: 40px 20px; }
             .section-header h2 { font-size: 1.8rem; }
             .product-layout-grid { grid-template-columns: 1fr; gap: 30px; }
-            .product-image-viewer { 
-                position: relative; 
-                top: 0; 
-                height: 350px; /* UPDATED: Increased height */
-                order: -1; 
-            }
+            .product-image-viewer { position: relative; top: 0; height: 300px; order: -1; }
             .certification-section { padding: 0 20px 40px 20px; }
             .certification-box { padding: 40px 30px; }
             .certification-box-header { margin-bottom: 30px; }
             .certification-box-header h2 { font-size: 1.7rem; }
             .certifications-grid { grid-template-columns: 1fr; gap: 30px; }
-            .final-cta-section { padding: 50px 20px; } /* UPDATED: Reduced padding */
+            .final-cta-section { padding: 60px 20px; }
             .final-cta-content h2 { font-size: 1.8rem; }
         }
     </style>
@@ -649,7 +641,7 @@
             <div class="header-container">
                 <div class="logo">
                     <!-- UPDATED Logo -->
-                    <a href="index.html#home"><img src="assets/images/Combined-logo.png" alt="FloodShield PH Logo"></a>
+                    <a href="index.html"><img src="assets/images/Combined-logo.png" alt="FloodShield PH Logo"></a>
                 </div>
                 <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
                     <span class="sr-only">Menu</span>
@@ -701,142 +693,113 @@
                         <!-- Left Column: Clickable Features -->
                         <div class="product-features-list product-features-list-components">
                             
-                            <!-- Feature 1: Removed "active" class / ADDED data-alt -->
-                            <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Water+Panels" data-alt="FloodShield Model 2 Water Panels">
+                            <!-- Feature 1: Water Panels -->
+                            <div class="product-feature-item active" data-image="assets/images/Water-panels.JPG" data-alt="FloodShield Model 2 Water Panels">
                                 <div class="feature-heading">
-                                    <h3>
-                                        <!-- UPDATED: Removed IMG -->
-                                        Water Panels
-                                    </h3>
+                                    <h3>Water Panels</h3>
                                     <span class="feature-number">01</span>
                                 </div>
-                                <!-- UPDATED to bullets for consistency -->
                                 <ul>
-                                    <li>Built from T5 High-Grade Aluminum Alloy with 6 lateral reinforcement layers to withstand high water pressure.</li>
-                                    <li>Each panel is sealed with EPDM rubber, known for its 10+ year durability.</li>
+                                    <li>T5 High-Grade Aluminum Alloy</li>
+                                    <li>6 lateral reinforcement layers</li>
+                                    <li>Withstands high water pressure</li>
+                                    <li>Durable EPDM rubber seals</li>
                                 </ul>
                             </div>
 
-                            <!-- Feature 2 / ADDED data-alt -->
-                            <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Base+Plate" data-alt="FloodShield Model 2 Base Plate">
+                            <!-- Feature 2: Base Plate -->
+                            <div class="product-feature-item" data-image="assets/images/Base-plate.JPG" data-alt="FloodShield Base Plate">
                                 <div class="feature-heading">
-                                    <h3>
-                                        <!-- UPDATED: Removed IMG -->
-                                        Base Plate
-                                    </h3>
+                                    <h3>Base Plate</h3>
                                     <span class="feature-number">02</span>
                                 </div>
                                 <ul>
-                                    <!-- UPDATED Bullets for consistency -->
-                                    <li>Features a flat, flush base plate that sits level with the ground to ensure a seamless fit and eliminate tripping hazards.</li>
-                                    <li>Engineered with an 80-ton load capacity to withstand extreme pressure without bending, making it ideal for driveways.</li>
-                                    <li>Constructed from 304 stainless steel for rust-proof, long-term durability.</li>
+                                    <li>Flat & Flush Base Plate – Sits level with the ground to ensure a seamless fit and eliminate tripping hazards.</li>
+                                    <li>80-Ton Load Capacity – Withstands extreme pressure without bending—ideal for driveways.</li>
+                                    <li>304 Stainless Steel Construction – Rust-proof and built for long-term durability.</li>
                                 </ul>
                             </div>
                             
-                            <!-- Feature 3 / ADDED data-alt -->
-                             <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Tightening+Mechanism" data-alt="FloodShield Model 2 Patented Tightening Mechanism">
+                            <!-- Feature 3: Tightening Mechanism -->
+                             <div class="product-feature-item" data-image="assets/images/Tightening-mechanism.png" data-alt="FloodShield Patented Tightening Mechanism">
                                 <div class="feature-heading">
-                                    <h3>
-                                        <!-- UPDATED: Removed IMG -->
-                                        Patented Tightening Mechanism
-                                    </h3>
+                                    <h3>Patented Tightening Mechanism</h3>
                                     <span class="feature-number">03</span>
                                 </div>
                                 <ul>
-                                    <!-- UPDATED Bullets for consistency -->
-                                    <li>A single twist-and-lock mechanism (per 1 meter) secures panels in one motion.</li>
-                                    <li>Requires no manual tightening per panel, with no protruding knobs or loose parts.</li>
-                                    <li>Ensures fast, clean, and reliable flood protection for effortless deployment.</li>
+                                    <li>Single Twist-and-Lock (per 1 meter) secures panels in one motion.</li>
+                                    <li>No manual tightening per panel, no protruding knobs, and no loose parts.</li>
+                                    <li>Fast, clean, and reliable flood protection for effortless deployment.</li>
                                 </ul>
                             </div>
 
-                            <!-- Feature 4 / ADDED data-alt -->
-                            <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Back+Supports" data-alt="FloodShield Model 2 Patented Adjustable Back Supports">
+                            <!-- Feature 4: Back Supports -->
+                            <div class="product-feature-item" data-image="assets/images/Back-support.jpg" data-alt="FloodShield Adjustable Back Supports">
                                 <div class="feature-heading">
-                                    <h3>
-                                        <!-- UPDATED: Removed IMG -->
-                                        Patented Adjustable Back Supports
-                                    </h3>
+                                    <h3>Patented Adjustable Back Supports</h3>
                                     <span class="feature-number">04</span>
                                 </div>
                                 <ul>
-                                    <!-- UPDATED Bullets for consistency -->
                                     <li>Crafted from T5 High-Grade Aluminum and 304 Stainless Steel.</li>
                                     <li>Adjustable supports enable a quick, hassle-free setup for emergency readiness.</li>
                                 </ul>
                             </div>
 
-                            <!-- Feature 5 / ADDED data-alt -->
-                            <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Ceiling+Supports" data-alt="FloodShield Model 2 Ceiling Supports">
+                            <!-- Feature 5: Ceiling Supports -->
+                            <div class="product-feature-item" data-image="assets/images/Ceiling-support.JPG" data-alt="FloodShield Ceiling Supports for low clearance">
                                 <div class="feature-heading">
-                                    <h3>
-                                        <!-- UPDATED: Removed IMG -->
-                                        Ceiling Supports
-                                    </h3>
+                                    <h3>Ceiling Supports</h3>
                                     <span class="feature-number">05</span>
                                 </div>
                                 <ul>
-                                    <!-- UPDATED Bullets for consistency -->
                                     <li>An industry exclusive, ideal for parking zones and low-clearance doorways.</li>
                                     <li>Keeps walkways clear and unobstructed, optimized for space-constrained environments.</li>
                                 </ul>
                             </div>
 
-                            <!-- Feature 6 / ADDED data-alt -->
-                            <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Covered+Side+Posts" data-alt="FloodShield Model 2 Covered Side Posts">
+                            <!-- Feature 6: Side Posts -->
+                            <div class="product-feature-item" data-image="assets/images/Side-post.JPG" data-alt="FloodShield Covered Side Posts">
                                 <div class="feature-heading">
-                                    <h3>
-                                        <!-- UPDATED: Removed IMG -->
-                                        Covered Side Posts
-                                    </h3>
+                                    <h3>Covered Side Posts</h3>
                                     <span class="feature-number">06</span>
                                 </div>
                                 <ul>
-                                    <!-- UPDATED Bullets for consistency -->
                                     <li>Exclusive to FloodShield, these protective covers offer added safety and a clean, professional finish.</li>
                                     <li>Rust-proof and built for tropical durability in coastal environments.</li>
                                 </ul>
                             </div>
 
-                            <!-- Feature 7 / ADDED data-alt -->
-                             <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Storage+Rack+Panels" data-alt="FloodShield Model 2 Storage Rack for Panels">
+                            <!-- Feature 7: Storage Rack Panels -->
+                             <div class="product-feature-item" data-image="assets/images/Storage-panels.JPG" data-alt="Storage Rack for FloodShield panels">
                                 <div class="feature-heading">
-                                    <h3>
-                                        <!-- UPDATED: Removed IMG -->
-                                        Storage Rack for Panels
-                                    </h3>
+                                    <h3>Storage Rack for Panels</h3>
                                     <span class="feature-number">07</span>
                                 </div>
-                                <!-- UPDATED to bullets for consistency -->
                                 <ul>
-                                    <li>Keep panels organized and ready with vertical or horizontal storage racks.</li>
-                                    <li>Designed for safe keeping, quick access, and zero panic during emergencies.</li>
+                                    <li>Keeps panels organized and ready.</li>
+                                    <li>Vertical or horizontal racks.</li>
+                                    <li>Designed for safe keeping and quick access.</li>
                                 </ul>
                             </div>
                             
-                            <!-- Feature 8 / ADDED data-alt -->
-                             <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Storage+Rack+Supports" data-alt="FloodShield Model 2 Storage Rack for Supports">
+                            <!-- Feature 8: Storage Rack Supports -->
+                             <div class="product-feature-item" data-image="assets/images/Storage-support.JPG" data-alt="Storage Rack for FloodShield supports">
                                 <div class="feature-heading">
-                                    <h3>
-                                        <!-- UPDATED: Removed IMG -->
-                                        Storage Rack for Supports
-                                    </h3>
+                                    <h3>Storage Rack for Supports</h3>
                                     <span class="feature-number">08</span>
                                 </div>
-                                <!-- UPDATED to bullets for consistency -->
                                 <ul>
-                                    <li>Secure your panels with durable back supports that store neatly upright.</li>
-                                    <li>Prevents loss or damage and ensures fast deployment when floods strike.</li>
+                                    <li>Secure your panels with durable back supports.</li>
+                                    <li>Supports store upright to prevent loss or damage.</li>
+                                    <li>Ensures fast deployment when floods strike.</li>
                                 </ul>
                             </div>
 
                         </div>
-
-                        <!-- Right Column: Sticky Image -->
+                                                                      
                         <div class="product-image-viewer">
-                            <!-- Updated placeholder text and alt text -->
-                            <img src="https://placehold.co/600x500/e0e0e0/333?text=Select+a+feature" alt="Select a feature component to view" id="product-display-image-components">
+                            <!-- Initial Image -->
+                            <img src="assets/images/Water-panels.JPG" alt="FloodShield Model 2 Water Panels" id="product-display-image-components">
                         </div>
                     </div>
                 </div>
@@ -900,7 +863,6 @@
                         <nav class="footer-nav">
                             <a href="index.html#home">Home</a>
                             <a href="index.html#projects">Our Projects</a>
-                            <!-- CORRECTED FOOTER LINK -->
                             <a href="index.html#barriers">Our Technology</a> 
                             <a href="index.html#process">Our Process</a>
                         </nav>
@@ -910,7 +872,6 @@
                         <div class="footer-contact">
                             <p>Valenzuela City, Metro Manila, Philippines</p>
                             <p><a href="mailto:floodshieldph@gmail.com">floodshieldph@gmail.com</a></p>
-                            <!-- UPDATED Phone Numbers -->
                             <p>+63 962 728 6363</p>
                             <p>+63 917 535 4292</p>
                         </div>
@@ -966,45 +927,41 @@
 
                 const featureItems = featuresList.querySelectorAll('.product-feature-item');
                 const displayImage = document.getElementById(imageId);
-                // UPDATED: Added default alt text
-                const defaultImageSrc = 'https://placehold.co/600x500/e0e0e0/333?text=Select+a+feature';
-                const defaultImageAlt = 'Select a feature component to view'; 
 
                 if (featureItems.length > 0 && displayImage) {
                     
-                    // Set default alt text on load
-                    displayImage.alt = defaultImageAlt;
+                    // Set default image and alt text
+                    const defaultItem = featuresList.querySelector('.product-feature-item.active');
+                    if (defaultItem) {
+                        displayImage.src = defaultItem.dataset.image;
+                        displayImage.alt = defaultItem.dataset.alt; // Set alt text
+                    }
 
                     featuresList.addEventListener('click', e => {
                         const clickedItem = e.target.closest('.product-feature-item');
                         if (!clickedItem) return; 
-
-                        const wasActive = clickedItem.classList.contains('active');
-                        const newImage = clickedItem.dataset.image;
-                        const newAlt = clickedItem.dataset.alt; // UPDATED: Get new alt text
-
-                        // Remove active from all items
-                        featureItems.forEach(item => {
-                            item.classList.remove('active');
-                        });
                         
-                        // If it wasn't active, make it active and show its image
-                        if (!wasActive) {
+                        // UPDATED: Allow closing an active item
+                        if (clickedItem.classList.contains('active')) {
+                             // Do nothing, or optionally close it:
+                             // clickedItem.classList.remove('active');
+                             // return; 
+                        } else {
+                            const newImage = clickedItem.dataset.image;
+                            const newAlt = clickedItem.dataset.alt; // Get new alt text
+
+                            featureItems.forEach(item => {
+                                item.classList.remove('active');
+                            });
+                            
                             clickedItem.classList.add('active');
+
                             displayImage.style.opacity = 0;
                             setTimeout(() => {
                                 displayImage.src = newImage;
-                                displayImage.alt = newAlt; // UPDATED: Set new alt text
+                                displayImage.alt = newAlt; // Set new alt text
                                 displayImage.style.opacity = 1;
-                            }, 300);
-                        } else {
-                            // If it *was* active, it's now closed. Reset to default image.
-                            displayImage.style.opacity = 0;
-                            setTimeout(() => {
-                                displayImage.src = defaultImageSrc;
-                                displayImage.alt = defaultImageAlt; // UPDATED: Reset to default alt
-                                displayImage.style.opacity = 1;
-                            }, 300);
+                            }, 300); 
                         }
                     });
                 }
@@ -1014,7 +971,4 @@
     </script>
 </body>
 </html>
-
-
-
 

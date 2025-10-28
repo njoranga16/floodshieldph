@@ -413,7 +413,7 @@
         }
 
         .product-feature-item {
-            padding: 18px 0; /* Made this tighter, was 24px */
+            padding: 14px 0; /* Made this even tighter, was 18px */
             border-bottom: 1px solid var(--border-light);
             cursor: pointer;
             transition: all 0.3s ease;
@@ -436,7 +436,7 @@
             margin-bottom: 0;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 0; /* REMOVED gap */
             transition: color 0.3s ease;
         }
         
@@ -445,8 +445,8 @@
             line-height: 1.7;
             display: none; 
             margin: 0;
-            padding-top: 15px;
-            padding-left: 52px; 
+            padding-top: 12px; /* Tighter, was 15px */
+            padding-left: 20px; /* UPDATED padding */
             list-style-type: disc;
         }
         
@@ -455,8 +455,8 @@
             line-height: 1.7;
             display: none; 
             margin: 0;
-            padding-top: 15px;
-            padding-left: 32px; 
+            padding-top: 12px; /* Tighter, was 15px */
+            padding-left: 20px; /* UPDATED padding */
         }
 
         /* Active State */
@@ -471,11 +471,8 @@
             display: block; 
         }
 
-        /* NEW CSS for image icons */
-        .feature-heading .feature-icon-img {
-            width: 24px;
-            height: 24px;
-        }
+        /* REMOVED CSS for image icons */
+        /* .feature-heading .feature-icon-img { ... } */
 
         /* Image Viewer */
         .product-image-viewer {
@@ -658,7 +655,8 @@
             <section class="product-hero">
                 <h1>Floodshield Model 2</h1>
                 <p>
-                    Meet the flagship of flood protection. The Floodshield Model 2 is our FM Approved, fully-engineered flood barrier system, setting the standard for flood control in the Philippines. Ideal for residential, commercial, and industrial properties, it delivers internationally certified performance and peace of mind against rising waters.
+                    <!-- REFINED Description -->
+                    Meet the Floodshield Model 2, our flagship FM Approved and fully-engineered flood barrier system that sets the standard for flood control in the Philippines. Ideal for residential, commercial, and industrial properties, it delivers internationally certified performance and peace of mind against rising waters.
                 </p>
                 <div class="product-hero-buttons">
                     <!-- UPDATED CTA LINK -->
@@ -684,8 +682,7 @@
                             <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Water+Panels">
                                 <div class="feature-heading">
                                     <h3>
-                                        <!-- UPDATED: Replaced SVG with IMG -->
-                                        <img class="feature-icon-img" src="assets/images/icon-panels.svg" alt="Water Panels Icon">
+                                        <!-- UPDATED: Removed IMG -->
                                         Water Panels
                                     </h3>
                                     <span class="feature-number">01</span>
@@ -697,8 +694,7 @@
                             <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Base+Plate">
                                 <div class="feature-heading">
                                     <h3>
-                                        <!-- UPDATED: Replaced SVG with IMG -->
-                                        <img class="feature-icon-img" src="assets/images/icon-base-plate.svg" alt="Base Plate Icon">
+                                        <!-- UPDATED: Removed IMG -->
                                         Base Plate
                                     </h3>
                                     <span class="feature-number">02</span>
@@ -714,8 +710,7 @@
                              <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Tightening+Mechanism">
                                 <div class="feature-heading">
                                     <h3>
-                                        <!-- UPDATED: Replaced SVG with IMG -->
-                                        <img class="feature-icon-img" src="assets/images/icon-mechanism.svg" alt="Tightening Mechanism Icon">
+                                        <!-- UPDATED: Removed IMG -->
                                         Patented Tightening Mechanism
                                     </h3>
                                     <span class="feature-number">03</span>
@@ -731,8 +726,7 @@
                             <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Back+Supports">
                                 <div class="feature-heading">
                                     <h3>
-                                        <!-- UPDATED: Replaced SVG with IMG -->
-                                        <img class="feature-icon-img" src="assets/images/icon-back-support.svg" alt="Back Supports Icon">
+                                        <!-- UPDATED: Removed IMG -->
                                         Patented Adjustable Back Supports
                                     </h3>
                                     <span class="feature-number">04</span>
@@ -747,8 +741,7 @@
                             <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Ceiling+Supports">
                                 <div class="feature-heading">
                                     <h3>
-                                        <!-- UPDATED: Replaced SVG with IMG -->
-                                        <img class="feature-icon-img" src="assets/images/icon-ceiling-support.svg" alt="Ceiling Supports Icon">
+                                        <!-- UPDATED: Removed IMG -->
                                         Ceiling Supports
                                     </h3>
                                     <span class="feature-number">05</span>
@@ -763,8 +756,7 @@
                             <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Covered+Side+Posts">
                                 <div class="feature-heading">
                                     <h3>
-                                        <!-- UPDATED: Replaced SVG with IMG -->
-                                        <img class="feature-icon-img" src="assets/images/icon-side-post.svg" alt="Side Posts Icon">
+                                        <!-- UPDATED: Removed IMG -->
                                         Covered Side Posts
                                     </h3>
                                     <span class="feature-number">06</span>
@@ -779,8 +771,7 @@
                              <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Storage+Rack+Panels">
                                 <div class="feature-heading">
                                     <h3>
-                                        <!-- UPDATED: Replaced SVG with IMG -->
-                                        <img class="feature-icon-img" src="assets/images/icon-rack-panels.svg" alt="Panel Storage Rack Icon">
+                                        <!-- UPDATED: Removed IMG -->
                                         Storage Rack for Panels
                                     </h3>
                                     <span class="feature-number">07</span>
@@ -792,8 +783,7 @@
                              <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Storage+Rack+Supports">
                                 <div class="feature-heading">
                                     <h3>
-                                        <!-- UPDATED: Replaced SVG with IMG -->
-                                        <img class="feature-icon-img" src="assets/images/icon-rack-supports.svg" alt="Support Storage Rack Icon">
+                                        <!-- UPDATED: Removed IMG -->
                                         Storage Rack for Supports
                                     </h3>
                                     <span class="feature-number">08</span>

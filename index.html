@@ -252,7 +252,7 @@
         </footer>
     </div>
 
-        <!-- Page JavaScript -->
+    <!-- Page JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
@@ -266,10 +266,8 @@
                     primaryNav.setAttribute('data-visible', !isVisible);
                     navToggle.setAttribute('aria-expanded', !isVisible);
 
-                    // --- NEW: Mobile Dropdown Toggle Logic ---
                     const dropdownToggles = primaryNav.querySelectorAll('.dropdown-toggle');
                     dropdownToggles.forEach(toggle => {
-                        // Close any open dropdowns when main nav toggles
                         const parentNavItem = toggle.closest('.nav-item');
                         if (parentNavItem) {
                             parentNavItem.classList.remove('open');
@@ -278,13 +276,11 @@
                 });
             }
 
-             // --- NEW: Mobile Dropdown Click ---
             const dropdownToggles = document.querySelectorAll('#primary-navigation .dropdown-toggle');
             dropdownToggles.forEach(toggle => {
                 toggle.addEventListener('click', (e) => {
-                    // Only prevent default and toggle if in mobile view
                     if (window.innerWidth <= 768) { 
-                        e.preventDefault(); // Prevent navigating to #barriers
+                        e.preventDefault(); 
                         const parentNavItem = toggle.closest('.nav-item');
                         if (parentNavItem) {
                             parentNavItem.classList.toggle('open');
@@ -292,28 +288,46 @@
                     }
                 });
             });
-
-            // --- Intersection Observer for Fade-in Transitions ---
-            const sections = document.querySelectorAll('main > section, .feature-card, .timeline-item, .gallery-item');
             
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
+            // --- Expanding Features List Script ---
+            initExpandingFeatures('.product-features-list-components', 'product-display-image-components');
+            
+            function initExpandingFeatures(listSelector, imageId) {
+                const featuresList = document.querySelector(listSelector);
+                if (!featuresList) return; 
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
+                const featureItems = featuresList.querySelectorAll('.product-feature-item');
+                const displayImage = document.getElementById(imageId);
+
+                if (featureItems.length > 0 && displayImage) {
+                    
+                    const defaultItem = featuresList.querySelector('.product-feature-item.active');
+                    if (defaultItem) {
+                        displayImage.src = defaultItem.dataset.image;
                     }
-                });
-            }, observerOptions);
 
-            sections.forEach(el => {
-                observer.observe(el);
-            });
+                    featuresList.addEventListener('click', e => {
+                        const clickedItem = e.target.closest('.product-feature-item');
+                        if (!clickedItem) return; 
+                        if (clickedItem.classList.contains('active')) return; 
+
+                        const newImage = clickedItem.dataset.image;
+
+                        featureItems.forEach(item => {
+                            item.classList.remove('active');
+                        });
+                        
+                        clickedItem.classList.add('active');
+
+                        displayImage.style.opacity = 0;
+                        setTimeout(() => {
+                            displayImage.src = newImage;
+                            displayImage.style.opacity = 1;
+                        }, 300); 
+                    });
+                }
+            }
+
         });
     </script>
 </body>

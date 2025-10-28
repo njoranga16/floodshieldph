@@ -86,49 +86,42 @@ a {
     background-color: var(--primary-blue);
     color: var(--background-light);
 }
-
 /* --- Navigation Dropdown Styles --- */
-.nav-item {
-    position: relative; /* Needed for absolute positioning of dropdown */
-}
+.nav-item { position: relative; }
 .nav-dropdown {
-    display: none; /* Hidden by default */
+    display: none;
     position: absolute;
-    top: 100%; /* Position below the parent link */
+    top: 100%;
     left: 0;
     background-color: var(--background-light);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border-radius: var(--corner-radius-small);
-    padding: 10px 0; /* Vertical padding for the dropdown box */
-    z-index: 1001; /* Ensure it's above other content */
-    min-width: 160px; /* Minimum width */
+    padding: 10px 0;
+    z-index: 1001;
+    min-width: 160px;
     border: 1px solid var(--border-light);
 }
-/* Show dropdown on hover of the parent .nav-item */
-.nav-item:hover .nav-dropdown {
-    display: block;
-}
+.nav-item:hover .nav-dropdown { display: block; }
 .nav-dropdown a {
-    display: block; /* Make links full width */
-    padding: 8px 20px; /* Padding for each dropdown item */
+    display: block;
+    padding: 8px 20px;
     font-size: 0.9rem;
     color: var(--text-dark);
-    white-space: nowrap; /* Prevent wrapping */
+    white-space: nowrap;
 }
 .nav-dropdown a:hover { 
     background-color: var(--background-offset); 
     color: var(--primary-blue);
 }
-/* Style for the main link that triggers the dropdown */
-.nav-item > a {
+.nav-item > a { 
     display: flex;
     align-items: center;
-    gap: 4px; /* Space between text and arrow */
+    gap: 4px;
 }
-.nav-item > a::after { /* Adjust underline position for dropdown link */
-     bottom: 6px; /* Raise underline slightly if needed */
+.nav-item > a::after { 
+     bottom: 6px; 
 }
-.dropdown-arrow { /* Simple arrow */
+.dropdown-arrow { 
     display: inline-block; /* Needed for transform */
     font-size: 0.9em; /* Slightly larger for > */
     font-weight: 600; /* Bolder */
@@ -136,11 +129,9 @@ a {
     transition: transform 0.3s ease;
     transform: rotate(90deg); /* Start pointing down */
 }
-/* Rotate arrow on hover */
  .nav-item:hover .dropdown-arrow {
     transform: rotate(-90deg); /* Point up on hover */
 }
-
 
 /* --- UNIFIED HERO BOX SECTION --- */
 .hero-section-wrapper {

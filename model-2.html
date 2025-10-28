@@ -266,7 +266,7 @@
             .nav-links[data-visible="true"] {
                 transform: translateX(0%);
             }
-            .mobile-nav-toggle {
+             .mobile-nav-toggle {
                 display: block;
                 position: relative;
                 width: 2rem;
@@ -276,6 +276,7 @@
              .mobile-nav-toggle svg {
                 width: 100%;
                 height: 100%;
+                stroke: var(--text-dark); /* UPDATED: Forces the icon stroke to be visible */
             }
 
             /* Mobile Dropdown */
@@ -299,8 +300,24 @@
             .nav-item > a { 
                  padding: 8px 0; 
             }
+            /* UPDATED: Added rule to normalize all links */
+            .nav-links a {
+                 padding: 8px 0;
+            }
              .nav-dropdown a { padding: 8px 0; }
              .nav-item > a::after { display: none; } 
+             /* UPDATED: Added rules to reset the header button on mobile */
+             .nav-links .header-button {
+                padding: 8px 0;
+                border: none;
+                background-color: transparent;
+                color: var(--text-dark);
+                font-weight: 500;
+             }
+             .nav-links .header-button:hover {
+                background-color: transparent;
+                color: var(--primary-blue);
+             }
              /* Mobile arrow rotation */
              .nav-item.open .dropdown-arrow {
                  transform: rotate(-90deg); /* Point up when open */
@@ -442,7 +459,7 @@
         
         .product-feature-item ul {
             color: var(--text-light);
-            line-height: 1.7;
+            line-height: 1.4; /* UPDATED: Tighter line height */
             display: none; 
             margin: 0;
             padding-top: 12px; /* Tighter, was 15px */
@@ -452,7 +469,7 @@
         
         .product-feature-item p {
             color: var(--text-light);
-            line-height: 1.7;
+            line-height: 1.4; /* UPDATED: Tighter line height */
             display: none; 
             margin: 0;
             padding-top: 12px; /* Tighter, was 15px */
@@ -481,7 +498,7 @@
             border-radius: var(--corner-radius-large);
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            height: 500px;
+            height: 550px; /* UPDATED: Increased height */
             width: 100%; 
         }
 
@@ -545,11 +562,12 @@
 
         /* --- Final CTA Section Styles --- */
         .final-cta-section {
-            padding: 100px 30px;
+            padding: 80px 30px; /* UPDATED: Reduced padding */
             position: relative;
             text-align: center;
             color: var(--background-light);
-            background-image: url('assets/images/CTA-background.png');
+            /* UPDATED: Changed placeholder to a path in your assets folder */
+            background-image: url('assets/images/cta-background.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed; 
@@ -558,7 +576,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6); 
+            /* REMOVED: background-color: rgba(0, 0, 0, 0.5); */
             z-index: 1;
         }
         .final-cta-content {
@@ -608,13 +626,18 @@
             .product-features-section { padding: 40px 20px; }
             .section-header h2 { font-size: 1.8rem; }
             .product-layout-grid { grid-template-columns: 1fr; gap: 30px; }
-            .product-image-viewer { position: relative; top: 0; height: 300px; order: -1; }
+            .product-image-viewer { 
+                position: relative; 
+                top: 0; 
+                height: 350px; /* UPDATED: Increased height */
+                order: -1; 
+            }
             .certification-section { padding: 0 20px 40px 20px; }
             .certification-box { padding: 40px 30px; }
             .certification-box-header { margin-bottom: 30px; }
             .certification-box-header h2 { font-size: 1.7rem; }
             .certifications-grid { grid-template-columns: 1fr; gap: 30px; }
-            .final-cta-section { padding: 60px 20px; }
+            .final-cta-section { padding: 50px 20px; } /* UPDATED: Reduced padding */
             .final-cta-content h2 { font-size: 1.8rem; }
         }
     </style>
@@ -678,8 +701,8 @@
                         <!-- Left Column: Clickable Features -->
                         <div class="product-features-list product-features-list-components">
                             
-                            <!-- Feature 1: Removed "active" class -->
-                            <div class="product-feature-item" data-image="assets/images/Water-panels.JPG">
+                            <!-- Feature 1: Removed "active" class / ADDED data-alt -->
+                            <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Water+Panels" data-alt="FloodShield Model 2 Water Panels">
                                 <div class="feature-heading">
                                     <h3>
                                         <!-- UPDATED: Removed IMG -->
@@ -694,8 +717,8 @@
                                 </ul>
                             </div>
 
-                            <!-- Feature 2 -->
-                            <div class="product-feature-item" data-image="assets/images/Base-plate.JPG">
+                            <!-- Feature 2 / ADDED data-alt -->
+                            <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Base+Plate" data-alt="FloodShield Model 2 Base Plate">
                                 <div class="feature-heading">
                                     <h3>
                                         <!-- UPDATED: Removed IMG -->
@@ -711,8 +734,8 @@
                                 </ul>
                             </div>
                             
-                            <!-- Feature 3 -->
-                             <div class="product-feature-item" data-image="assets/images/Tightening-mechanism.png">
+                            <!-- Feature 3 / ADDED data-alt -->
+                             <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Tightening+Mechanism" data-alt="FloodShield Model 2 Patented Tightening Mechanism">
                                 <div class="feature-heading">
                                     <h3>
                                         <!-- UPDATED: Removed IMG -->
@@ -728,8 +751,8 @@
                                 </ul>
                             </div>
 
-                            <!-- Feature 4 -->
-                            <div class="product-feature-item" data-image="assets/images/Back-support.jpg">
+                            <!-- Feature 4 / ADDED data-alt -->
+                            <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Back+Supports" data-alt="FloodShield Model 2 Patented Adjustable Back Supports">
                                 <div class="feature-heading">
                                     <h3>
                                         <!-- UPDATED: Removed IMG -->
@@ -744,8 +767,8 @@
                                 </ul>
                             </div>
 
-                            <!-- Feature 5 -->
-                            <div class="product-feature-item" data-image="assets/images/Ceiling-support.JPG">
+                            <!-- Feature 5 / ADDED data-alt -->
+                            <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Ceiling+Supports" data-alt="FloodShield Model 2 Ceiling Supports">
                                 <div class="feature-heading">
                                     <h3>
                                         <!-- UPDATED: Removed IMG -->
@@ -760,8 +783,8 @@
                                 </ul>
                             </div>
 
-                            <!-- Feature 6 -->
-                            <div class="product-feature-item" data-image="assets/images/Side-post.JPG">
+                            <!-- Feature 6 / ADDED data-alt -->
+                            <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Covered+Side+Posts" data-alt="FloodShield Model 2 Covered Side Posts">
                                 <div class="feature-heading">
                                     <h3>
                                         <!-- UPDATED: Removed IMG -->
@@ -776,8 +799,8 @@
                                 </ul>
                             </div>
 
-                            <!-- Feature 7 -->
-                             <div class="product-feature-item" data-image="assets/images/Storage-panels.JPG">
+                            <!-- Feature 7 / ADDED data-alt -->
+                             <div class="product-feature-item" data-image="https://placehold.co/600x500/e0e0e0/333?text=Storage+Rack+Panels" data-alt="FloodShield Model 2 Storage Rack for Panels">
                                 <div class="feature-heading">
                                     <h3>
                                         <!-- UPDATED: Removed IMG -->
@@ -792,8 +815,8 @@
                                 </ul>
                             </div>
                             
-                            <!-- Feature 8 -->
-                             <div class="product-feature-item" data-image="assets/images/Storage-support.JPG">
+                            <!-- Feature 8 / ADDED data-alt -->
+                             <div class="product-feature-item" data-image="https://placehold.co/600x500/c0c0c0/333?text=Storage+Rack+Supports" data-alt="FloodShield Model 2 Storage Rack for Supports">
                                 <div class="feature-heading">
                                     <h3>
                                         <!-- UPDATED: Removed IMG -->
@@ -807,11 +830,13 @@
                                     <li>Prevents loss or damage and ensures fast deployment when floods strike.</li>
                                 </ul>
                             </div>
+
                         </div>
-                                                                      
+
+                        <!-- Right Column: Sticky Image -->
                         <div class="product-image-viewer">
-                            <!-- Updated placeholder text -->
-                            <img src="assets/images/FLOOD SHIELD PH FEATURE.png" alt="Core product feature" id="product-display-image-components">
+                            <!-- Updated placeholder text and alt text -->
+                            <img src="https://placehold.co/600x500/e0e0e0/333?text=Select+a+feature" alt="Select a feature component to view" id="product-display-image-components">
                         </div>
                     </div>
                 </div>
@@ -941,11 +966,14 @@
 
                 const featureItems = featuresList.querySelectorAll('.product-feature-item');
                 const displayImage = document.getElementById(imageId);
-                const defaultImageSrc = 'https://placehold.co/600x500/e0e0e0/333?text=Select+a+feature'; // Define default
+                // UPDATED: Added default alt text
+                const defaultImageSrc = 'https://placehold.co/600x500/e0e0e0/333?text=Select+a+feature';
+                const defaultImageAlt = 'Select a feature component to view'; 
 
                 if (featureItems.length > 0 && displayImage) {
                     
-                    // No default active item, starts closed.
+                    // Set default alt text on load
+                    displayImage.alt = defaultImageAlt;
 
                     featuresList.addEventListener('click', e => {
                         const clickedItem = e.target.closest('.product-feature-item');
@@ -953,6 +981,7 @@
 
                         const wasActive = clickedItem.classList.contains('active');
                         const newImage = clickedItem.dataset.image;
+                        const newAlt = clickedItem.dataset.alt; // UPDATED: Get new alt text
 
                         // Remove active from all items
                         featureItems.forEach(item => {
@@ -965,6 +994,7 @@
                             displayImage.style.opacity = 0;
                             setTimeout(() => {
                                 displayImage.src = newImage;
+                                displayImage.alt = newAlt; // UPDATED: Set new alt text
                                 displayImage.style.opacity = 1;
                             }, 300);
                         } else {
@@ -972,6 +1002,7 @@
                             displayImage.style.opacity = 0;
                             setTimeout(() => {
                                 displayImage.src = defaultImageSrc;
+                                displayImage.alt = defaultImageAlt; // UPDATED: Reset to default alt
                                 displayImage.style.opacity = 1;
                             }, 300);
                         }
@@ -983,6 +1014,7 @@
     </script>
 </body>
 </html>
+
 
 
 

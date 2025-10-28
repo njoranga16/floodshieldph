@@ -1113,7 +1113,7 @@
     <!-- Page JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
+
             // --- Mobile Navigation Toggle ---
             const primaryNav = document.querySelector('#primary-navigation');
             const navToggle = document.querySelector('.mobile-nav-toggle');
@@ -1124,8 +1124,10 @@
                     primaryNav.setAttribute('data-visible', !isVisible);
                     navToggle.setAttribute('aria-expanded', !isVisible);
 
+                    // --- Mobile Dropdown Toggle Logic ---
                     const dropdownToggles = primaryNav.querySelectorAll('.dropdown-toggle');
                     dropdownToggles.forEach(toggle => {
+                        // Close any open dropdowns when main nav toggles
                         const parentNavItem = toggle.closest('.nav-item');
                         if (parentNavItem) {
                             parentNavItem.classList.remove('open');
@@ -1134,58 +1136,30 @@
                 });
             }
 
+             // --- Mobile Dropdown Click ---
             const dropdownToggles = document.querySelectorAll('#primary-navigation .dropdown-toggle');
             dropdownToggles.forEach(toggle => {
                 toggle.addEventListener('click', (e) => {
-                    if (window.innerWidth <= 768) { 
-                        e.preventDefault(); 
+                    // Only prevent default and toggle if in mobile view
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault(); // Prevent navigating to #barriers
                         const parentNavItem = toggle.closest('.nav-item');
                         if (parentNavItem) {
                             parentNavItem.classList.toggle('open');
                         }
                     }
+                    // For desktop view, allow default navigation to #barriers
                 });
             });
+
+            // --- REMOVED: Intersection Observer for Fade-in Transitions ---
+            /*
+            const sections = document.querySelectorAll('main > section, .feature-card, .timeline-item, .gallery-item');
             
-            // --- Expanding Features List Script ---
-            initExpandingFeatures('.product-features-list-components', 'product-display-image-components');
-            
-            function initExpandingFeatures(listSelector, imageId) {
-                const featuresList = document.querySelector(listSelector);
-                if (!featuresList) return; 
-
-                const featureItems = featuresList.querySelectorAll('.product-feature-item');
-                const displayImage = document.getElementById(imageId);
-
-                if (featureItems.length > 0 && displayImage) {
-                    
-                    const defaultItem = featuresList.querySelector('.product-feature-item.active');
-                    if (defaultItem) {
-                        displayImage.src = defaultItem.dataset.image;
-                    }
-
-                    featuresList.addEventListener('click', e => {
-                        const clickedItem = e.target.closest('.product-feature-item');
-                        if (!clickedItem) return; 
-                        if (clickedItem.classList.contains('active')) return; 
-
-                        const newImage = clickedItem.dataset.image;
-
-                        featureItems.forEach(item => {
-                            item.classList.remove('active');
-                        });
-                        
-                        clickedItem.classList.add('active');
-
-                        displayImage.style.opacity = 0;
-                        setTimeout(() => {
-                            displayImage.src = newImage;
-                            displayImage.style.opacity = 1;
-                        }, 300); 
-                    });
-                }
-            }
-
+            const observerOptions = { ... };
+            const observer = new IntersectionObserver((entries, observer) => { ... }, observerOptions);
+            sections.forEach(el => { observer.observe(el); });
+            */
         });
     </script>
 </body>

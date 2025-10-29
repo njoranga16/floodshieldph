@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FloodShield Model 2 - Flood Barrier Product Details</title> 
+    <title>Floodshield Model 2 - Flood Barrier Product Details</title> 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- UPDATED Favicon -->
     <link rel="icon" type="image/png" href="assets/images/Logo-only.png">
@@ -366,6 +366,10 @@
             text-decoration: none;
             transition: all 0.3s ease;
             border: 1px solid transparent;
+            /* ADDED: Required for the new hover effect */
+            position: relative;
+            overflow: hidden; 
+            z-index: 1; /* Ensure button content is above the sheen */
         }
         .btn-primary {
             background-color: var(--primary-blue);
@@ -374,6 +378,25 @@
         .btn-primary:hover {
             background-color: var(--secondary-blue);
         }
+
+        /* ADDED: New hover sheen effect */
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+            transform: translateX(-100%);
+            transition: transform 2s ease; /* 2 seconds */
+            z-index: -1;
+        }
+        /* ADDED: Trigger the sheen on hover */
+        .btn-primary:hover::after {
+            transform: translateX(100%);
+        }
+
         .btn-secondary {
             background-color: var(--background-light);
             color: var(--text-dark);
@@ -462,7 +485,7 @@
         
         .product-feature-item ul {
             color: var(--text-light);
-            line-height: 1.5; /* Tighter line height */
+            line-height: 1.2; /* UPDATED: line spacing */
             display: none; 
             margin: 0;
             padding-top: 15px;
@@ -472,7 +495,7 @@
         
         .product-feature-item p {
             color: var(--text-light);
-            line-height: 1.5; /* Tighter line height */
+            line-height: 1.2; /* UPDATED: line spacing */
             display: none; 
             margin: 0;
             padding-top: 15px;
@@ -496,7 +519,7 @@
             border-radius: var(--corner-radius-large);
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            height: 650px; /* UPDATED: Expanded height */
+            height: 650px; /* Expanded height */
             width: 100%; 
         }
 
@@ -511,7 +534,7 @@
 
         /* --- Certification Box Styles --- */
         .certification-section {
-            padding: 0 30px 60px 30px; /* UPDATED: Reduced padding */
+            padding: 0 30px 60px 30px; /* Reduced padding */
             background-color: var(--background-light); 
         }
         .certification-box {
@@ -526,7 +549,7 @@
             margin-bottom: 40px;
         }
         .certification-box-header h2 {
-            font-size: 2.0rem;
+            font-size: 2.2rem; /* UPDATED: font size */
             font-weight: 600; 
             color: var(--primary-blue);
             line-height: 1.3;
@@ -560,7 +583,7 @@
 
         /* --- Final CTA Section Styles --- */
         .final-cta-section {
-            padding: 80px 30px; /* Reduced padding */
+            padding: 70px 30px; /* UPDATED: Reduced padding */
             position: relative;
             text-align: center;
             color: var(--background-light);
@@ -573,6 +596,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.3); /* UPDATED: Opacity */
             z-index: 1;
         }
         .final-cta-content {
@@ -584,13 +608,13 @@
         .final-cta-content h2 {
             font-size: 2.2rem;
             font-weight: 800;
-            margin-bottom: 15px;
+            margin-bottom: 10px; /* UPDATED: margin */
             color: var(--background-light); 
         }
         .final-cta-content p {
             font-size: 1.1rem;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 30px;
+            margin-bottom: 25px; /* UPDATED: margin */
         }
         .btn-primary-white {
             display: inline-block;
@@ -603,10 +627,32 @@
             border: 1px solid transparent;
             background-color: var(--background-light);
             color: var(--primary-blue);
+            /* ADDED: Required for the new hover effect */
+            position: relative;
+            overflow: hidden; 
+            z-index: 1;
         }
         .btn-primary-white:hover {
             background-color: #f0f0f0; 
             color: var(--secondary-blue);
+        }
+        
+        /* ADDED: Sheen effect for white button */
+        .btn-primary-white::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* A subtle dark sheen */
+            background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.08) 50%, transparent 100%);
+            transform: translateX(-100%);
+            transition: transform 2s ease; /* 2 seconds */
+            z-index: -1;
+        }
+        .btn-primary-white:hover::after {
+            transform: translateX(100%);
         }
 
 
@@ -615,15 +661,15 @@
             /* No changes needed here now */
         }
         @media (max-width: 768px) {
-            .product-hero { padding: 60px 30px; } /* UPDATED: Mobile hero padding */
+            .product-hero { padding: 60px 30px; } /* Mobile hero padding */
             .product-hero h1 { font-size: 2.2rem; }
             .product-hero p { font-size: 1rem; }
             .product-hero-buttons { flex-direction: column; gap: 10px; }
             .product-features-section { padding: 40px 20px; }
             .section-header h2 { font-size: 1.8rem; }
             .product-layout-grid { grid-template-columns: 1fr; gap: 30px; }
-            .product-image-viewer { position: relative; top: 0; height: 350px; order: -1; } /* UPDATED: Mobile image height */
-            .certification-section { padding: 0 20px 30px 20px; } /* UPDATED: Mobile cert padding */
+            .product-image-viewer { position: relative; top: 0; height: 350px; order: -1; } /* Mobile image height */
+            .certification-section { padding: 0 20px 30px 20px; } /* Mobile cert padding */
             .certification-box { padding: 40px 15px; }
             .certification-box-header { margin-bottom: 30px; }
             .certification-box-header h2 { font-size: 1.7rem; }

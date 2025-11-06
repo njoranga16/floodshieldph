@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completed Projects - FloodShield Philippines</title>
+    <meta name="description" content="View our gallery of completed residential, commercial, and industrial flood barrier projects across the Philippines.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/Logo-only.png">
+    <style>
+        /* --- ALL STYLES NOW EMBEDDED --- */
+        :root {
+            --primary-blue: #00167A;
+            --secondary-blue: #1B2A6D;
+            --accent-gray: #C0C0C0;
+            --text-dark: #000000;
+            --text-light: #6b7280;
+            --background-light: #FFFFFF;
+            --background-offset: #f9fafb;
+            --border-light: #e5e7eb;
+            --font-primary: 'Montserrat', sans-serif;
+            --max-width: 1200px;
+            --corner-radius-large: 15px;
+            --corner-radius-small: 6px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-primary);
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: color 0.2s, background-color 0.2s;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* --- HEADER --- */
+        .clean-header {
+            background-color: var(--background-light);
+            border-bottom: 1px solid var(--border-light);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        .logo img { height: 60px; display: block; }
+        .nav-links { display: flex; gap: 10px; align-items: center; }
+        .nav-links a { 
+            font-size: 0.95rem; 
+            font-weight: 500; 
+            padding: 8px 16px;
+            border-radius: var(--corner-radius-small);
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:not(.header-button)::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: calc(100% - 32px);
+            height: 2px;
+            background-color: var(--primary-blue);
+            transform: translateX(-50%) scaleX(0);
+            transform-origin: center;
+            transition: transform 0.3s ease;
+        }
+        .nav-links a:not(.header-button):hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+        /* Style for the active page link */
+        .nav-links a.active-link {
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        .nav-links a.active-link::after {
+             transform: translateX(-50%) scaleX(1);
+        }
+
+        .header-container .header-button {
+            border: 1px solid var(--primary-blue);
+            background-color: var(--background-light);
+            color: var(--primary-blue);
+            padding: 8px 18px;
+            border-radius: var(--corner-radius-small);
+            font-weight: 600;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .header-container .header-button:hover { 
+            background-color: var(--primary-blue);
+            color: var(--background-light);
+        }
+
+        /* --- Navigation Dropdown Styles --- */
+        .nav-item { position: relative; }
+        .nav-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--background-light);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: var(--corner-radius-small);
+            padding: 10px 0;
+            z-index: 1001;
+            min-width: 160px;
+            border: 1px solid var(--border-light);
+        }
+        .nav-item:hover .nav-dropdown { display: block; }
+        .nav-dropdown a {
+            display: block;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            white-space: nowrap;
+        }
+        .nav-dropdown a:hover { 
+            background-color: var(--background-offset); 
+            color: var(--primary-blue);
+        }
+        .nav-item > a { 
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .nav-item > a::after { 
+             bottom: 6px; 
+        }
+        .dropdown-arrow { 
+            display: inline-block;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-left: 4px;
+            transition: transform 0.3s ease;
+            transform: rotate(90deg);
+        }
+         .nav-item:hover .dropdown-arrow {
+            transform: rotate(-90deg);
+        }
+        
+        /* --- Page Hero Section --- */
+        .page-hero {
+            padding: 80px 30px; /* Increased padding */
+            background-color: var(--background-offset);
+            text-align: center;
+            border-bottom: 1px solid var(--border-light);
+            /* Added background styles */
+            position: relative;
+            z-index: 1;
+            background-image: url('assets/images/projects-hero-bg.jpg'); /* Placeholder image */
+            background-size: cover;
+            background-position: center;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* 50% dark overlay */
+            z-index: -1; /* Behind the content */
+        }
+        .page-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--background-light); /* Changed to white */
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+        .page-hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9); /* Changed to light */
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- Gallery Section --- */
+        .gallery-section {
+            padding: 80px 30px;
+        }
+        .project-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: var(--corner-radius-large);
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            /* Removed background and border */
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 400px; /* Increased height */
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        /* Removed .gallery-item-content styles */
+
+
+        /* --- FOOTER --- */
+        .site-footer {
+            background-color: var(--background-light);
+            color: var(--text-light);
+            padding: 60px 30px;
+            border-top: 1px solid var(--border-light);
+        }
+        .footer-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        .footer-columns {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            text-align: left;
+            gap: 40px;
+        }
+        .footer-logo-col img {
+            height: 50px;
+            margin-bottom: 15px;
+        }
+        .footer-logo-col .copyright-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding-top: 0;
+            border-top: none;
+            text-align: left;
+        }
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .footer-nav a {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .footer-nav a:hover {
+            color: var(--primary-blue);
+        }
+        .footer-contact p {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        .footer-contact a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-contact a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* --- Mobile Nav Toggle --- */
+        .mobile-nav-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 9999;
+        }
+        .mobile-nav-toggle .icon-hamburger { display: block; }
+        .mobile-nav-toggle .icon-close { display: none; }
+        .mobile-nav-toggle[aria-expanded="true"] .icon-hamburger { display: none; }
+        .mobile-nav-toggle[aria-expanded="true"] .icon-close { display: block; }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* --- Base Responsiveness --- */
+        @media (max-width: 992px) {
+            .project-gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 15px;
+            }
+            .logo img { height: 40px; }
+            .page-hero { padding: 40px 20px; }
+            .page-hero h1 { font-size: 2.2rem; }
+            .page-hero p { font-size: 1rem; }
+            .gallery-section { padding: 40px 20px; }
+            .project-gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-item img {
+                height: 300px; /* Adjust height for mobile */
+            }
+            .footer-columns {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .footer-logo-col { order: 1; }
+            .footer-contact-col { order: 2; }
+            .footer-nav-col { display: none; }
+             .footer-logo-col .copyright-text, .footer-columns .footer-column h4{
+                text-align: center;
+            }
+            .nav-links {
+                position: fixed;
+                z-index: 1000;
+                inset: 0 0 0 30%;
+                flex-direction: column;
+                align-items: flex-start; 
+                justify-content: flex-start; 
+                padding: 6rem 2em 2em; 
+                gap: 1.5em; 
+                background: hsla(0, 0%, 100%, 0.95); 
+                backdrop-filter: blur(1rem);
+                transform: translateX(100%);
+                transition: transform 350ms ease-out;
+            }
+            .nav-links[data-visible="true"] {
+                transform: translateX(0%);
+            }
+            .mobile-nav-toggle {
+                display: block;
+                position: relative;
+                width: 2rem;
+                height: 2rem;
+                color: var(--text-dark);
+            }
+             .mobile-nav-toggle svg {
+                width: 100%;
+                height: 100%;
+                stroke: var(--text-dark);
+            }
+
+            /* Mobile Dropdown */
+            .nav-item:hover .nav-dropdown { display: none; } 
+            .nav-item .nav-dropdown {
+                position: static;
+                box-shadow: none;
+                border: none;
+                padding: 0 0 0 20px; 
+                margin-top: 10px;
+                max-height: 0; 
+                overflow: hidden;
+                transition: max-height 0.3s ease-out; 
+                 min-width: unset;
+                 background: transparent;
+            }
+            .nav-item.open .nav-dropdown {
+                 max-height: 200px; 
+                 display: block; 
+            }
+            .nav-links a {
+                 padding: 8px 0;
+            }
+             .nav-dropdown a { padding: 8px 0; }
+             .nav-item > a::after { display: none; } 
+             
+             .nav-links .header-button {
+                border: 1px solid var(--primary-blue);
+                background-color: var(--background-light);
+                color: var(--primary-blue);
+                padding: 8px 18px;
+                border-radius: var(--corner-radius-small);
+                font-weight: 600;
+             }
+             .nav-links .header-button:hover {
+                background-color: var(--primary-blue);
+                color: var(--background-light);
+             }
+             .nav-item.open .dropdown-arrow {
+                 transform: rotate(-90deg);
+             }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="website-content">
+        <header class="clean-header">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="index.html"><img src="assets/images/Combined-logo.png" alt="FloodShield PH Logo"></a>
+                </div>
+                <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+                    <span class="sr-only">Menu</span>
+                    <svg class="icon-hamburger" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                 <nav class="nav-links" id="primary-navigation">
+                    <a href="index.html">Home</a>
+                    <!-- Set this page as the active link -->
+                    <a href="projects.html" class="active-link">Our Projects</a>
+                    <div class="nav-item">
+                        <a href="index.html#barriers" class="dropdown-toggle">Our Technology <span class="dropdown-arrow">&gt;</span></a>
+                        <div class="nav-dropdown">
+                            <a href="model-2.html">Model 2</a>
+                        </div>
+                    </div>
+                    <a href="index.html#process">Our Process</a>
+                    <a href="index.html#consultation" class="header-button">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+
+            <!-- Page Hero Section -->
+            <section class="page-hero">
+                <h1>Our Completed Projects</h1>
+                <p>
+                    From private residences to large-scale commercial compounds, we provide trusted flood protection solutions tailored to each client's unique needs.
+                </p>
+            </section>
+
+            <!-- Expanding Features Section 1 -->
+            <section class="gallery-section" id="gallery">
+                <div class="project-gallery-grid">
+                    
+                    <!-- Project 1 -->
+                    <div class="gallery-item">
+                        <img src="assets/images/project-placeholder-1.jpg" alt="Completed flood barrier project for a commercial building.">
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="gallery-item">
+                        <img src="assets/images/project-placeholder-2.jpg" alt="Completed flood barrier project for a residential garage.">
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="gallery-item">
+                        <img src="assets/images/project-placeholder-3.jpg" alt="Completed flood barrier project for an industrial facility.">
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="gallery-item">
+                        <img src="assets/images/project-placeholder-4.jpg" alt="Completed flood barrier project for a storefront.">
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="gallery-item">
+                        <img src="assets/images/project-placeholder-5.jpg" alt="Completed flood barrier project for a main-gate.">
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="gallery-item">
+                        <img src="assets/images/project-placeholder-6.jpg" alt="Completed flood barrier project for a utility room.">
+                    </div>
+                    
+                    <!-- Add more .gallery-item blocks here as needed -->
+
+                </div>
+            </section>
+
+
+        </main>
+        
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-columns">
+                    <div class="footer-column footer-logo-col">
+                        <a href="index.html#home"><img src="assets/images/Combined-logo.png" alt="FloodShield PH Logo"></a>
+                         <div class="copyright-text">
+                            &copy; Floodshield Philippines, Banfu Corporation 2025
+                        </div>
+                    </div>
+                    <div class="footer-column footer-nav-col">
+                        <h4>Navigation</h4>
+                        <nav class="footer-nav">
+                            <a href="index.html">Home</a>
+                            <a href="projects.html">Our Projects</a>
+                            <a href="index.html#barriers">Our Technology</a> 
+                            <a href="index.html#process">Our Process</a>
+                        </nav>
+                    </div>
+                    <div class="footer-column footer-contact-col">
+                        <h4>Contact Us</h4>
+                        <div class="footer-contact">
+                            <p>Valenzuela City, Metro Manila, Philippines</p>
+                            <p><a href="mailto:floodshieldph@gmail.com">floodshieldph@gmail.com</a></p>
+                            <p>+63 962 728 6363</p>
+                            <p>+63 917 535 4292</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Page JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Mobile Navigation Toggle ---
+            const primaryNav = document.querySelector('#primary-navigation');
+            const navToggle = document.querySelector('.mobile-nav-toggle');
+
+            if (navToggle && primaryNav) {
+                navToggle.addEventListener('click', () => {
+                    const isVisible = primaryNav.getAttribute('data-visible') === 'true';
+                    primaryNav.setAttribute('data-visible', !isVisible);
+                    navToggle.setAttribute('aria-expanded', !isVisible);
+
+                    const dropdownToggles = primaryNav.querySelectorAll('.dropdown-toggle');
+                    dropdownToggles.forEach(toggle => {
+                        const parentNavItem = toggle.closest('.nav-item');
+                        if (parentNavItem) {
+                            parentNavItem.classList.remove('open');
+                        }
+                    });
+                });
+            }
+
+            const dropdownToggles = document.querySelectorAll('#primary-navigation .dropdown-toggle');
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) { 
+                        e.preventDefault(); 
+                        const parentNavItem = toggle.closest('.nav-item');
+                        if (parentNavItem) {
+                            parentNavItem.classList.toggle('open');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -156,11 +156,10 @@
         
         /* --- Page Hero Section --- */
         .page-hero {
-            padding: 80px 30px; /* Increased padding */
+            padding: 80px 30px;
             background-color: var(--background-offset);
             text-align: center;
             border-bottom: 1px solid var(--border-light);
-            /* Added background styles */
             position: relative;
             z-index: 1;
             background-image: url('assets/images/CTA-background.png');
@@ -171,23 +170,42 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* 50% dark overlay */
-            z-index: -1; /* Behind the content */
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
         }
         .page-hero h1 {
             font-size: 3.2rem;
             font-weight: 800;
-            color: var(--background-light); /* Changed to white */
+            color: var(--background-light);
             line-height: 1.2;
             margin-bottom: 15px;
         }
         .page-hero p {
             font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9); /* Changed to light */
+            color: rgba(255, 255, 255, 0.9);
             line-height: 1.7;
             max-width: 700px;
-            margin: 0 auto;
+            margin: 0 auto 30px; /* Added margin-bottom */
         }
+
+        /* --- ADDED: Button for Hero --- */
+        .btn-primary-white {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: var(--corner-radius-small);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            background-color: var(--background-light);
+            color: var(--primary-blue);
+        }
+        .btn-primary-white:hover {
+            background-color: #f0f0f0; 
+            color: var(--secondary-blue);
+        }
+
 
         /* --- Gallery Section --- */
         .gallery-section {
@@ -205,17 +223,104 @@
             border-radius: var(--corner-radius-large);
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            /* Removed background and border */
         }
         .gallery-item img {
             width: 100%;
-            height: 500px; /* Increased height */
+            height: 500px;
             object-fit: cover;
             display: block;
             transition: transform 0.4s ease;
         }
         .gallery-item:hover img {
             transform: scale(1.05);
+        }
+
+        /* --- FINAL CTA SECTION STYLES --- */
+        .final-cta-section-wrapper {
+            padding: 80px 30px;
+            background-color: var(--background-light);
+        }
+        .final-cta-box {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            background-color: var(--secondary-blue);
+            color: var(--background-light);
+            border-radius: var(--corner-radius-large);
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 22, 122, 0.15);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .final-cta-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 100% 0, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 20%),
+                radial-gradient(circle at 0 100%, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 20%);
+            z-index: -1;
+        }
+        .final-cta-box h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        .final-cta-box p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* --- Animated Button Styles --- */
+        .button-primary-boxed {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 6px 6px 24px;
+            background-color: var(--background-light);
+            color: var(--primary-blue);
+            border-radius: var(--corner-radius-small);
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+        }
+        .button-primary-boxed .button-text {
+            margin-right: 16px;
+        }
+        .arrow-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-blue);
+            border-radius: var(--corner-radius-small);
+        }
+        .arrow {
+            position: absolute;
+            color: var(--background-light);
+            font-weight: 900;
+            font-size: 1.4em;
+            transition: transform 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86), opacity 0.3s ease;
+        }
+        .arrow-two {
+            transform: translateX(-150%);
+            opacity: 0;
+        }
+        .button-primary-boxed:hover .arrow-one {
+            transform: translateX(150%);
+            opacity: 0;
+        }
+        .button-primary-boxed:hover .arrow-two {
+            transform: translateX(0);
+            opacity: 1;
         }
 
         /* --- FOOTER --- */
@@ -367,6 +472,14 @@
                 stroke: var(--text-dark);
             }
 
+            /* --- Responsive CTA Box --- */
+            .final-cta-section-wrapper {
+                padding: 40px 20px;
+            }
+            .final-cta-box h2 {
+                font-size: 1.8rem;
+            }
+
             /* Mobile Dropdown */
             .nav-item:hover .nav-dropdown { display: none; } 
             .nav-item .nav-dropdown {
@@ -447,6 +560,8 @@
                 <p>
                     FloodShield PH leads the way in flood protection and flood control across the Philippines. We have protected homes, businesses, and industrial facilities in Manila, Cebu, and Bicol with high-quality aluminum flood barriers built for quick installation and long-term reliability. Our proven systems keep properties safe and dry - backed by years of successful deployments nationwide
                 </p>
+                <!-- ADDED: Hero Button -->
+                <a href="index.html#consultation" class="btn btn-primary-white">Start Your Flood Protection Plan Now</a>
             </section>
 
             <section class="gallery-section" id="gallery">
@@ -461,7 +576,7 @@
                     </div>
 
                     <div class="gallery-item">
-                        <img src="assets/images/Customer3.jpg" alt="Completed flood barrier, control, protection project for a home, residential, industrial, commercial in Manila, Cebu, Bicol, Philippines.">
+                        <img src="assets/images/Customer3.jpg" alt="Completed flood barrier, control, protection project for a home, residential, industrial, commercial in Manila, Cebu, BBicol, Philippines.">
                     </div>
 
                     <div class="gallery-item">
@@ -481,7 +596,7 @@
                     </div>
 
                     <div class="gallery-item">
-                        <img src="assets/images/Customer11.jpg" alt="Completed flood barrier, control, protection project for a home, residential, industrial, commercial in Manila, Cebu, Bicol, Philippines.">
+                        <img src="assets.g/images/Customer11.jp" alt="Completed flood barrier, control, protection project for a home, residential, industrial, commercial in Manila, Cebu, Bicol, Philippines.">
                     </div>
 
                     <div class="gallery-item">
@@ -489,7 +604,7 @@
                     </div>
 
                     <div class="gallery-item">
-                        <img src="assets/images/Customer8.jpg" alt="Completed flood barrier, control, protection project for a home, residential, industrial, commercial in Manila, Cebu, Bicol, Philippines.">
+                        <img src="assets/images/Customer8.jpg" alt="Completed flood barrier, control, protection project for a home, residential, industrial, commercial in Manila, Cebu, BBicol, Philippines.">
                     </div>
 
                     <div class="gallery-item">
@@ -504,6 +619,21 @@
                 </div>
             </section>
 
+            <!-- FINAL CTA SECTION -->
+            <section class="final-cta-section-wrapper" id="consultation">
+                <div class="final-cta-box">
+                    <h2>Ready for Complete Flood Protection?</h2>
+                    <p>Contact our team for an on-site flood protection assessment.</p>
+                    <a href="mailto:floodshieldph@gmail.com" class="button-primary-boxed">
+                        <span class="button-text">Talk to Our Flood Control Specialists</span>
+                        <span class="arrow-wrapper">
+                            <span class="arrow arrow-one">→</span>
+                            <span class="arrow arrow-two">→</span>
+                        </span>
+                    </a>
+                </div>
+            </section>
+            <!-- END: FINAL CTA SECTION -->
 
         </main>
         

@@ -145,6 +145,51 @@
          .nav-item:hover .dropdown-arrow {
             transform: rotate(-90deg); /* Point up on hover */
         }
+
+        /* --- ADDED: Social Icons Styling --- */
+        .social-icons-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .social-icon-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .social-icon-link img {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0) invert(1); /* Make icons white */
+        }
+        .social-icon-link:hover {
+            background-color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+        
+        /* Footer Social Icons (Darker background context) */
+        .footer-social .social-icon-link {
+             background-color: #eef2ff; /* Light blue background */
+        }
+        .footer-social .social-icon-link img {
+             filter: none; /* Keep original color or set specific filter */
+             /* For simplicity, let's make them dark blue */
+             filter: brightness(0) saturate(100%) invert(13%) sepia(64%) saturate(3458%) hue-rotate(227deg) brightness(92%) contrast(102%); 
+        }
+        .footer-social .social-icon-link:hover {
+            background-color: var(--primary-blue);
+        }
+        .footer-social .social-icon-link:hover img {
+            filter: brightness(0) invert(1); /* White on hover */
+        }
+
+        
         /* --- FOOTER --- */
         .site-footer {
             background-color: var(--background-light);
@@ -326,11 +371,6 @@
                  transform: rotate(-90deg); /* Point up when open */
              }
         }
-
-        /* ==============================================
-        STYLES FOR PRODUCTS.HTML (Now model-2.html)
-        ==============================================
-        */
 
         /* Product Hero Section */
         .product-hero {

@@ -479,7 +479,7 @@
     }
 
 
-    /* --- RESPONSIVE VIDEO STYLES --- */
+    /* --- RESPONSIVE VIDEO STYLES (UPDATED FOR SHORTS) --- */
     .video-container {
         margin-top: 60px;
         margin-bottom: 30px;
@@ -490,8 +490,8 @@
     .video-wrapper {
         position: relative;
         width: 100%;
-        max-width: 900px;
-        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        max-width: 360px; /* Restrict width for vertical video (Shorts) */
+        padding-bottom: 177.77%; /* 9:16 Aspect Ratio (16 / 9 = 1.7777...) */
         height: 0;
         border-radius: var(--corner-radius-large);
         overflow: hidden;
@@ -1062,7 +1062,6 @@
                     <h2>Flood Barriers for Every Application</h2>
                 </div>
                 
-                <!-- UPDATED: Static Logo Grid -->
                 <div class="logo-carousel">
                     <div class="logo-track">
                         <div class="client-logo"><img src="assets/images/DE LOS SANTOS FLOOD BARRIER PHILIPPINES.png" alt="DE LOS SANTOS FLOOD BARRIER PHILIPPINES"></div>
@@ -1078,17 +1077,14 @@
                 
                 <div class="project-gallery-grid">
                     <div class="gallery-item">
-                        <!-- SEO: Optimized Alt Text -->
                         <img src="assets/images/Residential.jpg" alt="Residential flood protection for a home garage.">
                         <h3>Residential</h3>
                     </div>
                     <div class="gallery-item">
-                        <!-- SEO: Optimized Alt Text -->
                         <img src="assets/images/Commercial.jpg" alt="Commercial flood control barrier at a business entrance.">
                         <h3>Commercial</h3>
                     </div>
                     <div class="gallery-item">
-                        <!-- SEO: Optimized Alt Text -->
                         <img src="assets/images/Industrial.JPG" alt="Industrial flood barrier protecting a warehouse facility in the Philippines.">
                         <h3>Industrial</h3>
                     </div>
@@ -1127,12 +1123,12 @@
                 <!-- ADDED: Responsive Video Container -->
                 <div class="video-container">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315" src="https://www.youtube.com/shorts/Oa58t1UMeXg" title="FloodShield PH Performance and No Leak Test FM Approval" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <!-- IMPORTANT: Replace 'YOUR_VIDEO_ID' in the src below with your actual YouTube video ID -->
+                        <iframe width="360" height="640" src="https://www.youtube.com/embed/Oa58t1UMeXg?rel=0" title="FloodShield PH Performance and Leak Test, FM Approval" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
 
                 <div class="section-button-wrapper">
-                    <!-- UPDATED BUTTON STYLE -->
                     <a href="model-2.html" class="btn btn-primary">
                         Explore FloodShield Model 2
                     </a>

@@ -489,19 +489,19 @@
     }
     .video-wrapper {
         position: relative;
-        width: 100%;
-        max-width: 360px; /* Restrict width for vertical video (Shorts) */
-        padding-bottom: 177.77%; /* 9:16 Aspect Ratio (16 / 9 = 1.7777...) */
-        height: 0;
+        /* New Approach: Use aspect-ratio with a max-height limit */
+        aspect-ratio: 9 / 16;
+        height: 100%;
+        max-height: 640px; /* Limits the height directly as requested */
+        width: auto; /* Allows width to scale based on the height limit */
+        
         border-radius: var(--corner-radius-large);
         overflow: hidden;
         box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         background-color: #000;
     }
     .video-wrapper iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
+        /* Ensure iframe fills the wrapper */
         width: 100%;
         height: 100%;
         border: 0;
@@ -1124,7 +1124,7 @@
                 <div class="video-container">
                     <div class="video-wrapper">
                         <!-- IMPORTANT: Replace 'YOUR_VIDEO_ID' in the src below with your actual YouTube video ID -->
-                        <iframe width="360" height="640" src="https://www.youtube.com/embed/Oa58t1UMeXg?rel=0" title="FloodShield PH Performance and Leak Test, FM Approval" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/Oa58t1UMeXg?rel=0" title="FloodShield PH Performance and Leak Test, FM Approval" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
 

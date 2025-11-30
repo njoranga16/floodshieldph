@@ -479,6 +479,35 @@
     }
 
 
+    /* --- RESPONSIVE VIDEO STYLES --- */
+    .video-container {
+        margin-top: 60px;
+        margin-bottom: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 900px;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 0;
+        border-radius: var(--corner-radius-large);
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        background-color: #000;
+    }
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+
     /* --- HOW IT WORKS (TIMELINE) --- */
     .how-it-works-section {
         background-color: var(--background-light);
@@ -946,11 +975,11 @@
 </style>
 <script type="application/ld+json">
 {
-  "@context": "[https://schema.org](https://schema.org)",
+  "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "FloodShield Philippines",
-  "image": "[https://www.floodshieldph.com/assets/images/Combined-logo.png](https://www.floodshieldph.com/assets/images/Combined-logo.png)", 
-  "url": "[https://www.floodshieldph.com/](https://www.floodshieldph.com/)", 
+  "image": "https://www.floodshieldph.com/assets/images/Combined-logo.png", 
+  "url": "https://www.floodshieldph.com/", 
   "telephone": "+63 917 535 4292",
   "email": "floodshieldph@gmail.com",
   "address": {
@@ -976,6 +1005,7 @@
                 <div class="logo">
                      <a href="#home"><img src="assets/images/Combined-logo.png" alt="FloodShield PH Logo"></a>
                 </div>
+                <!-- Hamburger Menu Button -->
                 <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
                     <span class="sr-only">Menu</span>
                     <svg class="icon-hamburger" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -985,10 +1015,12 @@
                     <a href="#home">Home</a>
                     <a href="projects.html">Our Projects</a>
                     <div class="nav-item">
-                         <a href="model-2.html" class="dropdown-toggle">Our Technology <span class="dropdown-arrow">&gt;</span></a>
+                         <!-- UPDATED: Replaced arrow -->
+                        <a href="model-2.html" class="dropdown-toggle">Our Technology <span class="dropdown-arrow">&gt;</span></a>
                         <div class="nav-dropdown">
                             <a href="model-2.html">Model 2</a>
-                            </div>
+                            <!-- Add other product links here if needed -->
+                        </div>
                     </div>
                     <a href="#process">Our Process</a>
                     <a href="#consultation" class="header-button">Contact</a>
@@ -1030,6 +1062,7 @@
                     <h2>Flood Barriers for Every Application</h2>
                 </div>
                 
+                <!-- UPDATED: Static Logo Grid -->
                 <div class="logo-carousel">
                     <div class="logo-track">
                         <div class="client-logo"><img src="assets/images/DE LOS SANTOS FLOOD BARRIER PHILIPPINES.png" alt="DE LOS SANTOS FLOOD BARRIER PHILIPPINES"></div>
@@ -1045,14 +1078,17 @@
                 
                 <div class="project-gallery-grid">
                     <div class="gallery-item">
+                        <!-- SEO: Optimized Alt Text -->
                         <img src="assets/images/Residential.jpg" alt="Residential flood protection for a home garage.">
                         <h3>Residential</h3>
                     </div>
                     <div class="gallery-item">
+                        <!-- SEO: Optimized Alt Text -->
                         <img src="assets/images/Commercial.jpg" alt="Commercial flood control barrier at a business entrance.">
                         <h3>Commercial</h3>
                     </div>
                     <div class="gallery-item">
+                        <!-- SEO: Optimized Alt Text -->
                         <img src="assets/images/Industrial.JPG" alt="Industrial flood barrier protecting a warehouse facility in the Philippines.">
                         <h3>Industrial</h3>
                     </div>
@@ -1088,7 +1124,15 @@
                     </div>
                 </div>
 
+                <!-- ADDED: Responsive Video Container -->
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/shorts/Oa58t1UMeXg" title="FloodShield PH Performance and No Leak Test FM Approval" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
                 <div class="section-button-wrapper">
+                    <!-- UPDATED BUTTON STYLE -->
                     <a href="model-2.html" class="btn btn-primary">
                         Explore FloodShield Model 2
                     </a>
@@ -1199,6 +1243,7 @@
         </footer>
     </div>
 
+    <!-- Page JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 

@@ -403,53 +403,39 @@
             padding-top: 80px;
             padding-bottom: 80px;
         }
+        
+        /* UPDATED: Static Logo Grid Styles */
         .logo-carousel {
             width: 100%;
-            overflow: hidden;
-            position: relative;
-            white-space: nowrap;
             margin-bottom: 60px;
-        }
-        .logo-carousel::before,
-        .logo-carousel::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 100px;
-            height: 100%;
-            z-index: 2;
-        }
-        .logo-carousel::before {
-            left: 0;
-            background: linear-gradient(to left, rgba(255,255,255,0), var(--background-light));
-        }
-        .logo-carousel::after {
-            right: 0;
-            background: linear-gradient(to right, rgba(255,255,255,0), var(--background-light));
+            padding: 0 30px;
         }
         .logo-track {
-            display: inline-block;
-            animation: scroll 30s linear infinite;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 per row on desktop */
+            gap: 40px;
+            align-items: center;
+            justify-items: center;
+            max-width: 900px; /* Limit width so 3 logos don't spread too wide */
+            margin: 0 auto;
         }
         .client-logo {
-            display: inline-block;
-            padding: 0 40px;
-            vertical-align: middle;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
         }
         .client-logo img {
-            height: 50px;
-            filter: grayscale(100%);
-            opacity: 0.6;
-            transition: filter 0.3s, opacity 0.3s;
+            max-height: 70px; 
+            max-width: 100%;
+            height: auto;
+            /* REMOVED: filter and opacity */
+            transition: transform 0.3s ease;
         }
         .client-logo img:hover {
-            filter: grayscale(0%);
-            opacity: 1;
+            transform: scale(1.05);
         }
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
+
         .project-gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -796,6 +782,11 @@
             .section-header h2 {
                 font-size: 1.8rem;
             }
+            
+            /* ADDED: Mobile Logo Grid Layout */
+            .logo-track {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
             .footer-columns {
                 display: flex;
@@ -971,7 +962,6 @@
                 <div class="logo">
                      <a href="#home"><img src="assets/images/Combined-logo.png" alt="FloodShield PH Logo"></a>
                 </div>
-                <!-- Hamburger Menu Button -->
                 <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
                     <span class="sr-only">Menu</span>
                     <svg class="icon-hamburger" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -981,12 +971,10 @@
                     <a href="#home">Home</a>
                     <a href="projects.html">Our Projects</a>
                     <div class="nav-item">
-                         <!-- UPDATED: Replaced arrow -->
-                        <a href="model-2.html" class="dropdown-toggle">Our Technology <span class="dropdown-arrow">&gt;</span></a>
+                         <a href="model-2.html" class="dropdown-toggle">Our Technology <span class="dropdown-arrow">&gt;</span></a>
                         <div class="nav-dropdown">
                             <a href="model-2.html">Model 2</a>
-                            <!-- Add other product links here if needed -->
-                        </div>
+                            </div>
                     </div>
                     <a href="#process">Our Process</a>
                     <a href="#consultation" class="header-button">Contact</a>
@@ -1027,32 +1015,26 @@
                     <p class="section-subtitle">Who We Serve</p>
                     <h2>Flood Barriers for Every Application</h2>
                 </div>
+                
                 <div class="logo-carousel">
                     <div class="logo-track">
                         <div class="client-logo"><img src="assets/images/MANILA CREAMERY FLOOD BARRIER.webp" alt="Manila Creamery"></div>
                         <div class="client-logo"><img src="assets/images/stick o flood barrier.webp" alt="Stik O"></div>
                         <div class="client-logo"><img src="assets/images/delos santos flood barrier.webp" alt="Delos Santos"></div>
                         <div class="client-logo"><img src="assets/images/flexo flood barrier.png" alt="Flexo"></div>
-                        <!-- Duplicate logos for seamless scroll -->
-                        <div class="client-logo"><img src="assets/images/MANILA CREAMERY FLOOD BARRIER.webp" alt="Manila Creamery"></div>
-                        <div class="client-logo"><img src="assets/images/stick o flood barrier.webp" alt="Stik O"></div>
-                        <div class="client-logo"><img src="assets/images/delos santos flood barrier.webp" alt="Delos Santos"></div>
-                        <div class="client-logo"><img src="assets/images/flexo flood barrier.png" alt="Flexo"></div>
                     </div>
                 </div>
+                
                 <div class="project-gallery-grid">
                     <div class="gallery-item">
-                        <!-- SEO: Optimized Alt Text -->
                         <img src="assets/images/Residential.jpg" alt="Residential flood protection for a home garage.">
                         <h3>Residential</h3>
                     </div>
                     <div class="gallery-item">
-                        <!-- SEO: Optimized Alt Text -->
                         <img src="assets/images/Commercial.jpg" alt="Commercial flood control barrier at a business entrance.">
                         <h3>Commercial</h3>
                     </div>
                     <div class="gallery-item">
-                        <!-- SEO: Optimized Alt Text -->
                         <img src="assets/images/Industrial.JPG" alt="Industrial flood barrier protecting a warehouse facility in the Philippines.">
                         <h3>Industrial</h3>
                     </div>
@@ -1089,7 +1071,6 @@
                 </div>
 
                 <div class="section-button-wrapper">
-                    <!-- UPDATED BUTTON STYLE -->
                     <a href="model-2.html" class="btn btn-primary">
                         Explore FloodShield Model 2
                     </a>
@@ -1200,7 +1181,6 @@
         </footer>
     </div>
 
-    <!-- Page JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
@@ -1245,4 +1225,3 @@
     </script>
 </body>
 </html>
-

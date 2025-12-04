@@ -466,33 +466,50 @@
     .gallery-item:hover img {
         transform: scale(1.05);
     }
-    .gallery-item h3 {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding: 40px 20px 20px;
-        color: white;
-        font-size: 1.5rem;
-        font-weight: 700;
-        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    }
+        .gallery-item h3 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px 20px 20px;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        }
 
 
-    /* --- RESPONSIVE VIDEO STYLES (UPDATED FOR SHORTS) --- */
+    /* --- RESPONSIVE VIDEO STYLES (UPDATED) --- */
     .video-container {
         margin-top: 60px;
         margin-bottom: 30px;
         width: 100%;
         display: flex;
         justify-content: center;
+        gap: 40px; /* Added gap between videos */
+        flex-wrap: wrap; /* Ensure they stack on mobile if needed */
+        align-items: flex-start;
+    }
+    .video-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Optional: limit max width of each block */
+        max-width: 300px;
+    }
+    .video-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--secondary-blue);
+        margin-bottom: 15px;
+        text-align: center;
     }
     .video-wrapper {
         position: relative;
         /* New Approach: Use aspect-ratio with a max-height limit */
         aspect-ratio: 9 / 16;
         height: 100%;
-        max-height: 640px; /* Limits the height directly as requested */
+        max-height: 400px; /* Limits the height directly as requested */
         width: auto; /* Allows width to scale based on the height limit */
         
         border-radius: var(--corner-radius-large);
@@ -1123,13 +1140,19 @@
 
                 <!-- ADDED: Responsive Video Container -->
                 <div class="video-container">
-                    <div class="video-wrapper">
-                        <!-- IMPORTANT: Replace 'YOUR_VIDEO_ID' in the src below with your actual YouTube video ID -->
-                        <iframe src="https://www.youtube.com/embed/Oa58t1UMeXg?rel=0" title="FloodShield PH Performance and Leak Test, FM Approval" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="video-block">
+                        <h4 class="video-title">Leak Test</h4>
+                        <div class="video-wrapper">
+                            <!-- IMPORTANT: Replace 'YOUR_VIDEO_ID' in the src below with your actual YouTube video ID -->
+                            <iframe src="https://www.youtube.com/embed/Oa58t1UMeXg?rel=0" title="FloodShield PH Performance and Leak Test, FM Approval" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
                     </div>
-                    <div class="video-wrapper">
-                        <!-- IMPORTANT: Replace 'YOUR_VIDEO_ID' in the src below with your actual YouTube video ID -->
-                        <iframe src="https://www.youtube.com/embed/eua3_ZgY9nM" title="FloodShield PH Performance and Dynamic Impact Test, FM Approval" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="video-block">
+                        <h4 class="video-title">Dynamic Impact Test</h4>
+                        <div class="video-wrapper">
+                            <!-- IMPORTANT: Replace 'YOUR_VIDEO_ID' in the src below with your actual YouTube video ID -->
+                            <iframe src="https://www.youtube.com/embed/eua3_ZgY9nM" title="FloodShield PH Performance and Dynamic Impact Test, FM Approval" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
                     </div>
                 </div>
 

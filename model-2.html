@@ -135,15 +135,15 @@
              bottom: 6px; 
         }
         .dropdown-arrow { 
-            display: inline-block; /* Needed for transform */
-            font-size: 0.9em; /* Slightly larger for > */
-            font-weight: 600; /* Bolder */
-            margin-left: 4px; /* More space */
+            display: inline-block; 
+            font-size: 0.9em; 
+            font-weight: 600; 
+            margin-left: 4px; 
             transition: transform 0.3s ease;
-            transform: rotate(90deg); /* Start pointing down */
+            transform: rotate(90deg); 
         }
          .nav-item:hover .dropdown-arrow {
-            transform: rotate(-90deg); /* Point up on hover */
+            transform: rotate(-90deg); 
         }
 
         /* --- ADDED: Social Icons Styling --- */
@@ -172,9 +172,9 @@
             transform: translateY(-2px);
         }
         
-        /* Footer Social Icons (Darker background context) */
+        /* Footer Social Icons */
         .footer-social .social-icon-link {
-             background-color: #eef2ff; /* Light blue background */
+             background-color: #eef2ff; 
         }
         .footer-social .social-icon-link img {
              filter: none;
@@ -315,7 +315,6 @@
              .mobile-nav-toggle svg {
                 width: 100%;
                 height: 100%;
-                /* This was missing, so icons were invisible */
                 stroke: var(--text-dark);
             }
 
@@ -337,32 +336,27 @@
                  max-height: 200px; 
                  display: block; 
             }
-             /* This rule ensures all links align */
             .nav-links a {
                  padding: 8px 0;
             }
              .nav-dropdown a { padding: 8px 0; }
              .nav-item > a::after { display: none; } 
              
-             /* This rule resets the button styling */
              .nav-links .header-button {
-                /* Re-apply box styling for mobile */
                 border: 1px solid var(--primary-blue);
                 background-color: var(--background-light);
                 color: var(--primary-blue);
-                padding: 8px 18px; /* Original padding */
+                padding: 8px 18px; 
                 border-radius: var(--corner-radius-small);
                 font-weight: 600;
              }
              .nav-links .header-button:hover {
-                /* Mobile hover */
                 background-color: var(--primary-blue);
                 color: var(--background-light);
              }
              
-             /* Mobile arrow rotation */
              .nav-item.open .dropdown-arrow {
-                 transform: rotate(-90deg); /* Point up when open */
+                 transform: rotate(-90deg); 
              }
         }
 
@@ -400,10 +394,9 @@
             text-decoration: none;
             transition: all 0.3s ease;
             border: 1px solid transparent;
-            /* ADDED: Required for the new hover effect */
             position: relative;
             overflow: hidden; 
-            z-index: 1; /* Ensure button content is above the sheen */
+            z-index: 1; 
         }
         .btn-primary {
             background-color: var(--primary-blue);
@@ -413,7 +406,6 @@
             background-color: var(--secondary-blue);
         }
 
-        /* ADDED: New hover sheen effect */
         .btn-primary::after {
             content: '';
             position: absolute;
@@ -423,10 +415,9 @@
             height: 100%;
             background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
             transform: translateX(-100%);
-            transition: transform 2s ease; /* 2 seconds */
+            transition: transform 2s ease; 
             z-index: -1;
         }
-        /* ADDED: Trigger the sheen on hover */
         .btn-primary:hover::after {
             transform: translateX(100%);
         }
@@ -440,6 +431,53 @@
             background-color: var(--background-offset);
             border-color: var(--accent-gray);
         }
+
+        /* --- ADDED: Product Overview Section --- */
+        .product-overview-section {
+            padding: 20px 30px 40px; 
+            background-color: var(--background-offset); 
+        }
+        .overview-box {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--background-light);
+            border-radius: var(--corner-radius-large);
+            padding: 40px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-light);
+        }
+        .overview-box h2 {
+            font-size: 2rem;
+            color: var(--secondary-blue);
+            margin-bottom: 30px;
+            font-weight: 800;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .overview-box h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-blue);
+        }
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px 40px;
+        }
+        .overview-item {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+        .overview-item strong {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
 
         /* --- Section Header Utility Styles --- */
         .section-header {
@@ -481,7 +519,7 @@
             gap: 60px;
             max-width: 1100px;
             margin: 0 auto;
-            align-items: flex-start; /* Align lists to the top */
+            align-items: flex-start;
         }
 
         .product-features-list {
@@ -490,7 +528,7 @@
         }
 
         .product-feature-item {
-            padding: 18px 0; /* Reduced padding */
+            padding: 18px 0; 
             border-bottom: 1px solid var(--border-light);
             cursor: pointer;
             transition: all 0.3s ease;
@@ -519,21 +557,21 @@
         
         .product-feature-item ul {
             color: var(--text-light);
-            line-height: 1.2; /* UPDATED: line spacing */
+            line-height: 1.2; 
             display: none; 
             margin: 0;
             padding-top: 15px;
-            padding-left: 32px; /* Adjusted padding */
+            padding-left: 32px; 
             list-style-type: disc;
         }
         
         .product-feature-item p {
             color: var(--text-light);
-            line-height: 1.2; /* UPDATED: line spacing */
+            line-height: 1.2; 
             display: none; 
             margin: 0;
             padding-top: 15px;
-            padding-left: 32px; /* Adjusted padding */
+            padding-left: 32px; 
         }
 
         /* Active State */
@@ -553,7 +591,7 @@
             border-radius: var(--corner-radius-large);
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            height: 650px; /* Expanded height */
+            height: 650px; 
             width: 100%; 
         }
 
@@ -568,7 +606,7 @@
 
         /* --- Certification Box Styles --- */
         .certification-section {
-            padding: 0 30px 60px 30px; /* Reduced padding */
+            padding: 0 30px 60px 30px; 
             background-color: var(--background-light); 
         }
         .certification-box {
@@ -583,7 +621,7 @@
             margin-bottom: 40px;
         }
         .certification-box-header h2 {
-            font-size: 2.2rem; /* UPDATED: font size */
+            font-size: 2.2rem; 
             font-weight: 600; 
             color: var(--primary-blue);
             line-height: 1.3;
@@ -617,7 +655,7 @@
 
         /* --- Final CTA Section Styles --- */
         .final-cta-section {
-            padding: 70px 30px; /* UPDATED: Reduced padding */
+            padding: 70px 30px; 
             position: relative;
             text-align: center;
             color: var(--background-light);
@@ -630,7 +668,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0, 0, 0, 0.3); /* UPDATED: Opacity */
+            background-color: rgba(0, 0, 0, 0.3); 
             z-index: 1;
         }
         .final-cta-content {
@@ -642,13 +680,13 @@
         .final-cta-content h2 {
             font-size: 2.2rem;
             font-weight: 800;
-            margin-bottom: 10px; /* UPDATED: margin */
+            margin-bottom: 10px; 
             color: var(--background-light); 
         }
         .final-cta-content p {
             font-size: 1.1rem;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 25px; /* UPDATED: margin */
+            margin-bottom: 25px; 
         }
         .btn-primary-white {
             display: inline-block;
@@ -661,7 +699,6 @@
             border: 1px solid transparent;
             background-color: var(--background-light);
             color: var(--primary-blue);
-            /* ADDED: Required for the new hover effect */
             position: relative;
             overflow: hidden; 
             z-index: 1;
@@ -671,7 +708,6 @@
             color: var(--secondary-blue);
         }
         
-        /* ADDED: Sheen effect for white button */
         .btn-primary-white::after {
             content: '';
             position: absolute;
@@ -679,31 +715,35 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* A subtle dark sheen */
             background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.08) 50%, transparent 100%);
             transform: translateX(-100%);
-            transition: transform 2s ease; /* 2 seconds */
+            transition: transform 2s ease; 
             z-index: -1;
         }
         .btn-primary-white:hover::after {
             transform: translateX(100%);
         }
 
-
         /* --- Responsiveness for new layout --- */
         @media (max-width: 992px) {
             /* No changes needed here now */
         }
         @media (max-width: 768px) {
-            .product-hero { padding: 60px 30px; } /* Mobile hero padding */
+            .product-hero { padding: 60px 30px; }
             .product-hero h1 { font-size: 2.2rem; }
             .product-hero p { font-size: 1rem; }
             .product-hero-buttons { flex-direction: column; gap: 10px; }
+            
+            /* Mobile Overview */
+            .product-overview-section { padding: 0 20px 40px; }
+            .overview-box { padding: 30px 20px; }
+            .overview-grid { grid-template-columns: 1fr; gap: 20px; }
+            
             .product-features-section { padding: 40px 20px; }
             .section-header h2 { font-size: 1.8rem; }
             .product-layout-grid { grid-template-columns: 1fr; gap: 30px; }
-            .product-image-viewer { position: relative; top: 0; height: 350px; order: -1; } /* Mobile image height */
-            .certification-section { padding: 0 20px 30px 20px; } /* Mobile cert padding */
+            .product-image-viewer { position: relative; top: 0; height: 350px; order: -1; } 
+            .certification-section { padding: 0 20px 30px 20px; } 
             .certification-box { padding: 40px 15px; }
             .certification-box-header { margin-bottom: 30px; }
             .certification-box-header h2 { font-size: 1.7rem; }
@@ -731,7 +771,6 @@
                     <a href="index.html#home">Home</a>
                     <a href="projects.html">Our Projects</a>
                     <div class="nav-item">
-                         <!-- UPDATED: Replaced arrow -->
                         <a href="model-2.html" class="dropdown-toggle">Our Technology <span class="dropdown-arrow">&gt;</span></a>
                         <div class="nav-dropdown">
                             <a href="model-2.html">Model 2</a>
@@ -759,11 +798,40 @@
                 </div>
             </section>
 
+            <!-- ADDED: Product Overview Section -->
+            <section class="product-overview-section">
+                <div class="container">
+                    <div class="overview-box">
+                        <h2>Model 2 Overview</h2>
+                        <div class="overview-grid">
+                            <div class="overview-item">
+                                <strong>Maximum Height:</strong> Up to 3 meters with adjustable support
+                            </div>
+                            <div class="overview-item">
+                                <strong>Width:</strong> Custom-fitted
+                            </div>
+                            <div class="overview-item">
+                                <strong>Materials:</strong> 304 stainless steel and T5 aluminum alloy
+                            </div>
+                            <div class="overview-item">
+                                <strong>Patented 3-Step Lock:</strong> Insert, twist, and lock in seconds
+                            </div>
+                            <div class="overview-item">
+                                <strong>EPDM Rubber Seal:</strong> Watertight protection built to last
+                            </div>
+                            <div class="overview-item">
+                                <strong>Lightweight & Easy to Deploy:</strong> 4 kg per 1.5m aluminum panel
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Expanding Features Section 1 -->
             <section class="product-features-section" id="product-features">
                 <div class="container">
                     <div class="section-header">
-                        <p class="section-subtitle">System Components</p>
+                        <p class="section-subtitle">Detailed Components</p>
                         <h2>FloodShield Model 2 Features</h2>
                     </div>
 
@@ -1059,4 +1127,3 @@
     </script>
 </body>
 </html>
-

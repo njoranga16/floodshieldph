@@ -401,27 +401,42 @@
     .logo-carousel {
         width: 100%;
         margin-bottom: 60px;
-        padding: 0 30px;
+        overflow: hidden;
+        position: relative;
+        white-space: nowrap;
+    }
+    .logo-carousel::before,
+    .logo-carousel::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 150px;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+    }
+    .logo-carousel::before {
+        left: 0;
+        background: linear-gradient(to right, var(--background-light) 0%, transparent 100%);
+    }
+    .logo-carousel::after {
+        right: 0;
+        background: linear-gradient(to left, var(--background-light) 0%, transparent 100%);
     }
     .logo-track {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center; 
-        gap: 50px; 
-        align-items: center;
-        max-width: 1000px; 
-        margin: 0 auto;
+        display: inline-block;
+        animation: scroll 35s linear infinite;
+    }
+    .logo-track:hover {
+        animation-play-state: paused;
     }
     .client-logo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: auto;
-        flex: 0 0 calc((100% - 100px) / 3);
-        max-width: calc((100% - 100px) / 3);
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0 40px;
     }
     .client-logo img {
-        max-height: 110px; 
+        max-height: 80px; 
         max-width: 100%;
         height: auto;
         transition: transform 0.3s ease;
@@ -429,6 +444,11 @@
     .client-logo img:hover {
         transform: scale(1.05);
     }
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
     .project-gallery-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -1137,6 +1157,17 @@
                 
                 <div class="logo-carousel">
                     <div class="logo-track">
+                        <div class="client-logo"><img src="assets/images/DE LOS SANTOS FLOOD BARRIER PHILIPPINES.png" alt="DE LOS SANTOS FLOOD BARRIER PHILIPPINES"></div>
+                        <div class="client-logo"><img src="assets/images/ECCOFOOD FLOOD BARRIER PHILIPPINES.png" alt="ECCOFOOD FLOOD BARRIER PHILIPPINES"></div>
+                        <div class="client-logo"><img src="assets/images/FLEXO FLOOD BARRIER MANILA PHILIPPINES.jpg" alt="FLEXO FLOOD BARRIER MANILA PHILIPPINES"></div>
+                        <div class="client-logo"><img src="assets/images/MANILA CREAMERY FLOOD BARRIER MANILA PHILIPPINES.png" alt="MANILA CREAMERY FLOOD BARRIER MANILA PHILIPPINES"></div>
+                        <div class="client-logo"><img src="assets/images/GO EYE CLINIC FLOOD BARRIER DAGUPAN PHILIPPINES.png" alt="GO EYE CLINIC FLOOD BARRIER DAGUPAN PHILIPPINES"></div>
+                        <div class="client-logo"><img src="assets/images/NAGA CT SCAN FLOOD BARRIER BICOL.png" alt="NAGA CT SCAN FLOOD BARRIER BICOL"></div>
+                        <div class="client-logo"><img src="assets/images/UDASCO FLOOD BARRIER CAVITE PHILIPPINES.png" alt="UDASCO FLOOD BARRIER CAVITE PHILIPPINES"></div>
+                        <div class="client-logo"><img src="assets/images/ST STEPHEN FLOOD BARRIER MANILA PHILIPPINES.jpeg" alt="ST STEPHEN FLOOD BARRIER MANILA PHILIPPINES"></div>
+                        <div class="client-logo"><img src="assets/images/SUN FORTUNE FLOOD BARRIER VALENZUELA.jpeg" alt="SUN FORTUNE FLOOD BARRIER VALENZUELA"></div>
+                        <div class="client-logo"><img src="assets/images/MANILA MED FLOOD BARRIER PHILIPPINES.png" alt="MANILA MED FLOOD BARRIER PHILIPPINES"></div>
+
                         <div class="client-logo"><img src="assets/images/DE LOS SANTOS FLOOD BARRIER PHILIPPINES.png" alt="DE LOS SANTOS FLOOD BARRIER PHILIPPINES"></div>
                         <div class="client-logo"><img src="assets/images/ECCOFOOD FLOOD BARRIER PHILIPPINES.png" alt="ECCOFOOD FLOOD BARRIER PHILIPPINES"></div>
                         <div class="client-logo"><img src="assets/images/FLEXO FLOOD BARRIER MANILA PHILIPPINES.jpg" alt="FLEXO FLOOD BARRIER MANILA PHILIPPINES"></div>

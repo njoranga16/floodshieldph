@@ -272,10 +272,12 @@
             object-fit: contain;
             opacity: 0;
             transition: opacity 0.4s ease-in-out, transform 0.5s ease;
+            display: none;
         }
         .carousel-img.active {
             opacity: 1;
             z-index: 1;
+            display: block;
         }
         .project-card:hover .carousel-img.active {
             transform: scale(1.05); /* Subtle zoom on hover */

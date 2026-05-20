@@ -766,11 +766,9 @@
                             </div>
                         </div>
 
-                        <!-- Project Card 2: Commercial -->
                         <div class="project-card" data-category="commercial">
                             <div class="project-carousel">
-                                <img src="assets/images/Customer3.jpg" class="carousel-img active" alt="Commercial Flood Barrier 1">
-                                <img src="assets/images/Customer4.jpg" class="carousel-img" alt="Commercial Flood Barrier 2">
+                                <img src="assets/projects/DeLosSantos-1.jpg" class="carousel-img active" alt="Commercial Hospital Quezon City Flood Barrier Protection 1">
                                 <div class="carousel-nav">
                                     <button class="carousel-arrow prev-btn" aria-label="Previous image">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
@@ -780,16 +778,17 @@
                                     </button>
                                 </div>
                                 <div class="project-info-overlay">
-                                    <h3>MRT Blue Line</h3>
+                                    <h3>Hospital - Quezon City</h3>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Project Card 3: Industrial -->
                         <div class="project-card" data-category="industrial">
                             <div class="project-carousel">
-                                <img src="assets/images/Customer5.jpg" class="carousel-img active" alt="Industrial Flood Protection 1">
-                                <img src="assets/images/Customer6.jpg" class="carousel-img" alt="Industrial Flood Protection 2">
+                                <img src="assets/projects/Flexo-1.jpg" class="carousel-img active" alt="Industrial Warehouse Valenzuela Flood Barrier Protection">
+                                <img src="assets/projects/Flexo-2.jpg" class="carousel-img" alt="Industrial Warehouse Valenzuela Flood Barrier Protection">
+                                <img src="assets/projects/Flexo-3.jpg" class="carousel-img" alt="Industrial Warehouse Valenzuela Flood Barrier Protection">
+                                <img src="assets/projects/Flexo-4.jpg" class="carousel-img" alt="Industrial Warehouse Valenzuela Flood Barrier Protection">
                                 <div class="carousel-nav">
                                     <button class="carousel-arrow prev-btn" aria-label="Previous image">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
@@ -799,7 +798,7 @@
                                     </button>
                                 </div>
                                 <div class="project-info-overlay">
-                                    <h3>Delta Electronics (Thailand) Plc</h3>
+                                    <h3>Warehouse - Valenzuela City</h3>
                                 </div>
                             </div>
                         </div>
@@ -991,7 +990,7 @@
                 });
             });
 
-           // --- 2. Project Carousel Functionality ---
+           // --- Project Carousel Functionality ---
             const carousels = document.querySelectorAll('.project-carousel');
             
             carousels.forEach(carousel => {
@@ -1000,7 +999,6 @@
                 const nextBtn = carousel.querySelector('.next-btn');
                 let currentIndex = 0;
     
-                // Hide arrows if there's only 1 image in the project
                 if(images.length <= 1) {
                     if(prevBtn) prevBtn.style.display = 'none';
                     if(nextBtn) nextBtn.style.display = 'none';
@@ -1012,7 +1010,6 @@
                     images[index].classList.add('active');
                 };
     
-                // Detect Portrait/Landscape for better fitting (Optional)
                 images.forEach(img => {
                     img.addEventListener('load', () => {
                         if (img.naturalHeight > img.naturalWidth) {

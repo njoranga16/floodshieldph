@@ -284,6 +284,10 @@
             z-index: 1;
             visibility: visible;
         }
+        .carousel-img.active.portrait {
+            object-fit: cover;
+            height: 100%;
+        }
         .project-card:hover .carousel-img.active {
             transform: scale(1.03);
         }
@@ -1237,6 +1241,7 @@
             
             carousels.forEach(carousel => {
                 const images = carousel.querySelectorAll('.carousel-img');
+                const images2 = carousel.querySelectorAll('.carousel-img.active');
                 const prevBtn = carousel.querySelector('.prev-btn');
                 const nextBtn = carousel.querySelector('.next-btn');
                 let currentIndex = 0;
@@ -1254,6 +1259,15 @@
     
                 // Detect Portrait/Landscape and apply 'portrait' class dynamically
                 images.forEach(img => {
+                    const checkOrientation = () => {
+                        if (img.naturalHeight > img.naturalWidth) {
+                            img.classList.add('portrait');
+                        } else {
+                            img.classList.remove('portrait');
+                        }
+                    };
+
+                images2.forEach(img => {
                     const checkOrientation = () => {
                         if (img.naturalHeight > img.naturalWidth) {
                             img.classList.add('portrait');

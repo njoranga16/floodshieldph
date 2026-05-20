@@ -962,8 +962,8 @@
 
                         <div class="project-card" data-category="residential">
                             <div class="project-carousel">
-                                <img src="assets/projects/Residential1-1.jpg" class="carousel-img active" alt="Residential Quezon City QC Flood Barrier Protection">
-                                <img src="assets/projects/Residential1-2.jpg" class="carousel-img" alt="Residential Quezon City QC Flood Barrier Protection">
+                                <img src="assets/projects/Residential1-1.jpg" class="carousel-img active" alt="Residential Paranaque City Flood Barrier Protection">
+                                <img src="assets/projects/Residential1-2.jpg" class="carousel-img" alt="Residential Paranaque City Flood Barrier Protection">
                                 <div class="carousel-nav">
                                     <button class="carousel-arrow prev-btn" aria-label="Previous image">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
@@ -973,7 +973,7 @@
                                     </button>
                                 </div>
                                 <div class="project-info-overlay">
-                                    <h3>Residential - Quezon City</h3>
+                                    <h3>Residential - Paranaque City</h3>
                                 </div>
                             </div>
                         </div>
@@ -1086,6 +1086,27 @@
                             </div>
                         </div>
 
+                        <div class="project-card" data-category="residential">
+                            <div class="project-carousel">
+                                <img src="assets/projects/BasementParking-1.jpg" class="carousel-img active" alt="Residential Basement Parking Manila Flood Barrier Protection">
+                                <img src="assets/projects/BasementParking-2.jpg" class="carousel-img" alt="Residential Basement Parking Manila Flood Barrier Protection">
+                                <img src="assets/projects/BasementParking-3.jpg" class="carousel-img" alt="Residential Basement Parking Manila Flood Barrier Protection">
+                                <img src="assets/projects/BasementParking-4.jpg" class="carousel-img" alt="Residential Basement Parking Manila Flood Barrier Protection">
+                                <img src="assets/projects/BasementParking-5.jpg" class="carousel-img" alt="Residential Basement Parking Manila Flood Barrier Protection">
+                                <div class="carousel-nav">
+                                    <button class="carousel-arrow prev-btn" aria-label="Previous image">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                                    </button>
+                                    <button class="carousel-arrow next-btn" aria-label="Next image">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                    </button>
+                                </div>
+                                <div class="project-info-overlay">
+                                    <h3>Residential - Manila</h3>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="project-card" data-category="commercial">
                             <div class="project-carousel">
                                 <img src="assets/projects/GoEyeClinic-1.jpg" class="carousel-img active" alt="Commercial Clinic Dagupan Pangasinan Flood Barrier Protection">
@@ -1099,6 +1120,26 @@
                                 </div>
                                 <div class="project-info-overlay">
                                     <h3>Clinic - Pangasinan</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card" data-category="residential">
+                            <div class="project-carousel">
+                                <img src="assets/projects/Weslie-1.jpg" class="carousel-img active" alt="Residential Manila Flood Barrier Protection">
+                                <img src="assets/projects/Weslie-2.jpg" class="carousel-img" alt="Residential Manila Flood Barrier Protection">
+                                <img src="assets/projects/Weslie-3.jpg" class="carousel-img" alt="Residential Manila Flood Barrier Protection">
+                                <img src="assets/projects/Weslie-4.jpg" class="carousel-img" alt="Residential Manila Flood Barrier Protection">
+                                <div class="carousel-nav">
+                                    <button class="carousel-arrow prev-btn" aria-label="Previous image">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                                    </button>
+                                    <button class="carousel-arrow next-btn" aria-label="Next image">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                    </button>
+                                </div>
+                                <div class="project-info-overlay">
+                                    <h3>Residential - Manila</h3>
                                 </div>
                             </div>
                         </div>
@@ -1241,19 +1282,7 @@
                 const prevBtn = carousel.querySelector('.prev-btn');
                 const nextBtn = carousel.querySelector('.next-btn');
                 let currentIndex = 0;
-    
-                if(images.length <= 1) {
-                    if(prevBtn) prevBtn.style.display = 'none';
-                    if(nextBtn) nextBtn.style.display = 'none';
-                    return;
-                }
-    
-                const showImage = (index) => {
-                    images.forEach(img => img.classList.remove('active'));
-                    images[index].classList.add('active');
-                };
-    
-                // Detect Portrait/Landscape and apply 'portrait' class dynamically
+
                 images.forEach(img => {
                     const checkOrientation = () => {
                         if (img.naturalHeight > img.naturalWidth) {
@@ -1270,6 +1299,17 @@
                         img.addEventListener('load', checkOrientation);
                     }
                 });
+                
+                if(images.length <= 1) {
+                    if(prevBtn) prevBtn.style.display = 'none';
+                    if(nextBtn) nextBtn.style.display = 'none';
+                    return;
+                }
+    
+                const showImage = (index) => {
+                    images.forEach(img => img.classList.remove('active'));
+                    images[index].classList.add('active');
+                };
     
                 if(prevBtn) {
                     prevBtn.addEventListener('click', (e) => {

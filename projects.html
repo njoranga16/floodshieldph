@@ -255,10 +255,10 @@
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             width: 100%;
-            aspect-ratio: 9 / 16;
-            height: 450px;
+            aspect-ratio: 4 / 3; /* Landscape standard layout */
             display: block; 
             transition: transform 0.3s ease;
+            background-color: #111; /* Beautiful dark contrast framing */
         }
         .project-carousel {
             width: 100%;
@@ -271,21 +271,21 @@
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            object-fit: contain;
+            object-fit: contain; /* Landscape default: fit inside boundaries */
             opacity: 0;
-            transition: opacity 0.4s ease-in-out, transform 0.5s ease;
-            display: none;
+            visibility: hidden; /* Replaced display: none to guarantee layout dimension checks */
+            transition: opacity 0.4s ease-in-out, transform 0.5s ease, visibility 0.4s ease-in-out;
         }
         .carousel-img.portrait {
-            object-fit: cover;
+            object-fit: cover; /* Portrait override: occupy fully */
         }
         .carousel-img.active {
             opacity: 1;
             z-index: 1;
-            display: block;
+            visibility: visible;
         }
         .project-card:hover .carousel-img.active {
-            transform: scale(1.05); /* Subtle zoom on hover */
+            transform: scale(1.03); /* Soft responsive zoom */
         }
 
         /* Arrow Navigation */
@@ -339,7 +339,7 @@
             align-items: flex-end;
             justify-content: center;
             padding: 0 20px 20px; 
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 70%, transparent 100%);
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 70%, transparent 100%);
             z-index: 2;
             text-align: center;
             pointer-events: none; /* Allows clicks to pass through to images */
@@ -591,7 +591,7 @@
                 grid-template-columns: 1fr;
             }
             .project-card {
-                height: 350px; 
+                aspect-ratio: 4 / 3;
             }
             /* Always show arrows on mobile */
             .carousel-nav {
@@ -745,6 +745,7 @@
                     <!-- Project Grid -->
                     <div class="project-gallery-grid">
                         
+                        <!-- Manila Med Project -->
                         <div class="project-card" data-category="commercial">
                             <div class="project-carousel">
                                 <img src="assets/projects/ManilaMed1-2.jpg" class="carousel-img active" alt="Commercial Hospital Manila Flood Barrier Protection 1">
@@ -766,6 +767,7 @@
                             </div>
                         </div>
 
+                        <!-- De Los Santos Project -->
                         <div class="project-card" data-category="commercial">
                             <div class="project-carousel">
                                 <img src="assets/projects/DeLosSantos-1.jpg" class="carousel-img active" alt="Commercial Hospital Quezon City Flood Barrier Protection 1">
@@ -783,6 +785,7 @@
                             </div>
                         </div>
 
+                        <!-- Flexo Project -->
                         <div class="project-card" data-category="industrial">
                             <div class="project-carousel">
                                 <img src="assets/projects/Flexo-1.jpg" class="carousel-img active" alt="Industrial Warehouse Valenzuela Flood Barrier Protection">
@@ -1010,12 +1013,20 @@
                     images[index].classList.add('active');
                 };
     
+                // Detect Portrait/Landscape and apply 'portrait' class dynamically
                 images.forEach(img => {
-                    img.addEventListener('load', () => {
+                    const checkOrientation = () => {
                         if (img.naturalHeight > img.naturalWidth) {
                             img.classList.add('portrait');
                         }
-                    });
+                    };
+
+                    // Execute instantly if image is loaded (e.g. from cache)
+                    if (img.complete) {
+                        checkOrientation();
+                    } else {
+                        img.addEventListener('load', checkOrientation);
+                    }
                 });
     
                 if(prevBtn) {

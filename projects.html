@@ -276,6 +276,9 @@
             transition: opacity 0.4s ease-in-out, transform 0.5s ease;
             display: none;
         }
+        .carousel-img.portrait {
+            object-fit: cover;
+        }
         .carousel-img.active {
             opacity: 1;
             z-index: 1;
@@ -744,8 +747,8 @@
                         
                         <div class="project-card" data-category="commercial">
                             <div class="project-carousel">
-                                <img src="assets/projects/ManilaMed1-1.jpg" class="carousel-img active" alt="Commercial Hospital Manila Flood Barrier Protection 1">
-                                <img src="assets/projects/ManilaMed1-2.jpg" class="carousel-img" alt="Commercial Hospital Manila Flood Barrier Protection 2">
+                                <img src="assets/projects/ManilaMed1-2.jpg" class="carousel-img active" alt="Commercial Hospital Manila Flood Barrier Protection 1">
+                                <img src="assets/projects/ManilaMed1-1.jpg" class="carousel-img" alt="Commercial Hospital Manila Flood Barrier Protection 2">
                                 <img src="assets/projects/ManilaMed1-3.jpg" class="carousel-img" alt="Commercial Hospital Manila Flood Barrier Protection 3">
                                 <img src="assets/projects/ManilaMed1-4.jpg" class="carousel-img" alt="Commercial Hospital Manila Flood Barrier Protection 4">
                                 <img src="assets/projects/ManilaMed1-5.jpg" class="carousel-img" alt="Commercial Hospital Manila Flood Barrier Protection 5">
@@ -988,7 +991,7 @@
                 });
             });
 
-            // --- Project Photo Carousels Logic ---
+           // --- 2. Project Carousel Functionality ---
             const carousels = document.querySelectorAll('.project-carousel');
             
             carousels.forEach(carousel => {
@@ -996,27 +999,36 @@
                 const prevBtn = carousel.querySelector('.prev-btn');
                 const nextBtn = carousel.querySelector('.next-btn');
                 let currentIndex = 0;
-
+    
                 // Hide arrows if there's only 1 image in the project
                 if(images.length <= 1) {
                     if(prevBtn) prevBtn.style.display = 'none';
                     if(nextBtn) nextBtn.style.display = 'none';
                     return;
                 }
-
+    
                 const showImage = (index) => {
                     images.forEach(img => img.classList.remove('active'));
                     images[index].classList.add('active');
                 };
-
+    
+                // Detect Portrait/Landscape for better fitting (Optional)
+                images.forEach(img => {
+                    img.addEventListener('load', () => {
+                        if (img.naturalHeight > img.naturalWidth) {
+                            img.classList.add('portrait');
+                        }
+                    });
+                });
+    
                 if(prevBtn) {
                     prevBtn.addEventListener('click', (e) => {
-                        e.preventDefault(); // Prevents default link behavior if applicable
+                        e.preventDefault();
                         currentIndex = (currentIndex - 1 + images.length) % images.length;
                         showImage(currentIndex);
                     });
                 }
-
+    
                 if(nextBtn) {
                     nextBtn.addEventListener('click', (e) => {
                         e.preventDefault();
@@ -1025,7 +1037,6 @@
                     });
                 }
             });
-
         });
     </script>
 </body>

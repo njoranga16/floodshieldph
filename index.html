@@ -425,7 +425,7 @@
     }
     .logo-track {
         display: inline-block;
-        animation: scroll 35s linear infinite;
+        animation: scroll 30s linear infinite;
     }
     .logo-track:hover {
         animation-play-state: paused;
@@ -439,11 +439,49 @@
         max-height: 100px; 
         max-width: 100%;
         height: auto;
+        filter: none; /* UPDATED: Full color always, no grayscale */
+        opacity: 1; /* UPDATED: Full opacity always */
         transition: transform 0.3s ease;
     }
     .client-logo img:hover {
-        transform: scale(1.05);
+        transform: scale(1.08); /* UPDATED: Fun interactive magnification pop */
     }
+    
+    /* ADDED: Manual slide controls for the logo carousel */
+    .carousel-control-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: var(--background-light);
+        border: 1px solid var(--border-light);
+        color: var(--primary-blue);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+        font-size: 1.25rem;
+        font-weight: bold;
+        opacity: 0.7;
+    }
+    .carousel-control-btn:hover {
+        opacity: 1;
+        background-color: var(--primary-blue);
+        color: var(--background-light);
+        transform: translateY(-50%) scale(1.08);
+    }
+    .carousel-control-btn.left-btn {
+        left: 20px;
+    }
+    .carousel-control-btn.right-btn {
+        right: 20px;
+    }
+
     @keyframes scroll {
         0% { transform: translateX(0); }
         100% { transform: translateX(-50%); }
@@ -1158,7 +1196,11 @@
                 </div>
                 
                 <div class="logo-carousel">
-                    <div class="logo-track">
+                    <!-- Added Carousel manual move buttons -->
+                    <button class="carousel-control-btn left-btn" id="logo-scroll-prev" aria-label="Scroll logos left">&#10094;</button>
+                    <button class="carousel-control-btn right-btn" id="logo-scroll-next" aria-label="Scroll logos right">&#10095;</button>
+
+                    <div class="logo-track" id="logo-track">
                         <div class="client-logo"><img src="assets/images/DE LOS SANTOS FLOOD BARRIER PHILIPPINES.png" alt="DE LOS SANTOS FLOOD BARRIER PHILIPPINES"></div>
                         <div class="client-logo"><img src="assets/images/ECCOFOOD FLOOD BARRIER PHILIPPINES.png" alt="ECCOFOOD FLOOD BARRIER PHILIPPINES"></div>
                         <div class="client-logo"><img src="assets/images/FLEXO FLOOD BARRIER MANILA PHILIPPINES.jpg" alt="FLEXO FLOOD BARRIER MANILA PHILIPPINES"></div>
@@ -1301,27 +1343,6 @@
                 </div>
             </section>
 
-            <!-- 
-            <section class="catalogue-section" id="catalogue">
-                <div class="container">
-                    <div class="catalogue-container">
-                        <div class="catalogue-preview">
-                            <img src="assets/images/FloodShieldPH_2026Catalogue-Cover.jpg" alt="FloodShield Product Catalogue Cover Screenshot" onerror="this.src='https://placehold.co/400x560/e0e0e0/333?text=Catalogue+Cover'">
-                        </div>
-                        <div class="catalogue-content">
-                            <h3>Access Our 2026 Product Catalogue</h3>
-                            <a href="assets/documents/FloodShieldPH_2026Catalogue.pdf" download class="button-download-catalogue">
-                                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                                </svg>
-                                Download (PDF)
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            -->
-
             <section class="final-cta-section-wrapper" id="consultation">
                 <div class="final-cta-box">
                     <h2>Ready for Complete Flood Protection?</h2>
@@ -1419,6 +1440,33 @@
                     // For desktop view, allow default navigation to #barriers
                 });
             });
+
+            // --- Manual Logo Carousel Scroll ---
+            const prevButton = document.getElementById('logo-scroll-prev');
+            const nextButton = document.getElementById('logo-scroll-next');
+            const track = document.getElementById('logo-track');
+
+            if (prevButton && nextButton && track) {
+                let scrollAmount = 0;
+                const step = 220; // Scroll increment step in pixels
+
+                nextButton.addEventListener('click', () => {
+                    // If running css animation, temporarily pause it to allow manual overrides
+                    track.style.animationPlayState = 'paused';
+                    track.scrollLeft += step;
+                    
+                    // Simple manual scroll fallback calculation
+                    scrollAmount -= step;
+                    track.style.transform = `translateX(${scrollAmount}px)`;
+                });
+
+                prevButton.addEventListener('click', () => {
+                    track.style.animationPlayState = 'paused';
+                    scrollAmount += step;
+                    if (scrollAmount > 0) scrollAmount = 0; // Boundary check
+                    track.style.transform = `translateX(${scrollAmount}px)`;
+                });
+            }
         });
     </script>
 </body>

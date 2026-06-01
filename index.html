@@ -425,7 +425,7 @@
     }
     .logo-track {
         display: inline-block;
-        animation: scroll 30s linear infinite;
+        animation: scroll 22s linear infinite; /* Sped up from 35s to 22s */
     }
     .logo-track:hover {
         animation-play-state: paused;
@@ -439,15 +439,15 @@
         max-height: 100px; 
         max-width: 100%;
         height: auto;
-        filter: none; /* UPDATED: Full color always, no grayscale */
-        opacity: 1; /* UPDATED: Full opacity always */
+        filter: none; /* Full color always, no grayscale */
+        opacity: 1; /* Full opacity always */
         transition: transform 0.3s ease;
     }
     .client-logo img:hover {
-        transform: scale(1.08); /* UPDATED: Fun interactive magnification pop */
+        transform: scale(1.08); /* Fun interactive magnification pop */
     }
     
-    /* ADDED: Manual slide controls for the logo carousel */
+    /* Manual slide controls for the logo carousel */
     .carousel-control-btn {
         position: absolute;
         top: 50%;
@@ -1441,31 +1441,62 @@
                 });
             });
 
-            // --- Manual Logo Carousel Scroll ---
+            // --- Seamless Logo Carousel Manual Scroll ---
             const prevButton = document.getElementById('logo-scroll-prev');
             const nextButton = document.getElementById('logo-scroll-next');
             const track = document.getElementById('logo-track');
 
             if (prevButton && nextButton && track) {
-                let scrollAmount = 0;
-                const step = 220; // Scroll increment step in pixels
+                let isManual = false;
+                let currentTranslate = 0;
 
-                nextButton.addEventListener('click', () => {
-                    // If running css animation, temporarily pause it to allow manual overrides
-                    track.style.animationPlayState = 'paused';
-                    track.scrollLeft += step;
+                // Helper to get the exact current translateX value during active CSS keyframe animation
+                function getTranslateX() {
+                    const style = window.getComputedStyle(track);
+                    const transform = style.transform || style.webkitTransform;
+                    if (!transform || transform === 'none') return 0;
                     
-                    // Simple manual scroll fallback calculation
-                    scrollAmount -= step;
-                    track.style.transform = `translateX(${scrollAmount}px)`;
-                });
+                    const matrix = transform.match(/^matrix\((.+)\)$/);
+                    if (matrix) {
+                        return parseFloat(matrix[1].split(',')[4]);
+                    }
+                    const matrix3d = transform.match(/^matrix3d\((.+)\)$/);
+                    if (matrix3d) {
+                        return parseFloat(matrix3d[1].split(',')[12]);
+                    }
+                    return 0;
+                }
 
-                prevButton.addEventListener('click', () => {
-                    track.style.animationPlayState = 'paused';
-                    scrollAmount += step;
-                    if (scrollAmount > 0) scrollAmount = 0; // Boundary check
-                    track.style.transform = `translateX(${scrollAmount}px)`;
-                });
+                function handleManualScroll(direction) {
+                    if (!isManual) {
+                        // Capture the active animation position to prevent visual jumps
+                        currentTranslate = getTranslateX();
+                        track.style.animation = 'none'; // Terminate active CSS keyframe continuous animation loop
+                        track.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)'; // High-performance transition curve
+                        isManual = true;
+                    }
+
+                    const step = 260; // Approximate width of a client-logo (logo + paddings)
+                    const totalWidth = track.scrollWidth / 2; // Since logo elements are duplicated inside the track
+
+                    if (direction === 'next') {
+                        currentTranslate -= step;
+                        // Wrap around boundary check
+                        if (Math.abs(currentTranslate) >= totalWidth) {
+                            currentTranslate = 0;
+                        }
+                    } else {
+                        currentTranslate += step;
+                        if (currentTranslate > 0) {
+                            currentTranslate = -totalWidth;
+                        }
+                    }
+
+                    track.style.transform = `translateX(${currentTranslate}px)`;
+                }
+
+                nextButton.addEventListener('click', () => handleManualScroll('next'));
+                prevButton.addEventListener('click', () => handleManualScroll('prev'));
             }
         });
     </script>

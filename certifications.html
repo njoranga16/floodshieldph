@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T34RNTCQ2N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-T34RNTCQ2N');
+    </script>
+        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FloodShield PH | Internationally Certified Flood Barriers & Patents</title>
+    <meta name="description" content="Explore FloodShield's world-class certifications including FM Approved Standard 2510, ISO 9001:2015, and our global patents across the USA, EU, Japan, and Asia.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/Logo-only.png">
+    <style>
+        /* --- ALL STYLES EMBEDDED TO MATCH SITE DESIGN --- */
+        :root {
+            --primary-blue: #00167A;
+            --secondary-blue: #1B2A6D;
+            --accent-gray: #C0C0C0;
+            --text-dark: #000000;
+            --text-light: #6b7280;
+            --background-light: #FFFFFF;
+            --background-offset: #f9fafb;
+            --border-light: #e5e7eb;
+            --font-primary: 'Montserrat', sans-serif;
+            --max-width: 1200px;
+            --corner-radius-large: 15px;
+            --corner-radius-small: 6px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-primary);
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: color 0.2s, background-color 0.2s;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* --- HEADER --- */
+        .clean-header {
+            background-color: var(--background-light);
+            border-bottom: 1px solid var(--border-light);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        .logo img { height: 60px; display: block; }
+        .nav-links { display: flex; gap: 10px; align-items: center; }
+        .nav-links a { 
+            font-size: 0.95rem; 
+            font-weight: 500; 
+            padding: 8px 16px;
+            border-radius: var(--corner-radius-small);
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:not(.header-button)::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: calc(100% - 32px);
+            height: 2px;
+            background-color: var(--primary-blue);
+            transform: translateX(-50%) scaleX(0);
+            transform-origin: center;
+            transition: transform 0.3s ease;
+        }
+        .nav-links a:not(.header-button):hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+        .nav-links a.active-link {
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        .nav-links a.active-link::after {
+             transform: translateX(-50%) scaleX(1);
+        }
+        .header-container .header-button {
+            border: 1px solid var(--primary-blue);
+            background-color: var(--background-light);
+            color: var(--primary-blue);
+            padding: 8px 18px;
+            border-radius: var(--corner-radius-small);
+            font-weight: 600;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .header-container .header-button:hover { 
+            background-color: var(--primary-blue);
+            color: var(--background-light);
+        }
+
+        /* --- Navigation Dropdowns --- */
+        .nav-item { position: relative; }
+        .nav-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--background-light);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: var(--corner-radius-small);
+            padding: 10px 0;
+            z-index: 1001;
+            min-width: 160px;
+            border: 1px solid var(--border-light);
+        }
+        .nav-item:hover .nav-dropdown { display: block; }
+        .nav-dropdown a {
+            display: block;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            white-space: nowrap;
+        }
+        .nav-dropdown a:hover { 
+            background-color: var(--background-offset); 
+            color: var(--primary-blue);
+        }
+        .nav-item > a { 
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .nav-item > a::after { 
+             bottom: 6px; 
+        }
+        .dropdown-arrow { 
+            display: inline-block; 
+            font-size: 0.9em; 
+            font-weight: 600; 
+            margin-left: 4px; 
+            transition: transform 0.3s ease;
+            transform: rotate(90deg); 
+        }
+        .nav-item:hover .dropdown-arrow {
+            transform: rotate(-90deg); 
+        }
+
+        /* --- HERO SECTION --- */
+        .page-hero {
+            padding: 100px 30px;
+            background-color: var(--background-offset);
+            text-align: center;
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+            z-index: 1;
+            background-image: url('assets/images/CTA-background.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 22, 122, 0.85); /* Deep rich brand tint */
+            z-index: -1;
+        }
+        .page-hero h1 {
+            font-size: 3.4rem;
+            font-weight: 900;
+            color: var(--background-light);
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        .page-hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.7;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        /* --- FM 2510 SPOTLIGHT --- */
+        .spotlight-section {
+            padding: 90px 30px 60px;
+            background-color: var(--background-light);
+        }
+        .spotlight-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        .spotlight-info {
+            flex: 1.2;
+        }
+        .spotlight-tag {
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            background-color: rgba(0, 22, 122, 0.08);
+            padding: 6px 14px;
+            border-radius: var(--corner-radius-small);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+        .spotlight-info h2 {
+            font-size: 2.6rem;
+            color: var(--secondary-blue);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+        .spotlight-info p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        .spotlight-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .spotlight-list li {
+            position: relative;
+            padding-left: 32px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--secondary-blue);
+        }
+        .spotlight-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 22px;
+            height: 22px;
+            background-color: var(--primary-blue);
+            color: var(--background-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 900;
+        }
+        .spotlight-logo-box {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--background-offset);
+            border: 2px solid var(--border-light);
+            border-radius: var(--corner-radius-large);
+            padding: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            text-align: center;
+        }
+        .fm-large-vector {
+            width: 140px;
+            height: 140px;
+            background-color: var(--background-light);
+            border: 4px solid var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0, 22, 122, 0.1);
+            position: relative;
+        }
+        .fm-large-vector::after {
+            content: '';
+            position: absolute;
+            top: -12px; left: -12px; right: -12px; bottom: -12px;
+            border: 1px dashed var(--primary-blue);
+            border-radius: 50%;
+        }
+        .fm-large-vector svg {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 5px;
+        }
+        .fm-large-vector span {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--secondary-blue);
+        }
+
+        /* --- CERTIFICATE DISPLAY SPACE --- */
+        .cert-display-section {
+            padding: 30px 30px 90px;
+            background-color: var(--background-light);
+        }
+        .cert-display-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        .cert-frame-wrapper {
+            background-color: var(--background-offset);
+            border: 1px solid var(--border-light);
+            border-radius: var(--corner-radius-large);
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+            border-color: var(--border-light);
+        }
+        .cert-title-badge {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--secondary-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .cert-image-holder {
+            width: 100%;
+            height: 520px;
+            background-color: #ffffff;
+            border-radius: var(--corner-radius-small);
+            border: 2px dashed #d1d5db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .cert-image-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Keeps original page boundaries intact */
+        }
+        .cert-placeholder-fallback {
+            position: absolute;
+            color: var(--text-light);
+            text-align: center;
+            padding: 20px;
+            font-weight: 500;
+            pointer-events: none; /* Let clicks bypass to image container */
+        }
+        .cert-placeholder-fallback svg {
+            width: 48px;
+            height: 48px;
+            color: var(--accent-gray);
+            margin-bottom: 12px;
+        }
+
+        /* --- ISO & PATENT GALLERY --- */
+        .gallery-section {
+            padding: 90px 30px;
+            background-color: var(--background-offset);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+        .gallery-section h2 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--secondary-blue);
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .gallery-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 55px;
+            line-height: 1.6;
+        }
+        .cert-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 items per row on desktop */
+            gap: 24px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        .gallery-card {
+            background-color: var(--background-light);
+            border: 1px solid var(--border-light);
+            border-radius: var(--corner-radius-large);
+            padding: 25px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+        .gallery-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 10px 25px rgba(0, 22, 122, 0.06);
+        }
+        .gallery-card-preview {
+            width: 100%;
+            height: 200px;
+            background-color: var(--background-offset);
+            border-radius: var(--corner-radius-small);
+            border: 1px solid var(--border-light);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery-card-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .gallery-card h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--secondary-blue);
+            margin-bottom: 0;
+            line-height: 1.3;
+        }
+
+        /* --- MATERIAL STANDARDS SECTION --- */
+        .materials-section {
+            padding: 85px 30px;
+            background-color: var(--background-light);
+        }
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: var(--max-width);
+            margin: 50px auto 0 auto;
+        }
+        .material-card {
+            padding: 40px 30px;
+            border-radius: var(--corner-radius-large);
+            border: 1px solid var(--border-light);
+            text-align: center;
+            background-color: var(--background-offset);
+        }
+        .material-card h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--secondary-blue);
+            margin-bottom: 15px;
+        }
+        .material-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* --- FINAL CTA SECTION --- */
+        .final-cta-section-wrapper {
+            padding: 80px 30px;
+            background-color: var(--background-light);
+        }
+        .final-cta-box {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            background-color: var(--secondary-blue);
+            color: var(--background-light);
+            border-radius: var(--corner-radius-large);
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 22, 122, 0.15);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .final-cta-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image:
+                radial-gradient(circle at 100% 0, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 20%),
+                radial-gradient(circle at 0 100%, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 20%);
+            z-index: -1;
+        }
+        .final-cta-box h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        .final-cta-box p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .button-primary-boxed {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 6px 6px 24px;
+            background-color: var(--background-light);
+            color: var(--primary-blue);
+            border-radius: var(--corner-radius-small);
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+        }
+        .button-primary-boxed .button-text {
+            margin-right: 16px;
+        }
+        .arrow-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-blue);
+            border-radius: var(--corner-radius-small);
+        }
+        .arrow {
+            position: absolute;
+            color: var(--background-light);
+            font-weight: 900;
+            font-size: 1.4em;
+            transition: transform 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86), opacity 0.3s ease;
+        }
+        .arrow-two {
+            transform: translateX(-150%);
+            opacity: 0;
+        }
+        .button-primary-boxed:hover .arrow-one {
+            transform: translateX(150%);
+            opacity: 0;
+        }
+        .button-primary-boxed:hover .arrow-two {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .social-icons-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .social-icon-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .social-icon-link img { width: 35px; height: 35px; }
+        .social-icon-link:hover {
+            background-color: var(--background-light);
+            transform: translateY(-2px);
+        }
+        .footer-social .social-icon-link {
+             background-color: #eef2ff; 
+        }
+        .footer-social .social-icon-link img { filter: none; }
+        .footer-social .social-icon-link:hover { background-color: var(--background-light); }
+
+        /* --- FOOTER --- */
+        .site-footer {
+            background-color: var(--background-light);
+            color: var(--text-light);
+            padding: 60px 30px;
+            border-top: 1px solid var(--border-light);
+        }
+        .footer-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        .footer-columns {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            text-align: left;
+            gap: 40px;
+        }
+        .footer-logo-col img { height: 50px; margin-bottom: 15px; }
+        .footer-logo-col .copyright-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: left;
+        }
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .footer-nav a {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .footer-nav a:hover { color: var(--primary-blue); }
+        .footer-contact p { font-size: 0.9rem; margin-bottom: 5px; }
+        .footer-contact a {
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+        .footer-contact a:hover { color: var(--primary-blue); }
+
+        /* --- Mobile Responsive Nav Toggle --- */
+        .mobile-nav-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 9999;
+        }
+        .mobile-nav-toggle .icon-hamburger { display: block; }
+        .mobile-nav-toggle .icon-close { display: none; }
+        .mobile-nav-toggle[aria-expanded="true"] .icon-hamburger { display: none; }
+        .mobile-nav-toggle[aria-expanded="true"] .icon-close { display: block; }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* --- Section Header Utility Styles --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-subtitle {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+        .section-subtitle::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--primary-blue);
+            margin-right: 10px;
+        }
+
+        /* --- Base Responsiveness --- */
+        @media (max-width: 992px) {
+            .spotlight-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            .cert-display-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .cert-gallery-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 items per row on tablet */
+            }
+            .materials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .page-hero { padding: 60px 20px; }
+            .page-hero h1 { font-size: 2.2rem; }
+            .page-hero p { font-size: 1.05rem; }
+            .header-container { padding: 0 15px; }
+            .logo img { height: 40px; }
+            .cert-gallery-grid {
+                grid-template-columns: 1fr; /* 1 item per row on mobile */
+            }
+            .cert-image-holder {
+                height: 380px;
+            }
+            .footer-columns {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .footer-logo-col { order: 1; }
+            .footer-contact-col { order: 2; }
+            .footer-nav-col { display: none; }
+            .footer-logo-col .copyright-text, .footer-columns .footer-column h4{
+                text-align: center;
+            }
+            .nav-links {
+                position: fixed;
+                z-index: 1000;
+                inset: 0 0 0 30%;
+                flex-direction: column;
+                align-items: flex-start; 
+                justify-content: flex-start; 
+                padding: 6rem 2em 2em; 
+                gap: 1.5em; 
+                background: hsla(0, 0%, 100%, 0.95); 
+                backdrop-filter: blur(1rem);
+                transform: translateX(100%);
+                transition: transform 350ms ease-out;
+            }
+            .nav-links[data-visible="true"] {
+                transform: translateX(0%);
+            }
+            .mobile-nav-toggle {
+                display: block;
+                position: relative;
+                width: 2rem;
+                height: 2rem;
+                color: var(--text-dark);
+            }
+            .mobile-nav-toggle svg {
+                width: 100%;
+                height: 100%;
+                stroke: var(--text-dark);
+            }
+            .nav-item:hover .nav-dropdown { display: none; } 
+            .nav-item .nav-dropdown {
+                position: static;
+                box-shadow: none;
+                border: none;
+                padding: 0 0 0 20px; 
+                margin-top: 10px;
+                max-height: 0; 
+                overflow: hidden;
+                transition: max-height 0.3s ease-out; 
+                min-width: unset;
+                background: transparent;
+            }
+            .nav-item.open .nav-dropdown {
+                 max-height: 200px; 
+                 display: block; 
+            }
+            .nav-links a { padding: 8px 0; }
+            .nav-dropdown a { padding: 8px 0; }
+            .nav-item > a::after { display: none; } 
+             
+            .nav-links .header-button {
+                border: 1px solid var(--primary-blue);
+                background-color: var(--background-light);
+                color: var(--primary-blue);
+                padding: 8px 18px;
+                border-radius: var(--corner-radius-small);
+                font-weight: 600;
+            }
+            .nav-links .header-button:hover {
+                background-color: var(--primary-blue);
+                color: var(--background-light);
+            }
+            .nav-item.open .dropdown-arrow {
+                 transform: rotate(-90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="website-content">
+        <header class="clean-header">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="index.html"><img src="assets/images/Combined-logo.png" alt="FloodShield PH Logo"></a>
+                </div>
+                <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+                    <span class="sr-only">Menu</span>
+                    <svg class="icon-hamburger" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                 <nav class="nav-links" id="primary-navigation">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <div class="nav-item">
+                        <a href="model-2.html" class="dropdown-toggle">Technology <span class="dropdown-arrow">&gt;</span></a>
+                        <div class="nav-dropdown">
+                            <a href="model-2.html">Model 2</a>
+                            <a href="model-3.html">Model 3</a>
+                        </div>
+                    </div>
+                    <a href="index.html#services">Services</a>
+                    <a href="certifications.html" class="active-link">Certifications</a>
+                    <a href="index.html#consultation" class="header-button">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero -->
+            <section class="page-hero">
+                <h1>Worldwide Certified Flood Protection</h1>
+                <p>
+                    FloodShield barriers represent a legacy of safety and technical trust. Engineered to survive catastrophic weather, our systems are certified by premier laboratories and protected by extensive patents worldwide.
+                </p>
+            </section>
+
+            <!-- FM Approval Spotlight Section -->
+            <section class="spotlight-section" id="fm-spotlight">
+                <div class="container">
+                    <div class="spotlight-container">
+                        <div class="spotlight-info">
+                            <span class="spotlight-tag">FM Approvals Standard 2510</span>
+                            <h2>The Ultimate Certification in Property Conservation</h2>
+                            <p>
+                                FM Approvals is the industry-recognized global leader in third-party testing. Standard 2510 is explicitly designated for evaluating the extreme boundaries of flood mitigation barriers. Our flood protection systems are tested to resist continuous hydrodynamic wave action, extreme hydrostatic load pressure, and rapid high-velocity debris impact with near-zero leakage thresholds.
+                            </p>
+                            <p>
+                                Choosing an FM Approved barrier ensures compliance with the most stringent risk-management protocols, often qualifying your commercial, industrial, or residential structures for premium building insurance benefits and property conservation status.
+                            </p>
+                            <ul class="spotlight-list">
+                                <li>Subjected to High-Velocity Collision & Logging Debris Impact</li>
+                                <li>Proven Hermetic Seals with Near-Zero Leakage Output</li>
+                                <li>Extreme Prolonged Hydrostatic Structural Stability Testing</li>
+                            </ul>
+                        </div>
+                        <div class="spotlight-logo-box">
+                            <div class="fm-large-vector">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#00167A" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    <path d="M9 11l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>FM 2510</span>
+                                <div class="emblem-sub" style="font-size:0.65rem; font-weight:800; letter-spacing:0.5px; margin-top:2px;">Approved</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Designated Certificates Display Space -->
+            <section class="cert-display-section">
+                <div class="container">
+                    <div class="cert-display-grid">
+                        
+                        <!-- FM Certificate Slot -->
+                        <div class="cert-frame-wrapper">
+                            <span class="cert-title-badge">FM Approved Standard 2510 Certificate</span>
+                            <div class="cert-image-holder">
+                                <img src="assets/images/FM-Certificate-Placeholder.jpg" alt="FM Approvals Standard 2510 Certificate" onerror="this.style.display='none';">
+                                <div class="cert-placeholder-fallback">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                                        <polyline points="14 2 14 8 20 8" />
+                                        <line x1="16" y1="13" x2="8" y2="13" />
+                                        <line x1="16" y1="17" x2="8" y2="17" />
+                                        <polyline points="10 9 9 9 8 9" />
+                                    </svg>
+                                    <p style="font-size:1.05rem; font-weight:700; color:var(--secondary-blue); margin-bottom:4px;">FM Approval Document</p>
+                                    <p style="font-size:0.85rem; color:var(--text-light);">FM Approved Certification</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ISO 9001:2015 Quality Certificate Slot -->
+                        <div class="cert-frame-wrapper">
+                            <span class="cert-title-badge">ISO 9001:2015 Manufacturing Certificate</span>
+                            <div class="cert-image-holder">
+                                <img src="assets/images/ISO-Certificate-Placeholder.jpg" alt="ISO 9001 Quality Management Certificate" onerror="this.style.display='none';">
+                                <div class="cert-placeholder-fallback">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M12 8v4l3 3" />
+                                    </svg>
+                                    <p style="font-size:1.05rem; font-weight:700; color:var(--secondary-blue); margin-bottom:4px;">ISO 9001 Verification Document</p>
+                                    <p style="font-size:0.85rem; color:var(--text-light);">ISO Quality Standard Verification</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- ISO & Patent Gallery (4 per row) -->
+            <section class="gallery-section" id="credentials-gallery">
+                <div class="container">
+                    <h2>Quality Standards & Patents Registry</h2>
+                    <p class="gallery-subtitle">
+                        Our state-of-the-art lock mechanism, compression sealing methods, and structural columns are fully patented across major worldwide territories, demonstrating the international technology leadership of our products.
+                    </p>
+
+                    <div class="cert-gallery-grid">
+                        
+                        <!-- Card 1: ISO 9001 -->
+                        <div class="gallery-card">
+                            <div class="gallery-card-preview">
+                                <img src="assets/images/Gallery-ISO-Mock.png" alt="ISO 9001 Seal" onerror="this.style.opacity='0.25';">
+                            </div>
+                            <h3>ISO Certificate</h3>
+                        </div>
+
+                        <!-- Card 2: United States Patent -->
+                        <div class="gallery-card">
+                            <div class="gallery-card-preview">
+                                <img src="assets/images/Gallery-US-Mock.png" alt="US Patent Stamp" onerror="this.style.opacity='0.25';">
+                            </div>
+                            <h3>United States Patent</h3>
+                        </div>
+
+                        <!-- Card 3: European Patent -->
+                        <div class="gallery-card">
+                            <div class="gallery-card-preview">
+                                <img src="assets/images/Gallery-EU-Mock.png" alt="European Patent Stamp" onerror="this.style.opacity='0.25';">
+                            </div>
+                            <h3>European Patent</h3>
+                        </div>
+
+                        <!-- Card 4: Japan Patent -->
+                        <div class="gallery-card">
+                            <div class="gallery-card-preview">
+                                <img src="assets/images/Gallery-JP-Mock.png" alt="Japan Patent Stamp" onerror="this.style.opacity='0.25';">
+                            </div>
+                            <h3>Japan Patent</h3>
+                        </div>
+
+                        <!-- Card 5: Taiwan Patent -->
+                        <div class="gallery-card">
+                            <div class="gallery-card-preview">
+                                <img src="assets/images/Gallery-TW-Mock.png" alt="Taiwan Patent Stamp" onerror="this.style.opacity='0.25';">
+                            </div>
+                            <h3>Taiwan Patent</h3>
+                        </div>
+
+                        <!-- Card 6: Thailand Patent -->
+                        <div class="gallery-card">
+                            <div class="gallery-card-preview">
+                                <img src="assets/images/Gallery-TH-Mock.png" alt="Thailand Patent Stamp" onerror="this.style.opacity='0.25';">
+                            </div>
+                            <h3>Thailand Patent</h3>
+                        </div>
+
+                        <!-- Card 7: Malaysia Patent -->
+                        <div class="gallery-card">
+                            <div class="gallery-card-preview">
+                                <img src="assets/images/Gallery-MY-Mock.png" alt="Malaysia Patent Stamp" onerror="this.style.opacity='0.25';">
+                            </div>
+                            <h3>Malaysia Patent</h3>
+                        </div>
+
+                        <!-- Card 8: Indonesia Patent -->
+                        <div class="gallery-card">
+                            <div class="gallery-card-preview">
+                                <img src="assets/images/Gallery-ID-Mock.png" alt="Indonesia Patent Stamp" onerror="this.style.opacity='0.25';">
+                            </div>
+                            <h3>Indonesia Patent</h3>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Material Standards -->
+            <section class="materials-section">
+                <div class="container">
+                    <div class="section-header">
+                        <p class="section-subtitle">Material Standards</p>
+                        <h2>Precision Structural Composites</h2>
+                    </div>
+                    
+                    <div class="materials-grid">
+                        <div class="material-card">
+                            <h3>6063-T5 Structural Aluminum</h3>
+                            <p>Anodized aluminum alloy with lateral internal reinforcement ribs. Delivers supreme tensile performance and durability while remaining lightweight enough (4kg per 1.5m) for easy handling under emergency conditions.</p>
+                        </div>
+                        <div class="material-card">
+                            <h3>High-Density EPDM Rubber</h3>
+                            <p>Premium Ethylene Propylene Diene Monomer gaskets create an airtight compression seal. Designed to withstand severe heat, UV, and salt corrosion without drying out or tearing.</p>
+                        </div>
+                        <div class="material-card">
+                            <h3>Marine Grade 304 Stainless</h3>
+                            <p>All load-tested bottom tracks, base plates, and ground anchor anchors are built with rust-proof, heavy-duty stainless steel, designed to remain clean and intact even under driveway load points.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final CTA -->
+            <section class="final-cta-section-wrapper" id="consultation">
+                <div class="final-cta-box">
+                    <h2>Protect Your Property Today</h2>
+                    <p>Contact our team to book an on-site evaluation and customized defense strategy.</p>
+                    <a href="mailto:floodshieldph@gmail.com" class="button-primary-boxed">
+                        <span class="button-text">Talk to Our Flood Control Specialists</span>
+                        <span class="arrow-wrapper">
+                            <span class="arrow arrow-one">→</span>
+                            <span class="arrow arrow-two">→</span>
+                        </span>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-columns">
+                    <div class="footer-column footer-logo-col">
+                        <a href="index.html"><img src="assets/images/Combined-logo.png" alt="FloodShield PH Logo"></a>
+                         <div class="copyright-text">
+                            &copy; Floodshield Philippines, Banfu Corporation 2026
+                        </div>
+                    </div>
+                    <div class="footer-column footer-nav-col">
+                        <h4>Navigation</h4>
+                        <nav class="footer-nav">
+                            <a href="index.html">Home</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="model-2.html">Technology</a>
+                            <a href="index.html#services">Services</a>
+                            <a href="certifications.html">Certifications</a>
+                        </nav>
+                    </div>
+                    <div class="footer-column footer-contact-col">
+                        <h4>Contact Us</h4>
+                        <div class="footer-contact">
+                            <p>Valenzuela City, Metro Manila, Philippines</p>
+                            <p><a href="mailto:floodshieldph@gmail.com">floodshieldph@gmail.com</a></p>
+                            <p>+63 962 728 6363</p>
+                            <p>+63 917 535 4292</p>
+                            <p>+63 917 899 8279 (Cebu / Visayas)</p>
+                        </div>
+                        <div class="social-icons-wrapper footer-social">
+                            <a href="https://www.facebook.com/floodshieldph/" class="social-icon-link" aria-label="Facebook" target="_blank"><img src="assets/images/facebook.png" alt="FloodShield PH Facebook"></a>
+                            <a href="https://www.instagram.com/floodshieldph/" class="social-icon-link" aria-label="Instagram" target="_blank"><img src="assets/images/instagram.png" alt="FloodShield PH Instagram"></a>
+                            <a href="https://www.tiktok.com/@floodshieldph" class="social-icon-link" aria-label="TikTok" target="_blank"><img src="assets/images/tiktok.png" alt="FloodShield PH TikTok"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Nav Logic
+            const primaryNav = document.querySelector('#primary-navigation');
+            const navToggle = document.querySelector('.mobile-nav-toggle');
+
+            if (navToggle && primaryNav) {
+                navToggle.addEventListener('click', () => {
+                    const isVisible = primaryNav.getAttribute('data-visible') === 'true';
+                    primaryNav.setAttribute('data-visible', !isVisible);
+                    navToggle.setAttribute('aria-expanded', !isVisible);
+                });
+            }
+
+            const dropdownToggles = document.querySelectorAll('#primary-navigation .dropdown-toggle');
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        const parentNavItem = toggle.closest('.nav-item');
+                        if (parentNavItem) {
+                            parentNavItem.classList.toggle('open');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

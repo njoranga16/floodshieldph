@@ -214,8 +214,6 @@
             color: var(--secondary-blue);
         }
 
-
-        /* --- FM 2510 SPOTLIGHT --- */
         .spotlight-section {
             padding: 90px 30px;
             background-color: var(--background-light);
@@ -224,8 +222,8 @@
             max-width: var(--max-width);
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.15fr 0.85fr; /* 2-column layout to host certificates on the right */
-            gap: 60px;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 100px;
             align-items: start;
         }
         .spotlight-info {
@@ -259,50 +257,6 @@
             font-weight: 900;
             line-height: 1.2;
             margin-bottom: 0;
-        }
-        
-        /* Placeholder for Actual FM Approved Logo */
-        .fm-logo-badge-container {
-            width: 110px;
-            height: 110px;
-            background-color: var(--background-offset);
-            border: 1px solid var(--border-light);
-            border-radius: var(--corner-radius-small);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-        }
-        .fm-logo-badge-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        .fm-logo-fallback-badge {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: #d90429; /* FM Standard deep red */
-            color: white;
-            width: 100%;
-            height: 100%;
-            font-family: var(--font-primary);
-        }
-        .fm-logo-fallback-badge .fm-txt {
-            font-size: 1.9rem;
-            font-weight: 900;
-            letter-spacing: -1.5px;
-            line-height: 0.95;
-        }
-        .fm-logo-fallback-badge .fm-txt-sub {
-            font-size: 0.55rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            line-height: 1;
-            margin-top: 1px;
         }
 
         .spotlight-info p {
@@ -423,7 +377,7 @@
         }
         .cert-gallery-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 items per row on desktop */
+            grid-template-columns: repeat(4, 1fr);
             gap: 24px;
             max-width: var(--max-width);
             margin: 0 auto;

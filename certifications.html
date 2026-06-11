@@ -222,7 +222,7 @@
             max-width: var(--max-width);
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
+            grid-template-columns: 0.8fr 1.2fr;
             gap: 100px;
             align-items: start;
         }
@@ -323,7 +323,6 @@
         }
         .cert-image-holder {
             width: 100%;
-            height: 280px; /* Scaled down perfectly to match sidebar integration */
             background-color: #ffffff;
             border-radius: var(--corner-radius-small);
             border: 2px dashed #d1d5db;
@@ -333,11 +332,28 @@
             overflow: hidden;
             position: relative;
         }
-        .cert-image-holder img {
+        
+        /* ISO Holder: Portrait A4 Style */
+        .cert-image-holder.iso-holder {
+            height: auto;
+            aspect-ratio: 1 / 1.414; /* Standard Portrait A4 Scaling */
+        }
+        .cert-image-holder.iso-holder img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover; /* Cover completely to ensure clean edges */
         }
+
+        /* FM Holder: Kept "the same as before" without aspect-ratio forcing */
+        .cert-image-holder.fm-holder {
+            height: 280px; /* Fixed height container */
+        }
+        .cert-image-holder.fm-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Contain style for non-A4 scaling */
+        }
+        
         .cert-placeholder-fallback {
             position: absolute;
             color: var(--text-light);
@@ -390,6 +406,9 @@
             text-align: center;
             display: flex;
             flex-direction: column;
+            position: relative;
+            aspect-ratio: 1 / 1.414;
+            overflow: hidden;
             align-items: center;
             box-shadow: 0 6px 20px rgba(0,0,0,0.02);
             transition: all 0.3s ease;

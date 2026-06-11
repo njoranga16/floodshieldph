@@ -87,30 +87,7 @@
             padding: 0 30px;
         }
         .logo img { height: 60px; display: block; }
-        .nav-links { display: flex; gap: 10px; align-items: center; }
-        .nav-links a {
-            font-size: 0.95rem;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: var(--corner-radius-small);
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        .nav-links a:not(.header-button)::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            width: calc(100% - 32px);
-            height: 2px;
-            background-color: var(--primary-blue);
-            transform: translateX(-50%) scaleX(0);
-            transform-origin: center;
-            transition: transform 0.3s ease;
-        }
-        .nav-links a:not(.header-button):hover::after {
-            transform: translateX(-50%) scaleX(1);
-        }
+
         .header-container .header-button {
             border: 1px solid var(--primary-blue);
             background-color: var(--background-light);
@@ -126,57 +103,50 @@
         }
     
         /* --- Navigation Dropdown Styles --- */
-        .nav-item {
-            position: relative; /* Needed for absolute positioning of dropdown */
-        }
+        .nav-item { position: relative; }
         .nav-dropdown {
-            display: none; /* Hidden by default */
+            display: none;
             position: absolute;
-            top: 100%; /* Position below the parent link */
+            top: 100%;
             left: 0;
             background-color: var(--background-light);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             border-radius: var(--corner-radius-small);
-            padding: 10px 0; /* Vertical padding for the dropdown box */
-            z-index: 1001; /* Ensure it's above other content */
-            min-width: 160px; /* Minimum width */
+            padding: 10px 0;
+            z-index: 1001;
+            min-width: 160px;
             border: 1px solid var(--border-light);
         }
-        /* Show dropdown on hover of the parent .nav-item */
-        .nav-item:hover .nav-dropdown {
-            display: block;
-        }
+        .nav-item:hover .nav-dropdown { display: block; }
         .nav-dropdown a {
-            display: block; /* Make links full width */
-            padding: 8px 20px; /* Padding for each dropdown item */
+            display: block;
+            padding: 8px 20px;
             font-size: 0.9rem;
             color: var(--text-dark);
-            white-space: nowrap; /* Prevent wrapping */
+            white-space: nowrap;
         }
-        .nav-dropdown a:hover {
-            background-color: var(--background-offset);
+        .nav-dropdown a:hover { 
+            background-color: var(--background-offset); 
             color: var(--primary-blue);
         }
-        /* Style for the main link that triggers the dropdown */
-        .nav-item > a {
+        .nav-item > a { 
             display: flex;
             align-items: center;
-            gap: 4px; /* Space between text and arrow */
+            gap: 4px;
         }
-        .nav-item > a::after { /* Adjust underline position for dropdown link */
-             bottom: 6px; /* Raise underline slightly if needed */
+        .nav-item > a::after { 
+             bottom: 6px; 
         }
-        .dropdown-arrow { /* Simple arrow using > */
-            display: inline-block; /* Needed for transform */
-            font-size: 0.9em; /* Size of the > */
-            font-weight: 600; /* Make it bolder */
-            margin-left: 4px; /* Space from text */
+        .dropdown-arrow { 
+            display: inline-block; 
+            font-size: 0.9em; 
+            font-weight: 600; 
+            margin-left: 4px; 
             transition: transform 0.3s ease;
-            transform: rotate(90deg); /* Start pointing down */
+            transform: rotate(90deg); 
         }
-        /* Rotate arrow on hover */
          .nav-item:hover .dropdown-arrow {
-            transform: rotate(-90deg); /* Point up on hover */
+            transform: rotate(-90deg); 
         }
 
         /* --- HERO SECTION --- */

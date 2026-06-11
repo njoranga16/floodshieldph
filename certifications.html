@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-T34RNTCQ2N"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -14,12 +15,14 @@
     <title>FloodShield PH | Internationally Certified Flood Barriers & Patents</title>
     <meta name="description" content="Explore FloodShield's world-class certifications including FM Approved Standard 2510, ISO 9001:2015, and our global patents across the USA, EU, Japan, and Asia.">
     
+    <!-- Open Graph / Facebook SEO -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.floodshield.ph/certifications.html">
     <meta property="og:title" content="FloodShield PH | Internationally Certified Flood Barriers & Patents">
     <meta property="og:description" content="Explore FloodShield's world-class certifications including FM Approved Standard 2510, ISO 9001:2015, and our global patents across the USA, EU, Japan, and Asia.">
     <meta property="og:image" content="assets/images/Combined-logo.png">
 
+    <!-- Twitter SEO -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="FloodShield PH | Internationally Certified Flood Barriers & Patents">
     <meta property="twitter:description" content="Explore FloodShield's world-class certifications including FM Approved Standard 2510, ISO 9001:2015, and our global patents across the USA, EU, Japan, and Asia.">
@@ -225,9 +228,9 @@
             max-width: var(--max-width);
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 0.85fr 1.15fr; /* 1. Reduced layout split to narrow text side */
+            grid-template-columns: 0.85fr 1.15fr;
             gap: 60px;
-            align-items: start;
+            align-items: center; /* Vertically center aligned for premium symmetry */
         }
         .spotlight-info h2 {
             font-size: 2.4rem;
@@ -274,28 +277,35 @@
             font-weight: 900;
         }
 
+        /* Certificate side displays as a side-by-side grid to shrink portrait heights to match content */
         .spotlight-certs-side {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
             width: 100%;
+            align-items: start;
         }
         .cert-frame-wrapper {
             background-color: var(--background-offset);
             border: 1px solid var(--border-light);
             border-radius: var(--corner-radius-large);
-            padding: 24px;
+            padding: 20px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            width: 100%;
         }
+
         .cert-title-badge {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             color: var(--secondary-blue);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             margin-bottom: 12px;
             display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .cert-image-holder {
             width: 100%;
@@ -309,25 +319,25 @@
             position: relative;
         }
         
-        /* 3. Kept layout settings for FM Certificate image as is */
-        .cert-image-holder.fm-holder {
-            height: 280px;
+        /* Consistent scaling dimensions mapping the matching 1650 x 1275 proportion layout */
+        .cert-image-holder.fm-holder,
+        .cert-image-holder.iso-holder {
+            aspect-ratio: 1650 / 1275;
         }
-        .cert-image-holder.fm-holder img {
+        .cert-image-holder.fm-holder img,
+        .cert-image-holder.iso-holder img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
         }
 
-        /* 2. ISO Certificate and Patent cards scaled precisely to A4 dynamic grid proportion without white borders */
-        .cert-image-holder.iso-holder,
+        /* Patent cards scaled to standard A4 ratio */
         .gallery-card-preview {
             width: 100%;
             aspect-ratio: 1 / 1.4142; 
             background-color: #ffffff;
             overflow: hidden;
         }
-        .cert-image-holder.iso-holder img,
         .gallery-card-preview img {
             width: 100%;
             height: 100%;
@@ -568,11 +578,6 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-            .spotlight-certs-side {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-            }
             .cert-gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -715,7 +720,7 @@
                             </div>
 
                             <div class="cert-frame-wrapper">
-                                <span class="cert-title-badge">ISO 9001:2015 Quality Management</span>
+                                <span class="cert-title-badge">ISO 9001:2015 Quality</span>
                                 <div class="cert-image-holder iso-holder">
                                     <img src="assets/documents/ISO9001-2015.jpg" alt="ISO 9001:2015 Quality Management International Certification for FloodShield PH">
                                 </div>
@@ -792,6 +797,7 @@
                 </div>
             </section>
 
+            <!-- Final CTA -->
             <section class="final-cta-section-wrapper" id="consultation">
                 <div class="final-cta-box">
                     <h2>Protect Your Property Against Flooding Today</h2>
